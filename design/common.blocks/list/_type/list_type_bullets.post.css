@@ -1,0 +1,13 @@
+block(list) {
+  &.mod(type bullets) {
+    margin-top: 20px;
+
+    elem(item) {
+      list-style-type: none;
+      position: relative;
+      margin-bottom: 10px;
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}

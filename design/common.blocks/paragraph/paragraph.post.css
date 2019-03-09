@@ -1,0 +1,13 @@
+block(paragraph) {
+  margin: 0;
+
+  &.mod(size l) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  &.mod(size m) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}

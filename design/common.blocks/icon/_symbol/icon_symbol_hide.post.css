@@ -1,0 +1,5 @@
+block(icon) {
+  &.mod(symbol hide) {
+    background-image: svg-load("../svg/blind.svg");
+  }
+}

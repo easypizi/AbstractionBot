@@ -1,0 +1,5 @@
+**/*.deps.js
+bundles
+static
+dist
+server/test.js

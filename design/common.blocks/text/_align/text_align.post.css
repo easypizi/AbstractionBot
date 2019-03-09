@@ -1,0 +1,11 @@
+.block(text).mod(align center) {
+  text-align: center
+}
+
+.block(text).mod(align start) {
+  text-align: start
+}
+
+.block(text).mod(align end) {
+  text-align: end
+}

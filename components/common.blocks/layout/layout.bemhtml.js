@@ -1,0 +1,1 @@
+block('layout').js()(true);

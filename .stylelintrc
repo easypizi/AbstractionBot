@@ -1,0 +1,15 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": 2,
+    "declaration-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-declaration", "after-comment"]
+      }
+    ],
+    "number-leading-zero": "never"
+  },
+  "ignoreFiles": ["**/*.js", "**/*.json"]
+}

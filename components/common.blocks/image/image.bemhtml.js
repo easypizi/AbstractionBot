@@ -1,0 +1,1 @@
+block('image').js()(true)

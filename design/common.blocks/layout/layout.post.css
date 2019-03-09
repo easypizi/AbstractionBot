@@ -1,0 +1,13 @@
+block(layout) {
+  display: flex;
+
+  elem(content) {
+    flex: 1;
+  }
+  elem(aside) {
+  }
+
+  &.mod(view column) {
+    flex-direction: column;
+  }
+}

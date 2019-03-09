@@ -1,0 +1,5 @@
+block(icon) {
+  &.mod(symbol arrow) {
+    background-image: svg-load("../svg/arrow.svg", fill=#ff0000);
+  }
+}

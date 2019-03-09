@@ -1,0 +1,28 @@
+block(title) {
+  margin: 0;
+
+  &.mod(size l) {
+    font-size: 80px;
+    line-height: 90px;
+  }
+
+  &.mod(size m) {
+    font-size: 70px;
+    line-height: 80px;
+  }
+
+  &.mod(size s) {
+    font-size: 45px;
+    line-height: 55px;
+
+    @media (max-width: 900px) {
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  &.mod(size xs) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}

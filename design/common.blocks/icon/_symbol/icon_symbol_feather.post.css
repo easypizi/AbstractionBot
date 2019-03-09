@@ -1,0 +1,5 @@
+block(icon) {
+  &.mod(symbol feather) {
+    background-image: svg-load("../svg/feather.svg");
+  }
+}

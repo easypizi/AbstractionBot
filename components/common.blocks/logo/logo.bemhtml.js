@@ -1,0 +1,3 @@
+block("logo").content()(() => {
+  return [];
+});
