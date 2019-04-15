@@ -2284,13 +2284,6 @@ block('page').elem('js')(
 );
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/page/__js/page__js.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
-block('header').js()(true)
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
-block("footer").js()(true);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-index/page-index.bemhtml.js */
 block("page-index").js()(true);
 
@@ -2396,6 +2389,9 @@ block('button').mod('focused', true).js()(function() {
 block('button').elem('text').tag()('span');
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/__text/button__text.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
+block('header').js()(true)
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/icon/icon.bemhtml.js */
 block('icon')(
     tag()('span'),
@@ -2412,1132 +2408,154 @@ block('icon')(
 block("icon").js()(true);
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/icon/icon.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/table/__row/table__row.bemhtml.js */
-block("table")
-  .elem("row")
-  .content()(function() {
-  let data = this.ctx.data;
-
-  function timeConverter(UNIX_timestamp) {
-    var a = new Date(UNIX_timestamp);
-    var months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
-    ];
-    var year = a.getFullYear();
-    var month = months[a.getMonth()];
-    var date = a.getDate();
-    var time = date + " " + month + " " + year;
-    return time;
-  }
-
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
+block("nav-menu").content()(() => {
   return [
     {
-      elem: "body-date",
-      content: timeConverter(data.item.created_at)
-    },
-    {
-      elem: "body-title",
-      content: data.item.title
-    },
-    {
-      elem: "body-actions",
+      elem: "content",
       content: [
         {
-          block: "button",
-          mods: {
-            theme: "islands",
-            size: "m",
-            togglable: "check",
-            checked: !data.isVisible
-          },
-          icon: {
-            block: "icon",
+          block: "link",
+          mix: {
+            block: "font",
             mods: {
-              symbol: !data.isVisible ? "hide" : "eye"
+              family: "bold"
             }
-          }
+          },
+          url: "/a",
+          content: "лайн-ап"
         },
         {
-          block: "button",
-          mods: {
-            theme: "islands",
-            size: "m",
-            type: "link"
-          },
-          url: "/edit/" + data.linkId,
-          icon: {
-            block: "icon",
+          block: "link",
+          mix: {
+            block: "font",
             mods: {
-              symbol: "edit"
+              family: "bold"
             }
-          }
+          },
+          url: "/a",
+          content: "место"
+        },
+        {
+          block: "link",
+          mix: {
+            block: "font",
+            mods: {
+              family: "bold"
+            }
+          },
+          url: "/a",
+          content: "арт"
+        },
+        {
+          block: "link",
+          mix: {
+            block: "font",
+            mods: {
+              family: "bold"
+            }
+          },
+          url: "/a",
+          content: "партнерам"
+        },
+        {
+          block: "link",
+          mix: {
+            block: "font",
+            mods: {
+              family: "bold"
+            }
+          },
+          url: "/a",
+          content: "принять участие"
         }
       ]
     }
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/table/__row/table__row.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/table/__pagination/table__pagination.bemhtml.js */
-block("table")
-  .elem("pagination")
-  .js()(true);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/table/__pagination/table__pagination.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/control-group/control-group.bemhtml.js */
-block('control-group').addAttrs()({ role : 'group' });
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/control-group/control-group.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-edit/page-edit.bemhtml.js */
-block("page-edit").js()(true);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-edit/page-edit.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/form/form.bemhtml.js */
-block('form')(
-
-    tag()('form'),
-
-    addJs()(true),
-
-    addAttrs()(function() {
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/link/link.bemhtml.js */
+block('link')(
+    def()(function() {
         var ctx = this.ctx;
-
-        return {
-            novalidate : true,
-            action : ctx.action,
-            enctype : ctx.enctype,
-            method : ctx.method
-        };
-    })
-
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/form/form.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/form/form.bemhtml.js */
-block("form").content()(function() {
-  let data = this.ctx.article;
-  let isEmpty = data === undefined ? true : false;
-
-  return [
-    {
-      block: "form-field",
-      name: "ffTitle",
-      mods: {
-        type: "input"
-      },
-      content: {
-        elem: "control",
-        content: [
-          {
-            elem: "label",
-            elemMods: {
-              size: "l"
-            },
-            content: "1. Title"
-          },
-          {
-            block: "input",
-            name: "inputTitle",
-            mods: {
-              type: "text",
-              theme: "islands",
-              size: "l",
-              "has-clear": true
-            },
-            val: isEmpty ? "" : data.title
-          }
-        ]
-      }
-    },
-    {
-      block: "form-field",
-      name: "ffType",
-      mods: {
-        type: "input"
-      },
-      content: {
-        elem: "control",
-        content: [
-          {
-            elem: "label",
-            elemMods: {
-              size: "l"
-            },
-            content: "2. Type"
-          },
-          {
-            block: "input",
-            name: "inputType",
-            mods: {
-              type: "text",
-              theme: "islands",
-              size: "l",
-              "has-clear": true
-            },
-            val: isEmpty ? "" : data.type
-          }
-        ]
-      }
-    },
-
-    {
-      block: "form-field",
-      name: "ffAttachMainImg",
-      mods: {
-        type: "attach",
-        view: "main"
-      },
-      content: [
-        {
-          elem: "imgWrapper",
-          content: [
-            {
-              elem: "label",
-              elemMods: {
-                theme: "islands",
-                size: "l"
-              },
-              content: "Main Image Preview"
-            },
-            {
-              block: "image",
-              mix: {
-                block: "form",
-                elem: "main-image-preview"
-              },
-              url:
-                data && data.mainImg
-                  ? data.mainImg
-                  : "/assets/images/default.jpg",
-              width: 300,
-              height: 220
-            }
-          ]
-        },
-        {
-          elem: "control",
-          content: [
-            {
-              elem: "label",
-              elemMods: {
-                theme: "islands",
-                size: "l"
-              },
-              content: "3. Main image"
-            },
-            {
-              block: "attach",
-              mods: {
-                theme: "islands",
-                size: "xl"
-              },
-              button: "Add image",
-              noFileText: "Size: 300 x 220 px"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      block: "form-field",
-      name: "ffAttachShareImg",
-      mods: {
-        type: "attach",
-        view: "share"
-      },
-      content: [
-        {
-          elem: "imgWrapper",
-          content: [
-            {
-              elem: "label",
-              elemMods: {
-                theme: "islands",
-                size: "l"
-              },
-              content: "Share image Preview"
-            },
-            {
-              block: "image",
-              mix: {
-                block: "form",
-                elem: "share-image-preview"
-              },
-              url:
-                data && data.shareImg
-                  ? data.shareImg
-                  : "/assets/images/default.jpg",
-              width: 300,
-              height: 220
-            }
-          ]
-        },
-        {
-          elem: "control",
-          content: [
-            {
-              elem: "label",
-              elemMods: {
-                theme: "islands",
-                size: "l"
-              },
-              content: "4. Share image"
-            },
-            {
-              block: "attach",
-              mods: {
-                theme: "islands",
-                size: "xl",
-                share: true
-              },
-              button: "Add image",
-              noFileText: "Size: 300 x 220 px"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      block: "form-field",
-      name: "ffAddons",
-      mods: {
-        type: "input"
-      },
-      content: {
-        elem: "control",
-        content: [
-          {
-            elem: "label",
-            elemMods: {
-              theme: "islands",
-              size: "l"
-            },
-            content: "5. Additional's"
-          },
-          {
-            block: "input",
-            name: "inputAddons",
-            mods: {
-              type: "text",
-              theme: "islands",
-              size: "l",
-              "has-clear": true
-            },
-            val: isEmpty ? "" : data.time
-          }
-        ]
-      }
-    },
-    {
-      block: "form-field",
-      name: "ffAuthor",
-      mods: {
-        type: "input"
-      },
-      content: {
-        elem: "control",
-        content: [
-          {
-            elem: "label",
-            elemMods: {
-              theme: "islands",
-              size: "l"
-            },
-            content: "6. Author"
-          },
-          {
-            block: "input",
-            name: "inputAuthor",
-            mods: {
-              type: "text",
-              theme: "islands",
-              size: "l",
-              "has-clear": true
-            },
-            val: isEmpty ? "" : data.author
-          }
-        ]
-      }
-    },
-    {
-      block: "form-field",
-      name: "ffAuthorLink",
-      mods: {
-        type: "input"
-      },
-      content: {
-        elem: "control",
-        content: [
-          {
-            elem: "label",
-            elemMods: {
-              theme: "islands",
-              size: "l"
-            },
-            content: "7. Author's Link"
-          },
-          {
-            block: "input",
-            name: "inputAuthorLink",
-            mods: {
-              type: "text",
-              theme: "islands",
-              size: "l",
-              "has-clear": true
-            },
-            val: isEmpty ? "" : data.authorLink
-          }
-        ]
-      }
-    },
-    {
-      block: "form-field",
-      name: "ffSeoTitle",
-      mods: {
-        type: "input"
-      },
-      content: {
-        elem: "control",
-        content: [
-          {
-            elem: "label",
-            elemMods: {
-              theme: "islands",
-              size: "l"
-            },
-            content: "8. SEO title"
-          },
-          {
-            block: "input",
-            name: "inputSeoTitle",
-            mods: {
-              type: "text",
-              theme: "islands",
-              size: "l",
-              "has-clear": true
-            },
-            val: isEmpty ? "" : data.seoTitle
-          }
-        ]
-      }
-    },
-    {
-      block: "form-field",
-      name: "ffSeoText",
-      mods: {
-        type: "input"
-      },
-      content: {
-        elem: "control",
-        content: [
-          {
-            elem: "label",
-            elemMods: {
-              theme: "islands",
-              size: "l"
-            },
-            content: "9. SEO Description"
-          },
-          {
-            block: "input",
-            name: "inputSeoText",
-            mods: {
-              type: "text",
-              theme: "islands",
-              size: "l",
-              "has-clear": true
-            },
-            val: isEmpty ? "" : data.seoText
-          }
-        ]
-      }
-    },
-    {
-      block: "form-field",
-      name: "ffAttachUpload",
-      mods: {
-        type: "attach",
-        view: "upload"
-      },
-      content: [
-        {
-          elem: "imgWrapper",
-          content: [
-            {
-              elem: "label",
-              elemMods: {
-                theme: "islands",
-                size: "l"
-              },
-              content: "Upload image Preview"
-            },
-            {
-              block: "image",
-              mix: {
-                block: "form",
-                elem: "upload-image-preview"
-              },
-              url:
-                data && data.shareImg
-                  ? data.shareImg
-                  : "/assets/images/default.jpg",
-              width: 640,
-              height: 480
-            }
-          ]
-        },
-        {
-          elem: "control",
-          content: [
-            {
-              elem: "label",
-              elemMods: {
-                theme: "islands",
-                size: "l"
-              },
-              content: "10. Upload image"
-            },
-            {
-              block: "attach",
-              mods: {
-                theme: "islands",
-                size: "xl",
-                upload: true
-              },
-              button: "Upload image",
-              noFileText: "Upload image to use it in editor"
-            }
-          ]
-        },
-        {
-          elem: "linkArea",
-          content: ""
-        }
-      ]
-    },
-    {
-      block: "form-field",
-      name: "ffEditor",
-      mods: {
-        type: "textarea"
-      },
-      content: {
-        elem: "control",
-        content: [
-          {
-            elem: "message",
-            content: [
-              {
-                html: "Hint : <br> use tag"
-              },
-              " <br> ",
-              {
-                html: "for breaking stroke"
-              }
-            ]
-          },
-          {
-            elem: "label",
-            elemMods: {
-              theme: "islands",
-              size: "l"
-            },
-            content: "11. Article Body"
-          },
-          {
-            block: "editor",
-            mods: {
-              theme: "islands",
-              size: "l",
-              mode: "source",
-              renderer: "marked",
-              width: "available",
-              "has-actions": true,
-              "has-preview": true
-            },
-            value: isEmpty ? "" : data.text
-          }
-        ]
-      }
-    },
-    {
-      block: "button",
-      mods: {
-        type: "submit",
-        size: "xl",
-        theme: "islands",
-        view: "action"
-      },
-      text: "save"
-    }
-  ];
-});
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/form/form.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/form-field/form-field.bemhtml.js */
-block('form-field')(
-
-    addJs()(true),
-
-    def()(function() {
-        var _form_field = this.ctx;
-        _form_field.id = _form_field.id || this.generateId();
-        this.ctx.js = this.extend(this.ctx.js || {}, { id : _form_field.id });
-
-        _form_field.mods = _form_field.mods || {};
-
-        return applyNext({ _form_field : _form_field });
-    }),
-
-    addAttrs()(function () {
-        return {
-            'data-name' : this.ctx.name
-        };
-    })
-
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/form-field/form-field.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/form-field/form-field.bemhtml.js */
-block('form-field').js()(true)
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/form-field/form-field.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/label/label.bemhtml.js */
-block('label')(
-
-    tag()('label'),
-
-    addAttrs()(function() {
-        return { for : this.ctx.for };
-    }),
-
-    match(function() { return this._form_field; }).def()(function() {
-        this.mods.disabled = this._form_field.mods.disabled;
-
+        typeof ctx.url === 'object' && // url could contain bemjson
+            (ctx.url = this.reapply(ctx.url));
         return applyNext();
     }),
 
-    match(function() { return this._form_field; }).addAttrs()(function() {
-        return { for : this._form_field.id };
-    })
+    tag()('a'),
 
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/label/label.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/input.bemhtml.js */
-block('input')(
-    tag()('span'),
     addJs()(true),
-    def()(function() {
-        return applyNext({ _input : this.ctx });
-    }),
-    content()({ elem : 'box', content : { elem : 'control' } })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/input.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/input/input.bemhtml.js */
-block('input')(
-
-    match(function() { return this._form_field; }).mix()(function() {
-        this.mods.disabled = this._form_field.mods.disabled;
-
-        return applyNext();
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/input/input.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/__box/input__box.bemhtml.js */
-block('input').elem('box').tag()('span');
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/__box/input__box.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/__control/input__control.bemhtml.js */
-block('input').elem('control')(
-    tag()('input'),
-
-    addAttrs()(function() {
-        var input = this._input,
-            attrs = {
-                id : input.id,
-                name : input.name,
-                value : input.val,
-                maxlength : input.maxLength,
-                tabindex : input.tabIndex,
-                placeholder : input.placeholder
-            };
-
-        input.autocomplete === false && (attrs.autocomplete = 'off');
-        this.mods.disabled && (attrs.disabled = 'disabled');
-
-        return attrs;
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/__control/input__control.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/input/__control/input__control.bemhtml.js */
-block('input').elem('control')(
-
-    match(function() { return this._form_field; }).def()(function() {
-        this._input.id = this._input.id || this._form_field.id;
-        this._input.name = this._input.name || this._form_field.name;
-
-        return applyNext();
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/input/__control/input__control.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/textarea/textarea.bemhtml.js */
-block('textarea')(
-    addJs()(true),
-    tag()('textarea'),
 
     // NOTE: mix below is to satisfy interface of `control`
-    addMix()({ elem : 'control' }),
+    addMix()([{ elem : 'control' }]),
 
     addAttrs()(function() {
         var ctx = this.ctx,
-            attrs = {
-                id : ctx.id,
-                name : ctx.name,
-                tabindex : ctx.tabIndex,
-                placeholder : ctx.placeholder
-            };
+            attrs = { role : 'link' },
+            tabIndex;
 
-        ctx.autocomplete === false && (attrs.autocomplete = 'off');
-        this.mods.disabled && (attrs.disabled = 'disabled');
-
-        return attrs;
-    }),
-    content()(function() {
-        return this.ctx.val;
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/textarea/textarea.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/textarea/textarea.bemhtml.js */
-block('textarea')(
-
-    match(function() { return this._form_field; }).def()(function() {
-        var ctx = this.ctx;
-
-        ctx.id || (ctx.id = this._form_field.id);
-        ctx.name || (ctx.name = this._form_field.name);
-        this.mods.disabled = this._form_field.mods.disabled;
-
-        return applyNext();
-    })
-
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/textarea/textarea.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/attach/__button/attach__button.bemhtml.js */
-block('button').match(function() { return this._attach; })(
-    tag()('span'),
-    content()(function() {
-        return [
-            { block : 'attach', elem : 'control' },
-            applyNext()
-        ];
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/attach/__button/attach__button.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/attach/__control/attach__control.bemhtml.js */
-block('attach').elem('control')(
-
-    tag()('input'),
-
-    addAttrs()(function() {
-        var attrs = { type : 'file' },
-            attach = this._attach;
-
-        // в js генерим html для attach__control без самого attach
-        if(attach) {
-            attrs.name = attach.name;
-            attach.mods && attach.mods.disabled && (attrs.disabled = 'disabled');
-            attach.tabIndex && (attrs.tabindex = attach.tabIndex);
+        if(!this.mods.disabled) {
+            if(ctx.url) {
+                attrs.href = ctx.url;
+                tabIndex = ctx.tabIndex;
+            } else {
+                tabIndex = ctx.tabIndex || 0;
+            }
+        } else {
+            attrs['aria-disabled'] = 'true';
         }
 
+        typeof tabIndex === 'undefined' || (attrs.tabindex = tabIndex);
+
+        ctx.title && (attrs.title = ctx.title);
+        ctx.target && (attrs.target = ctx.target);
+
         return attrs;
-    })
-
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/attach/__control/attach__control.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/attach/__no-file/attach__no-file.bemhtml.js */
-block('attach').elem('no-file').tag()('span');
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/attach/__no-file/attach__no-file.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/image/image.bemhtml.js */
-block('image')(
-    addAttrs()({ role : 'img' }),
-
-    tag()('span'),
-
-    match(function() { return typeof this.ctx.content === 'undefined'; })(
-        tag()('img'),
-        addAttrs()(function() {
-            var ctx = this.ctx;
-            return this.extend(applyNext(),
-                {
-                    role : undefined,
-                    src : ctx.url,
-                    width : ctx.width,
-                    height : ctx.height,
-                    alt : ctx.alt,
-                    title : ctx.title
-                });
-        })
-    )
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/image/image.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/image/image.bemhtml.js */
-block('image').js()(true)
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/image/image.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/_type/input_type_search.bemhtml.js */
-block('input').mod('type', 'search').elem('control').attrs()(function() {
-    return this.extend(applyNext(), { type : 'search' });
-});
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/_type/input_type_search.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/_has-clear/input_has-clear.bemhtml.js */
-block('input').mod('has-clear', true).elem('box')
-    .content()(function() {
-        return [this.ctx.content, { elem : 'clear' }];
-    });
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/_has-clear/input_has-clear.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/__clear/input__clear.bemhtml.js */
-block('input').elem('clear').tag()('span');
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/__clear/input__clear.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-textarea-editor/common.blocks/editor/editor.bemhtml.js */
-block('editor')(
-    js()(true),
-    content()(function() {
-        var ctx = this.ctx,
-            mods = this.mods,
-            hasPreview = mods['has-preview'],
-            hasActions = mods['has-actions'];
-
-        return [
-            (hasPreview || hasActions) && {
-                elem: 'toolbar',
-                hasPreview: hasPreview,
-                hasActions: hasActions
-            },
-            {
-                elem: 'inner',
-                content: [
-                    {
-                        elem: 'textarea',
-                        elemMods: {
-                            theme: mods.theme,
-                            size: mods.size,
-                            width: mods.width,
-                            disabled: mods.disabled
-                        },
-                        name: ctx.name,
-                        val: ctx.val,
-                        placeholder: ctx.placeholder,
-                        id: ctx.id,
-                        tabIndex: ctx.tabIndex
-                    },
-                    hasPreview && {
-                        elem: 'preview',
-                        elemMods: {
-                            width: mods.width
-                        }
-                    }
-                ]
-            }
-        ];
     }),
-    elem('textarea').replace()(function() {
-        var ctx = this.ctx;
 
-        return {
-            block: 'textarea',
-            mods: this.elemMods,
-            mix: {
-                block: this.block,
-                elem: this.elem
-            },
-            name: ctx.name,
-            val: ctx.val,
-            placeholder: ctx.placeholder,
-            id: ctx.id,
-            tabIndex: ctx.tabIndex
-        };
-    })
+    mod('disabled', true)
+        .js()(function() {
+            return this.extend(applyNext(), { url : this.ctx.url });
+        })
 );
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-textarea-editor/common.blocks/editor/editor.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-textarea-editor/common.blocks/editor/__toolbar/editor__toolbar.bemhtml.js */
-block('editor').elem('toolbar').content()(function() {
-    var ctx = this.ctx;
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/link/link.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
+block('burger').js()(true)
 
-    return [
-        ctx.hasPreview === false || { elem: 'mode' },
-        ctx.hasActions === false || { elem: 'actions' }
-    ];
+block('burger').content()(function() {
+    return[
+    {
+      elem: 'content',
+      content: [
+      {
+        elem: 'line',
+        tag: 'span'
+      },
+      {
+        elem: 'line',
+        tag: 'span'
+      },
+      {
+        elem: 'line',
+        tag: 'span'
+      }
+      ]
+    }
+    ]
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-textarea-editor/common.blocks/editor/__toolbar/editor__toolbar.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-textarea-editor/common.blocks/editor/__mode/editor__mode.bemhtml.js */
-block('editor').elem('mode').replace()(function() {
-    return {
-        block: 'radio-group',
-        mods: { theme: 'islands', size: 'm', type: 'button' },
-        mix: { block: 'editor', elem: 'mode', js: true },
-        name: 'mode',
-        val: 'source', // TODO: set initial val via BEMJSON
-        options: [
-            {
-                val: 'source',
-                title: 'source',
-                icon: {
-                    block: 'icon',
-                    mods: { bg: 'markdown' }
-                }
-            },
-            {
-                val: 'preview',
-                title: 'preview',
-                icon: {
-                    block: 'icon',
-                    mods: { bg: 'eye' }
-                }
-            },
-            {
-                val: 'split',
-                title: 'split',
-                icon: {
-                    block: 'icon',
-                    mods: { bg: 'columns' }
-                }
-            }
-        ]
-    };
-});
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
+block("footer").js()(true);
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-textarea-editor/common.blocks/editor/__mode/editor__mode.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio-group/radio-group.bemhtml.js */
-block('radio-group')(
-    tag()('span'),
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
+block("paragraph")(tag()("p"));
 
-    addAttrs()({ role : 'radiogroup' }),
-
-    addJs()(true),
-
-    addMix()([{ block : 'control-group' }]),
-
-    content()(function() {
-        var mods = this.mods,
-            ctx = this.ctx,
-            isValDef = typeof ctx.val !== 'undefined';
-
-        return (ctx.options || []).map(function(option, i) {
-            return [
-                !!i && !mods.type && { tag : 'br' },
-                {
-                    block : 'radio',
-                    mods : {
-                        type : mods.type,
-                        mode : mods.mode,
-                        theme : mods.theme,
-                        size : mods.size,
-                        checked : isValDef && ctx.val === option.val,
-                        disabled : option.disabled || mods.disabled
-                    },
-                    name : ctx.name,
-                    val : option.val,
-                    text : option.text,
-                    title : option.title,
-                    icon : option.icon
-                }
-            ];
-        });
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio-group/radio-group.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio-group/radio-group.bemhtml.js */
-block('radio-group')(
-
-    match(function() { return this._form_field; }).def()(function() {
-        var ctx = this.ctx;
-
-        ctx.name || (ctx.name = this._form_field.name);
-        this.mods.disabled = this._form_field.mods.disabled;
-
-        return applyNext();
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio-group/radio-group.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/radio.bemhtml.js */
-block('radio')(
-    tag()('label'),
-    addJs()(true),
-    content()(function() {
-        var ctx = this.ctx;
-        return [
-            {
-                elem : 'box',
-                content : {
-                    elem : 'control',
-                    checked : this.mods.checked,
-                    disabled : this.mods.disabled,
-                    name : ctx.name,
-                    val : ctx.val
-                }
-            },
-            ctx.text && {
-                elem : 'text',
-                content : ctx.text
-            }
-        ];
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/radio.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio/radio.bemhtml.js */
-block('radio')(
-
-    match(function() { return this._form_field; }).def()(function() {
-        var ctx = this.ctx;
-
-        ctx.name || (ctx.name = this._form_field.name);
-        this.mods.disabled = this._form_field.mods.disabled;
-
-        return applyNext();
-    })
-
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio/radio.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__box/radio__box.bemhtml.js */
-block('radio').elem('box').tag()('span');
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__box/radio__box.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__control/radio__control.bemhtml.js */
-block('radio').elem('control')(
-    tag()('input'),
-
-    addAttrs()(function() {
-        // NOTE: don't remove autocomplete attribute, otherwise js and DOM may be desynced
-        var ctx = this.ctx,
-            attrs = {
-                type : 'radio',
-                autocomplete : 'off',
-                name : ctx.name,
-                value : ctx.val
-            };
-
-        ctx.checked && (attrs.checked = 'checked');
-        ctx.disabled && (attrs.disabled = 'disabled');
-
-        return attrs;
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__control/radio__control.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__text/radio__text.bemhtml.js */
-block('radio').elem('text')(
-    tag()('span'),
-    addAttrs()(function() {
-        return { role : 'presentation' };
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__text/radio__text.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_radio.bemhtml.js */
-block('button').mod('togglable', 'radio').addAttrs()(function() {
-    return { 'aria-pressed' : String(!!this.mods.checked) };
-});
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_radio.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-textarea-editor/common.blocks/editor/__actions/editor__actions.bemhtml.js */
-block('editor').elem('actions')(
-    js()(true),
-    tag()('span'),
-    mix()({ block: 'control-group' }),
-    content()(function() {
-        return [
-            {
-                val: 'bold',
-                icon: 'bold'
-            },
-            {
-                val: 'italic',
-                icon: 'italic'
-            },
-            {
-                val: 'link',
-                icon: 'link'
-            },
-            {
-                val: 'image',
-                icon: 'picture-o'
-            },
-            {
-                val: 'code',
-                icon: 'code'
-            },
-            {
-                val: 'header1',
-                text: 'h1'
-            },
-            {
-                val: 'header2',
-                text: 'h2'
-            },
-            {
-                val: 'header3',
-                text: 'h3'
-            },
-            {
-                val: 'orderedList',
-                icon: 'list-ol'
-            },
-            {
-                val: 'unorderedList',
-                icon: 'list'
-            },
-            {
-                val: 'blockquote',
-                icon: 'quote-right'
-            }
-        ].map(function(action) {
-            action.block = 'button';
-            action.mods = { theme: 'islands', size: 'm' };
-            action.title || (action.title = action.val);
-
-            if (action.icon) {
-                action.icon = {
-                    block: 'icon',
-                    mods: { bg: action.icon }
-                }
-            }
-
-            return action;
-        });
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-textarea-editor/common.blocks/editor/__actions/editor__actions.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/ua/__svg/ua__svg.bemhtml.js */
 block('ua').content()(function() {
     return [
@@ -3587,85 +2605,6 @@ block('button').mod('type', 'link')(
 );
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_type/button_type_link.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/attach/attach.bemhtml.js */
-block('attach')(
-    def()(function() { return applyNext({ _attach : this.ctx }); }),
-
-    tag()('span'),
-
-    addJs()(true),
-
-    content()(
-        function() {
-            var ctx = this.ctx,
-                button = ctx.button;
-
-            this.isSimple(button) && (button = {
-                block : 'button',
-                tag : 'span',
-                text : button
-            });
-
-            var attachMods = this.mods,
-                buttonMods = button.mods || (button.mods = {});
-            ['size', 'theme', 'disabled', 'focused'].forEach(function(mod) {
-                buttonMods[mod] || (buttonMods[mod] = attachMods[mod]);
-            });
-
-            return [
-                button,
-                {
-                    elem : 'no-file',
-                    content : this.ctx.noFileText
-                }
-            ];
-        }
-    )
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/attach/attach.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/_type/input_type_password.bemhtml.js */
-block('input').mod('type', 'password').elem('control').attrs()(function() {
-    return this.extend(applyNext(), { type : 'password' });
-});
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/input/_type/input_type_password.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/_type/radio_type_button.bemhtml.js */
-block('radio').mod('type', 'button')(
-    content()(function() {
-        var ctx = this.ctx,
-            mods = this.mods;
-
-        return [{
-            block : 'button',
-            mods : {
-                togglable : mods.mode === 'radio-check'?
-                    'check' :
-                    'radio',
-                checked : mods.checked,
-                disabled : mods.disabled,
-                theme : mods.theme,
-                size : mods.size
-            },
-            title : ctx.title,
-            content : [
-                ctx.icon,
-                typeof ctx.text !== 'undefined'?
-                    { elem : 'text', content : ctx.text } :
-                    ''
-            ]
-        }, {
-            block : 'radio',
-            elem : 'control',
-            checked : mods.checked,
-            disabled : mods.disabled,
-            name : ctx.name,
-            val : ctx.val
-        }];
-    })
-);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/_type/radio_type_button.bemhtml.js */
 oninit(function(exports, context) {
     var BEMContext = exports.BEMContext || context.BEMContext;
     // Provides third-party libraries from different modular systems

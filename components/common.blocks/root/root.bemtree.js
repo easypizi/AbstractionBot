@@ -8,7 +8,7 @@ block("root").replace()(function() {
 
   return {
     block: "page",
-    title: data.title || "AdminPanel for COIN360 Analytics",
+    title: data.title || "Abstraction Fest 2019",
     favicon: "/favicon.ico",
     lang: lang,
     styles: [
@@ -25,7 +25,15 @@ block("root").replace()(function() {
       },
       {
         elem: "js",
-        url: "https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+        url: "//code.jquery.com/jquery-1.11.0.min.js"
+      },
+      {
+        elem: "js",
+        url: "//code.jquery.com/jquery-migrate-1.2.1.min.js"
+      },
+      {
+        elem: "js",
+        url: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       }
     ],
     head: [
@@ -47,10 +55,14 @@ block("root").replace()(function() {
       {
         html:
           '<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />'
+      },
+      {
+        html:
+          '<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>'
       }
     ],
     mods: {
-      theme: "islands",
+      theme: "plus",
       view: data.view
     }
   };

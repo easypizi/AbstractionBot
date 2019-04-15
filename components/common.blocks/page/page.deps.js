@@ -4,24 +4,33 @@
   ],
   shouldDeps: [
     {
+      block: 'page-index'
+    },
+    {
       block: 'page',
       mods: {
-        theme: 'islands'
+        theme: 'plus'
       }
     },
     'header',
     'body',
     'footer',
     {
-      block: 'page-index'
-    },
-    {
-      block: 'page-edit'
-    },
-    {
       block: 'font',
       mods: {
         family: '*'
+      }
+    },
+    {
+      block: 'title',
+      mods: {
+        size: ['l', 'm']
+      }
+    },
+    {
+      block: 'paragraph',
+      mods: {
+        size: ['l','m','s']
       }
     }
   ]

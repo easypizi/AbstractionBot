@@ -4,17 +4,19 @@
       "name": "ABSTRABOT",
       "script": "./server/index.js",
       "watch": true,
-      "instances": 4,
+      "instances": 1,
       "exec_mode": "cluster",
       "merge_logs": true,
       "max_memory_restart": "256M",
       "cron_restart": "0 */6 * * *",
       "max_restarts": "50",
       "env": {
-        "NODE_ENV": "development"
+        "NODE_ENV": "development",
+        "TELEGRAM_BOT_TOKEN": "AAFWZwxClvtKbx5zUZiYGkXq4vv1alhr9Cg"
       },
       "env_production": {
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "TELEGRAM_BOT_TOKEN": "AAFWZwxClvtKbx5zUZiYGkXq4vv1alhr9Cg"
       }
     }
   ]

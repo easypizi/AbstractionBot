@@ -1,0 +1,22 @@
+block(dropdown) {
+	outline: none;
+	position: relative;
+
+	elem(switcher) {
+		&::after {
+			content: '';
+			display: block;
+			width: 6px;
+			height: 5px;
+			-webkit-background-size: contain;
+			background-size: contain;
+			background-position: center center;
+			position: absolute;
+			right: -10px;
+			top: 0;
+			margin-top: 5px;
+			background-repeat: no-repeat;
+			background-image: url(/assets/img/icon-bird.svg);
+		}
+	}
+}

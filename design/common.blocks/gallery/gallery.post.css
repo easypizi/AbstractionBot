@@ -1,0 +1,39 @@
+block(gallery) {
+	position: relative;
+	visibility: hidden;
+
+	&.mod(show) {
+		visibility: visible;
+	}
+
+	elem(galleryBlock) {
+		@media(max-width: 600px) {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	elem(controls) {
+		position: absolute;
+		display: flex;
+		justify-content: space-between;
+		top: 40%;
+		height: 30px;
+		width: calc(100% + 90px);
+		left: -45px;
+		outline: none!important;
+
+		@media(max-width: 600px) {
+			width: 30%;
+			left: 120px;
+			top: unset;
+			bottom: -15%;
+		}
+	}
+}
+
+.tns-outer {
+	padding: 0 1.5px!important;
+	box-sizing: border-box;
+}

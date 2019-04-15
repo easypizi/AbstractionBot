@@ -1,2 +1,15 @@
 block(nav-menu) {
+  width: 100%;
+
+  elem(content) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  block(link) {
+    font-size: 24px;
+  }
 }

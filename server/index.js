@@ -13,7 +13,6 @@ var fs = require("fs"),
   passport = require("passport"),
   compression = require("compression"),
   config = require("./config"),
-  fileUpload = require("express-fileupload"),
   staticFolder = config.staticFolder,
   Render = require("./render"),
   dropCache = Render.dropCache, // eslint-disable-line no-unused-vars
@@ -34,13 +33,7 @@ app
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: true }))
   .use(passport.initialize())
-  .use(passport.session())
-  .use(
-    fileUpload({
-      useTempFiles: true,
-      tempFileDir: __dirname + "/../static/assets/images"
-    })
-  );
+  .use(passport.session());
 
 isDev || app.use(slashes());
 

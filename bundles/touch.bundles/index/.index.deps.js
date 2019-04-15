@@ -94,15 +94,6 @@ exports.deps = [
         "elem": "js"
     },
     {
-        "block": "header"
-    },
-    {
-        "block": "body"
-    },
-    {
-        "block": "footer"
-    },
-    {
         "block": "page-index"
     },
     {
@@ -183,6 +174,13 @@ exports.deps = [
         "block": "table"
     },
     {
+        "block": "page",
+        "mod": "theme"
+    },
+    {
+        "block": "header"
+    },
+    {
         "block": "icon"
     },
     {
@@ -190,338 +188,23 @@ exports.deps = [
         "mod": "symbol"
     },
     {
-        "block": "icon",
-        "mod": "symbol",
-        "val": "edit"
+        "block": "nav-menu"
     },
     {
-        "block": "icon",
-        "mod": "symbol",
-        "val": "eye"
+        "block": "link"
     },
     {
-        "block": "icon",
-        "mod": "symbol",
-        "val": "feather"
-    },
-    {
-        "block": "icon",
-        "mod": "symbol",
-        "val": "hide"
-    },
-    {
-        "block": "table",
-        "elem": "row"
-    },
-    {
-        "block": "table",
-        "elem": "pagination"
-    },
-    {
-        "block": "control-group"
-    },
-    {
-        "block": "page-edit"
-    },
-    {
-        "block": "form"
-    },
-    {
-        "block": "form-field"
-    },
-    {
-        "block": "validation"
-    },
-    {
-        "block": "vow"
-    },
-    {
-        "block": "label"
-    },
-    {
-        "block": "form-field",
-        "mod": "type"
-    },
-    {
-        "block": "input"
-    },
-    {
-        "block": "input",
+        "block": "link",
         "mod": "disabled"
     },
     {
-        "block": "input",
-        "mod": "focused"
+        "block": "burger"
     },
     {
-        "block": "input",
-        "elem": "box"
+        "block": "body"
     },
     {
-        "block": "input",
-        "elem": "control"
-    },
-    {
-        "block": "input",
-        "mod": "invalid"
-    },
-    {
-        "block": "input",
-        "mod": "dirty"
-    },
-    {
-        "block": "form-field",
-        "mod": "type",
-        "val": "textarea"
-    },
-    {
-        "block": "textarea"
-    },
-    {
-        "block": "textarea",
-        "mod": "disabled"
-    },
-    {
-        "block": "textarea",
-        "mod": "focused"
-    },
-    {
-        "block": "textarea",
-        "mod": "invalid"
-    },
-    {
-        "block": "textarea",
-        "mod": "dirty"
-    },
-    {
-        "block": "form-field",
-        "mod": "type",
-        "val": "attach"
-    },
-    {
-        "block": "i-bem",
-        "elem": "dom"
-    },
-    {
-        "block": "i-bem",
-        "elem": "i18n"
-    },
-    {
-        "block": "attach",
-        "elem": "button"
-    },
-    {
-        "block": "attach",
-        "elem": "control"
-    },
-    {
-        "block": "attach",
-        "elem": "no-file"
-    },
-    {
-        "block": "strings",
-        "elem": "escape"
-    },
-    {
-        "block": "form-field",
-        "mod": "view"
-    },
-    {
-        "block": "image"
-    },
-    {
-        "block": "button",
-        "mod": "type",
-        "val": "submit"
-    },
-    {
-        "block": "button",
-        "mod": "view"
-    },
-    {
-        "block": "input",
-        "mod": "type"
-    },
-    {
-        "block": "input",
-        "mod": "type",
-        "val": "search"
-    },
-    {
-        "block": "input",
-        "mod": "theme"
-    },
-    {
-        "block": "input",
-        "mod": "size"
-    },
-    {
-        "block": "input",
-        "mod": "has-clear"
-    },
-    {
-        "block": "input",
-        "elem": "clear"
-    },
-    {
-        "block": "editor"
-    },
-    {
-        "block": "editor",
-        "mod": "theme"
-    },
-    {
-        "block": "textarea",
-        "mod": "theme"
-    },
-    {
-        "block": "editor",
-        "mod": "size"
-    },
-    {
-        "block": "editor",
-        "mod": "width"
-    },
-    {
-        "block": "editor",
-        "mod": "mode"
-    },
-    {
-        "block": "editor",
-        "mod": "renderer"
-    },
-    {
-        "block": "editor",
-        "mod": "has-preview"
-    },
-    {
-        "block": "editor",
-        "elem": "toolbar"
-    },
-    {
-        "block": "editor",
-        "elem": "mode"
-    },
-    {
-        "block": "icon",
-        "mod": "bg"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "eye"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "columns"
-    },
-    {
-        "block": "radio-group"
-    },
-    {
-        "block": "radio"
-    },
-    {
-        "block": "radio",
-        "mod": "disabled"
-    },
-    {
-        "block": "radio",
-        "mod": "checked"
-    },
-    {
-        "block": "radio",
-        "mod": "focused"
-    },
-    {
-        "block": "radio",
-        "elem": "box"
-    },
-    {
-        "block": "radio",
-        "elem": "control"
-    },
-    {
-        "block": "radio",
-        "elem": "text"
-    },
-    {
-        "block": "radio-group",
-        "mod": "theme"
-    },
-    {
-        "block": "radio",
-        "mod": "theme"
-    },
-    {
-        "block": "button",
-        "mod": "togglable",
-        "val": "radio"
-    },
-    {
-        "block": "radio-group",
-        "mod": "size"
-    },
-    {
-        "block": "radio-group",
-        "mod": "type"
-    },
-    {
-        "block": "radio",
-        "mod": "type"
-    },
-    {
-        "block": "editor",
-        "mod": "has-actions"
-    },
-    {
-        "block": "editor",
-        "elem": "internal"
-    },
-    {
-        "block": "editor",
-        "elem": "actions"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "bold"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "italic"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "link"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "picture-o"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "list"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "list-ol"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "code"
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "quote-right"
+        "block": "footer"
     },
     {
         "block": "font"
@@ -533,15 +216,37 @@ exports.deps = [
     {
         "block": "font",
         "mod": "family",
-        "val": "light"
+        "val": "medium"
+    },
+    {
+        "block": "title",
+        "mod": "size"
+    },
+    {
+        "block": "title",
+        "mod": "size",
+        "val": "m"
+    },
+    {
+        "block": "paragraph"
+    },
+    {
+        "block": "paragraph",
+        "mod": "size"
+    },
+    {
+        "block": "paragraph",
+        "mod": "size",
+        "val": "m"
+    },
+    {
+        "block": "paragraph",
+        "mod": "size",
+        "val": "s"
     },
     {
         "block": "ua",
         "elem": "dom"
-    },
-    {
-        "block": "page",
-        "mod": "theme"
     },
     {
         "block": "ua",
@@ -630,188 +335,14 @@ exports.deps = [
         "val": "link"
     },
     {
+        "block": "page",
+        "mod": "theme",
+        "val": "plus"
+    },
+    {
         "block": "icon",
         "mod": "symbol",
         "val": "arrow"
-    },
-    {
-        "block": "form-field",
-        "mod": "type",
-        "val": "input"
-    },
-    {
-        "block": "input",
-        "mod": "invalid",
-        "val": true
-    },
-    {
-        "block": "input",
-        "mod": "disabled",
-        "val": true
-    },
-    {
-        "block": "input",
-        "mod": "focused",
-        "val": true
-    },
-    {
-        "block": "input",
-        "mod": "dirty",
-        "val": true
-    },
-    {
-        "block": "textarea",
-        "mod": "invalid",
-        "val": true
-    },
-    {
-        "block": "textarea",
-        "mod": "disabled",
-        "val": true
-    },
-    {
-        "block": "textarea",
-        "mod": "focused",
-        "val": true
-    },
-    {
-        "block": "textarea",
-        "mod": "dirty",
-        "val": true
-    },
-    {
-        "block": "attach"
-    },
-    {
-        "block": "attach",
-        "mod": "invalid"
-    },
-    {
-        "block": "attach",
-        "mod": "dirty"
-    },
-    {
-        "block": "form-field",
-        "mod": "view",
-        "val": "share"
-    },
-    {
-        "block": "button",
-        "mod": "view",
-        "val": "action"
-    },
-    {
-        "block": "input",
-        "mod": "type",
-        "val": "password"
-    },
-    {
-        "block": "input",
-        "mod": "theme",
-        "val": "islands"
-    },
-    {
-        "block": "input",
-        "mod": "size",
-        "val": "l"
-    },
-    {
-        "block": "input",
-        "mod": "has-clear",
-        "val": true
-    },
-    {
-        "block": "attach",
-        "mod": "theme"
-    },
-    {
-        "block": "attach",
-        "mod": "size"
-    },
-    {
-        "block": "editor",
-        "mod": "theme",
-        "val": "islands"
-    },
-    {
-        "block": "textarea",
-        "mod": "theme",
-        "val": "islands"
-    },
-    {
-        "block": "editor",
-        "mod": "size",
-        "val": "l"
-    },
-    {
-        "block": "editor",
-        "mod": "width",
-        "val": "available"
-    },
-    {
-        "block": "editor",
-        "mod": "mode",
-        "val": "source"
-    },
-    {
-        "block": "editor",
-        "mod": "renderer",
-        "val": "marked"
-    },
-    {
-        "block": "editor",
-        "mod": "has-preview",
-        "val": true
-    },
-    {
-        "block": "icon",
-        "mod": "bg",
-        "val": "markdown"
-    },
-    {
-        "block": "radio-group",
-        "mod": "theme",
-        "val": "islands"
-    },
-    {
-        "block": "radio",
-        "mod": "disabled",
-        "val": true
-    },
-    {
-        "block": "radio",
-        "mod": "checked",
-        "val": true
-    },
-    {
-        "block": "radio",
-        "mod": "focused",
-        "val": true
-    },
-    {
-        "block": "radio",
-        "mod": "theme",
-        "val": "islands"
-    },
-    {
-        "block": "radio-group",
-        "mod": "size",
-        "val": "m"
-    },
-    {
-        "block": "radio-group",
-        "mod": "type",
-        "val": "button"
-    },
-    {
-        "block": "radio",
-        "mod": "type",
-        "val": "button"
-    },
-    {
-        "block": "editor",
-        "mod": "has-actions",
-        "val": true
     },
     {
         "block": "font",
@@ -819,22 +350,12 @@ exports.deps = [
         "val": "bold"
     },
     {
-        "block": "attach",
-        "mod": "invalid",
-        "val": true
+        "block": "title",
+        "mod": "size",
+        "val": "l"
     },
     {
-        "block": "attach",
-        "mod": "dirty",
-        "val": true
-    },
-    {
-        "block": "attach",
-        "mod": "theme",
-        "val": "islands"
-    },
-    {
-        "block": "attach",
+        "block": "paragraph",
         "mod": "size",
         "val": "l"
     }

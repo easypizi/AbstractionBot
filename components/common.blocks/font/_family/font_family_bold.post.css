@@ -1,7 +1,7 @@
 block(font) {
   &.mod(family bold) {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     font-weight: 700;
+    font-family: "Inter-Bold";
+    font-style: normal;
   }
 }

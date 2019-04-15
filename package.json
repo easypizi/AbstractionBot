@@ -20,14 +20,14 @@
     "enb-bem-i18n": "^1.1.1",
     "enb-bemxjst-i18n": "github:tadatuta/enb-bemxjst-i18n#bemtree-nextgen",
     "enb-modules": "^0.4.2",
-    "express-fileupload": "^1.1.1-alpha.1",
-    "lowdb": "^1.0.0",
     "mime": "^2.4.0",
     "moment": "^2.21.0",
     "pm2": "^2.10.3",
     "slimbot": "^0.8.6",
     "vow": "^0.4.17",
-    "ym": "^0.1.2"
+    "ym": "^0.1.2",
+    "qs": "^6.5.2",
+    "tiny-slider": "^2.7.4"
   },
   "devDependencies": {
     "babel-preset-env": "^1.6.1",

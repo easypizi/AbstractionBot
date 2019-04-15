@@ -1,4 +1,19 @@
 [{
 	mustDeps: 'i18n',
-	shouldDeps: []
+	shouldDeps: [{
+			block: 'icon',
+			mods: {
+				symbol: 'arrow'
+			}
+		},
+		{
+			block: 'nav-menu'
+		},
+		{
+			block: 'link'
+		},
+		{
+			block: 'burger'
+		}
+	]
 }]

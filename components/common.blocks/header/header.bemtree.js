@@ -1,9 +1,21 @@
 block("header").content()(() => {
-  return [];
-});
-
-block("header")
-  .mod("type", "back")
-  .content()(function() {
-  return [];
+  return [
+    {
+      elem: "wrapper",
+      mods: {
+        visible: false
+      },
+      content: [
+        {
+          block: "burger"
+        }
+      ]
+    },
+    {
+      block: "nav-menu",
+      mods: {
+        mobile: false
+      }
+    }
+  ];
 });

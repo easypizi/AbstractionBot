@@ -1,17 +1,19 @@
 block(title) {
   margin: 0;
+  font-weight: 700;
+  text-align: center;
 
   &.mod(size l) {
-    font-size: 80px;
-    line-height: 90px;
+    font-size: 40px;
+    line-height: normal;
   }
 
   &.mod(size m) {
-    font-size: 70px;
-    line-height: 80px;
+    font-size: 24px;
+    line-height: 37px;
   }
 
-  &.mod(size s) {
+  /* &.mod(size s) {
     font-size: 45px;
     line-height: 55px;
 
@@ -24,5 +26,5 @@ block(title) {
   &.mod(size xs) {
     font-size: 20px;
     line-height: 30px;
-  }
+  } */
 }

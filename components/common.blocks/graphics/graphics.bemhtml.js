@@ -1,0 +1,1 @@
+block('graphics').js()(true)

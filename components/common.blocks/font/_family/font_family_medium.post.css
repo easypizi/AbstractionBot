@@ -1,0 +1,7 @@
+block(font) {
+  &.mod(family medium) {
+    font-weight: 500;
+    font-family: "Inter-Medium";
+    font-style: normal;
+  }
+}

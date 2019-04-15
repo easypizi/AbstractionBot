@@ -1,4 +1,37 @@
 block(link) {
-	text-decoration: none;
-	cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 0 5px;
+  box-sizing: border-box;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  outline: none;
+
+  &:active,
+  .mod(state active) {
+  }
+
+  &[disabled],
+  .mod(state disabled) {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  &:focus,
+  .mod(state focus) {
+  }
+
+  &:hover,
+  .mod(state hover) {
+    color: #b9aefc;
+  }
+
+  .mod(state visited) {
+  }
+
+  .mod(focused) {
+    outline: none;
+  }
 }

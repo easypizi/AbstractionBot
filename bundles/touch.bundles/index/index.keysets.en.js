@@ -36,4 +36,4 @@ module.exports = {"i18n":{"i18n":function() {
             };
 
             return i18n;
-        }},"index":{"indextext":"smthg"},"attach":{"button-text":"Выбрать файл","no-file":"файл не выбран"}};
+        }},"index":{"indextext":"smthg"}};
