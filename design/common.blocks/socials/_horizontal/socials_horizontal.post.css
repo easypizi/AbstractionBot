@@ -1,0 +1,8 @@
+block(socials) {
+	display: flex;
+	&.mod(horizontal) {
+		justify-content: space-between;
+		width: 100%;
+		max-width: 120px;
+	}
+}

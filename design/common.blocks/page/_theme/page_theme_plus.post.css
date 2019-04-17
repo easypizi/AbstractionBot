@@ -47,6 +47,27 @@ block(page) {
     background-color: #0c161d;
   }
 
+  .mod(width available) {
+    max-width: unset;
+    padding: 40px 0px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .mod(width small) {
+    max-width: 500px;
+    padding: 40px 0px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .mod(width narrow) {
+    max-width: 1200px;
+    padding: 40px 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
   block(popup) {
     visibility: hidden;
     padding: 13px;

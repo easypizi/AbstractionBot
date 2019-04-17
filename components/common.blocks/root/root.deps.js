@@ -4,7 +4,8 @@
   {
     block: 'page',
     mods: {
-      theme: "islands"
+      theme: "plus",
+      width: ['narrow','availbale','small']
     }
   }
   ]

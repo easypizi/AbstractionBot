@@ -34,6 +34,14 @@ block("root").replace()(function() {
       {
         elem: "js",
         url: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      },
+      {
+        elem: "js",
+        url: "/vendor/tinyslider_helper.js"
+      },
+      {
+        elem: "js",
+        url: "/vendor/tinyslider.js"
       }
     ],
     head: [

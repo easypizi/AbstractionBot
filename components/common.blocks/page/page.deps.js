@@ -24,7 +24,7 @@
     {
       block: 'title',
       mods: {
-        size: ['l', 'm']
+        size: ['l', 'm', 's']
       }
     },
     {

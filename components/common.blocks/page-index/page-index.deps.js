@@ -18,7 +18,22 @@
       }
     },
     {
-      block: 'table'
+      block: 'tabs',
+      mods: {
+        type: 'button'
+      }
+    },
+    {
+      block: 'graphics',
+      mods: {
+        view: ['left', 'right', 'topStar', 'midStar', 'botStar', 'bottom']
+      }
+    },
+    {
+      block: 'paragraph',
+      mods: {
+        size: ['l','m', 's']
+      }
     }
   ]
 });

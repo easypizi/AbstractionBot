@@ -171,11 +171,109 @@ exports.deps = [
         "mod": "type"
     },
     {
-        "block": "table"
+        "block": "tabs"
     },
     {
-        "block": "page",
-        "mod": "theme"
+        "block": "radio-group"
+    },
+    {
+        "block": "radio"
+    },
+    {
+        "block": "radio",
+        "mod": "disabled"
+    },
+    {
+        "block": "radio",
+        "mod": "checked"
+    },
+    {
+        "block": "radio",
+        "mod": "focused"
+    },
+    {
+        "block": "radio",
+        "elem": "box"
+    },
+    {
+        "block": "radio",
+        "elem": "control"
+    },
+    {
+        "block": "radio",
+        "elem": "text"
+    },
+    {
+        "block": "tabs",
+        "mod": "type"
+    },
+    {
+        "block": "radio-group",
+        "mod": "type"
+    },
+    {
+        "block": "radio",
+        "mod": "type"
+    },
+    {
+        "block": "button",
+        "mod": "togglable",
+        "val": "radio"
+    },
+    {
+        "block": "graphics"
+    },
+    {
+        "block": "lazyImage"
+    },
+    {
+        "block": "image"
+    },
+    {
+        "block": "graphics",
+        "mod": "view"
+    },
+    {
+        "block": "graphics",
+        "mod": "view",
+        "val": "right"
+    },
+    {
+        "block": "graphics",
+        "mod": "view",
+        "val": "topStar"
+    },
+    {
+        "block": "graphics",
+        "mod": "view",
+        "val": "midStar"
+    },
+    {
+        "block": "graphics",
+        "mod": "view",
+        "val": "botStar"
+    },
+    {
+        "block": "graphics",
+        "mod": "view",
+        "val": "bottom"
+    },
+    {
+        "block": "paragraph"
+    },
+    {
+        "block": "paragraph",
+        "mod": "size"
+    },
+    {
+        "block": "paragraph",
+        "mod": "size",
+        "val": "m"
+    },
+    {
+        "block": "paragraph",
+        "mod": "size",
+        "val": "s"
     },
     {
         "block": "header"
@@ -207,6 +305,17 @@ exports.deps = [
         "block": "footer"
     },
     {
+        "block": "socials"
+    },
+    {
+        "block": "link",
+        "mod": "no-animate"
+    },
+    {
+        "block": "nav-menu",
+        "mod": "mobile"
+    },
+    {
         "block": "font"
     },
     {
@@ -228,25 +337,27 @@ exports.deps = [
         "val": "m"
     },
     {
-        "block": "paragraph"
-    },
-    {
-        "block": "paragraph",
-        "mod": "size"
-    },
-    {
-        "block": "paragraph",
-        "mod": "size",
-        "val": "m"
-    },
-    {
-        "block": "paragraph",
+        "block": "title",
         "mod": "size",
         "val": "s"
     },
     {
-        "block": "ua",
-        "elem": "svg"
+        "block": "page",
+        "mod": "theme"
+    },
+    {
+        "block": "page",
+        "mod": "width"
+    },
+    {
+        "block": "page",
+        "mod": "width",
+        "val": "availbale"
+    },
+    {
+        "block": "page",
+        "mod": "width",
+        "val": "small"
     },
     {
         "block": "root"
@@ -254,7 +365,7 @@ exports.deps = [
     {
         "block": "page",
         "mod": "theme",
-        "val": "islands"
+        "val": "plus"
     },
     {
         "block": "loader",
@@ -331,14 +442,59 @@ exports.deps = [
         "val": "link"
     },
     {
-        "block": "page",
-        "mod": "theme",
-        "val": "plus"
+        "block": "tabs",
+        "mod": "type",
+        "val": "button"
+    },
+    {
+        "block": "radio",
+        "mod": "disabled",
+        "val": true
+    },
+    {
+        "block": "radio",
+        "mod": "checked",
+        "val": true
+    },
+    {
+        "block": "radio",
+        "mod": "focused",
+        "val": true
+    },
+    {
+        "block": "radio-group",
+        "mod": "type",
+        "val": "button"
+    },
+    {
+        "block": "radio",
+        "mod": "type",
+        "val": "button"
+    },
+    {
+        "block": "graphics",
+        "mod": "view",
+        "val": "left"
+    },
+    {
+        "block": "paragraph",
+        "mod": "size",
+        "val": "l"
     },
     {
         "block": "icon",
         "mod": "symbol",
         "val": "arrow"
+    },
+    {
+        "block": "link",
+        "mod": "no-animate",
+        "val": true
+    },
+    {
+        "block": "nav-menu",
+        "mod": "mobile",
+        "val": true
     },
     {
         "block": "font",
@@ -351,8 +507,8 @@ exports.deps = [
         "val": "l"
     },
     {
-        "block": "paragraph",
-        "mod": "size",
-        "val": "l"
+        "block": "page",
+        "mod": "width",
+        "val": "narrow"
     }
 ];

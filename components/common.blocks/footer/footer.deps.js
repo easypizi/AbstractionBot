@@ -1,4 +1,14 @@
 ({
 	mustDeps: 'i18n',
-	shouldDeps: []
+	shouldDeps: [
+		{
+			block: 'socials'
+		},
+		{
+			block: 'nav-menu',
+			mods: {
+				mobile: true
+			}
+		}
+	]
 })

@@ -2389,6 +2389,217 @@ block('button').mod('focused', true).js()(function() {
 block('button').elem('text').tag()('span');
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/__text/button__text.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/tabs/tabs.bemhtml.js */
+block("tabs")(
+  js()(node => {
+    const tabs = node.ctx.tabs || [];
+
+    return { urls: tabs.map(item => item.url) };
+  }),
+
+  content()(node => {
+    const tabs = node.ctx.tabs;
+
+    let activeTabIdx = tabs.findIndex(tab => tab.active);
+
+    activeTabIdx === -1 && (activeTabIdx = 0);
+
+    return [
+      {
+        elem: "tabs-group",
+        content: {
+          block: "radio-group",
+          val: activeTabIdx,
+          mods: node.mods,
+          options: tabs.map((item, index) => ({
+            val: index,
+            text: item.text,
+            disabled: item.disabled,
+            icon: item.icon
+          }))
+        }
+      },
+      applyNext()
+    ];
+  })
+);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/tabs/tabs.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio-group/radio-group.bemhtml.js */
+block('radio-group')(
+    tag()('span'),
+
+    addAttrs()({ role : 'radiogroup' }),
+
+    addJs()(true),
+
+    addMix()([{ block : 'control-group' }]),
+
+    content()(function() {
+        var mods = this.mods,
+            ctx = this.ctx,
+            isValDef = typeof ctx.val !== 'undefined';
+
+        return (ctx.options || []).map(function(option, i) {
+            return [
+                !!i && !mods.type && { tag : 'br' },
+                {
+                    block : 'radio',
+                    mods : {
+                        type : mods.type,
+                        mode : mods.mode,
+                        theme : mods.theme,
+                        size : mods.size,
+                        checked : isValDef && ctx.val === option.val,
+                        disabled : option.disabled || mods.disabled
+                    },
+                    name : ctx.name,
+                    val : option.val,
+                    text : option.text,
+                    title : option.title,
+                    icon : option.icon
+                }
+            ];
+        });
+    })
+);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio-group/radio-group.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio-group/radio-group.bemhtml.js */
+block('radio-group')(
+
+    match(function() { return this._form_field; }).def()(function() {
+        var ctx = this.ctx;
+
+        ctx.name || (ctx.name = this._form_field.name);
+        this.mods.disabled = this._form_field.mods.disabled;
+
+        return applyNext();
+    })
+);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio-group/radio-group.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/radio.bemhtml.js */
+block('radio')(
+    tag()('label'),
+    addJs()(true),
+    content()(function() {
+        var ctx = this.ctx;
+        return [
+            {
+                elem : 'box',
+                content : {
+                    elem : 'control',
+                    checked : this.mods.checked,
+                    disabled : this.mods.disabled,
+                    name : ctx.name,
+                    val : ctx.val
+                }
+            },
+            ctx.text && {
+                elem : 'text',
+                content : ctx.text
+            }
+        ];
+    })
+);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/radio.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio/radio.bemhtml.js */
+block('radio')(
+
+    match(function() { return this._form_field; }).def()(function() {
+        var ctx = this.ctx;
+
+        ctx.name || (ctx.name = this._form_field.name);
+        this.mods.disabled = this._form_field.mods.disabled;
+
+        return applyNext();
+    })
+
+);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio/radio.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__box/radio__box.bemhtml.js */
+block('radio').elem('box').tag()('span');
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__box/radio__box.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__control/radio__control.bemhtml.js */
+block('radio').elem('control')(
+    tag()('input'),
+
+    addAttrs()(function() {
+        // NOTE: don't remove autocomplete attribute, otherwise js and DOM may be desynced
+        var ctx = this.ctx,
+            attrs = {
+                type : 'radio',
+                autocomplete : 'off',
+                name : ctx.name,
+                value : ctx.val
+            };
+
+        ctx.checked && (attrs.checked = 'checked');
+        ctx.disabled && (attrs.disabled = 'disabled');
+
+        return attrs;
+    })
+);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__control/radio__control.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__text/radio__text.bemhtml.js */
+block('radio').elem('text')(
+    tag()('span'),
+    addAttrs()(function() {
+        return { role : 'presentation' };
+    })
+);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__text/radio__text.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_radio.bemhtml.js */
+block('button').mod('togglable', 'radio').addAttrs()(function() {
+    return { 'aria-pressed' : String(!!this.mods.checked) };
+});
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_radio.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/graphics.bemhtml.js */
+block('graphics').js()(true)
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/graphics.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemhtml.js */
+block('lazyImage').js()(true)
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/image/image.bemhtml.js */
+block('image')(
+    addAttrs()({ role : 'img' }),
+
+    tag()('span'),
+
+    match(function() { return typeof this.ctx.content === 'undefined'; })(
+        tag()('img'),
+        addAttrs()(function() {
+            var ctx = this.ctx;
+            return this.extend(applyNext(),
+                {
+                    role : undefined,
+                    src : ctx.url,
+                    width : ctx.width,
+                    height : ctx.height,
+                    alt : ctx.alt,
+                    title : ctx.title
+                });
+        })
+    )
+);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/image/image.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/image/image.bemhtml.js */
+block('image').js()(true)
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/image/image.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
+block("paragraph")(tag()("p"));
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
 block('header').js()(true)
 /* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
@@ -2552,26 +2763,48 @@ block('burger').content()(function() {
 block("footer").js()(true);
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
-block("paragraph")(tag()("p"));
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/socials/socials.bemhtml.js */
+block("socials").content()(function() {
+  let socials = [
+    {
+      title: "fb",
+      link: "https://www.facebook.com/abstraction.festival"
+    },
+    {
+      title: "inst",
+      link: "https://www.instagram.com/abstractionfest/"
+    },
+    {
+      title: "vk",
+      link: "https://vk.com/abstractionfest"
+    }
+  ];
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/ua/__svg/ua__svg.bemhtml.js */
-block('ua').content()(function() {
-    return [
-        applyNext(),
-        {
-            html : [
-                '(function(d,n){',
-                    'd.documentElement.className+=',
-                    '" ua_svg_"+(d[n]&&d[n]("http://www.w3.org/2000/svg","svg").createSVGRect?"yes":"no");',
-                '})(document,"createElementNS");'
-            ].join('')
+  let socialContent = socials.map(acc => {
+    return {
+      block: "link",
+      mods: {
+        "no-animate": true
+      },
+      attrs: {
+        rel: "noopener nofollow noreferrer",
+        id: "social-" + acc.title
+      },
+      target: "_blank",
+      url: acc.link,
+      content: {
+        block: "icon",
+        mods: {
+          socials: acc.title
         }
-    ];
+      }
+    };
+  });
+
+  return socialContent;
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/ua/__svg/ua__svg.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/socials/socials.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-notfound/page-notfound.bemhtml.js */
 block('page-notfound').js()(true)
 /* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-notfound/page-notfound.bemhtml.js */
@@ -2605,6 +2838,42 @@ block('button').mod('type', 'link')(
 );
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_type/button_type_link.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/_type/radio_type_button.bemhtml.js */
+block('radio').mod('type', 'button')(
+    content()(function() {
+        var ctx = this.ctx,
+            mods = this.mods;
+
+        return [{
+            block : 'button',
+            mods : {
+                togglable : mods.mode === 'radio-check'?
+                    'check' :
+                    'radio',
+                checked : mods.checked,
+                disabled : mods.disabled,
+                theme : mods.theme,
+                size : mods.size
+            },
+            title : ctx.title,
+            content : [
+                ctx.icon,
+                typeof ctx.text !== 'undefined'?
+                    { elem : 'text', content : ctx.text } :
+                    ''
+            ]
+        }, {
+            block : 'radio',
+            elem : 'control',
+            checked : mods.checked,
+            disabled : mods.disabled,
+            name : ctx.name,
+            val : ctx.val
+        }];
+    })
+);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/_type/radio_type_button.bemhtml.js */
 oninit(function(exports, context) {
     var BEMContext = exports.BEMContext || context.BEMContext;
     // Provides third-party libraries from different modular systems
