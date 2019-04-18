@@ -5,13 +5,13 @@
       block: "title",
       mods: {
         size: "*",
-        theme: "islands"
+        theme: "plus"
       }
     },
     {
       block: "button",
       mods: {
-        theme: "islands",
+        theme: "plus",
         size: "m",
         togglable: "check",
         type: 'link'

@@ -1,4 +1,35 @@
 block(page-index) {
   elem(content) {
+    elem(first) {
+      border: 1px solid red;
+
+      position: relative;
+      height: 100vh;
+
+      elem(contentWrapper) {
+        display: flex;
+        flex-direction: column;
+        justify-column: center;
+        align-items: center;
+
+        elem(date) {
+          width: 100%;
+          max-width: 435px;
+          height: 57px;
+        }
+
+        elem(logo) {
+          width: 100%;
+          max-width: 918px;
+          height: 232px;
+        }
+      }
+
+      elem(absImage) {
+        position: absolute;
+
+        display: none;
+      }
+    }
   }
 }

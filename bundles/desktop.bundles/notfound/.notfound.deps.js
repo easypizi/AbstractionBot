@@ -390,12 +390,12 @@ exports.deps = [
     {
         "block": "title",
         "mod": "theme",
-        "val": "islands"
+        "val": "plus"
     },
     {
         "block": "button",
         "mod": "theme",
-        "val": "islands"
+        "val": "plus"
     },
     {
         "block": "button",
