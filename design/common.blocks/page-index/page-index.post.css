@@ -1,10 +1,8 @@
 block(page-index) {
   elem(content) {
     elem(first) {
-      border: 1px solid red;
-
-      position: relative;
-      height: 100vh;
+      /* position: relative; */
+      /* height: 100vh; */
 
       elem(contentWrapper) {
         display: flex;
@@ -22,13 +20,51 @@ block(page-index) {
           width: 100%;
           max-width: 918px;
           height: 232px;
+          margin-top: 20px;
+        }
+
+        elem(buyButton) {
+          margin-top: 100px;
+        }
+
+        elem(video) {
+          width: 100%;
+          height: 100%;
+          height: 640px;
+          margin-top: 200px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid red;
+          text-decoration: none;
         }
       }
 
       elem(absImage) {
         position: absolute;
 
-        display: none;
+        &.mod(top) {
+          top: 300px;
+          width: 800px;
+          height: 700px;
+          left: 50%;
+          margin-left: -400px;
+        }
+
+        &.mod(left) {
+          top: 0;
+          width: 50%;
+          height: 1100px;
+          left: -11%;
+        }
+
+        &.mod(right) {
+          top: 0;
+          width: 50%;
+          height: 1600px;
+          right: -11%;
+        }
       }
     }
   }

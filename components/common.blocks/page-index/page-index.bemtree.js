@@ -54,7 +54,7 @@ block("page-index").content()(() => {
                     {
                       block: "lazyImage",
                       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-                      imgSrc: "/assets/images/Date.svg"
+                      imgSrc: "/assets/images/Date.png"
                     }
                   ]
                 },
@@ -70,6 +70,7 @@ block("page-index").content()(() => {
                 },
                 {
                   block: "button",
+                  mix: { block: "page-index", elem: "buyButton" },
                   mods: {
                     type: "link"
                   },
