@@ -79,7 +79,10 @@ block("page-index").content()(() => {
                 },
                 {
                   elem: "video",
-                  content: "Here will be video block"
+                  content: {
+                    html:
+                      '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/YOODsHsygRA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+                  }
                 }
               ]
             }
@@ -97,6 +100,17 @@ block("page-index").content()(() => {
             },
             content: [
               {
+                block: "graphics",
+                mix: {
+                  block: "page-index",
+                  elem: "absImage",
+                  elemMods: { middle: true }
+                },
+                mods: {
+                  view: "midStar"
+                }
+              },
+              {
                 block: "title",
                 mods: {
                   size: "l"
@@ -108,8 +122,7 @@ block("page-index").content()(() => {
                 mods: {
                   size: "l"
                 },
-                content:
-                  "Techno, trance и природа. 2 дня, 3 ночи, частная территория, более 100 артистов и ди джеев, музыка нон-стоп. Здесь будет всё, как ты любишь. Погнали!"
+                content: "Techno, trance и природа. 2 дня, 3 ночи, частная территория, более 100 артистов и ди джеев, музыка нон-стоп. Здесь будет всё, как ты любишь. Погнали!"
               },
               {
                 block: "paragraph",
@@ -161,8 +174,7 @@ block("page-index").content()(() => {
                 mods: {
                   size: "s"
                 },
-                content:
-                  "В 2019 году привозим самый прогрессивный саунд мира в лице самых мощных и актуальных артистов"
+                content: "В 2019 году привозим самый прогрессивный саунд мира в лице самых мощных и актуальных артистов"
               },
               {
                 block: "tabs",
@@ -196,11 +208,18 @@ block("page-index").content()(() => {
               },
               {
                 block: "button",
+                mix: { block: "page-index", elem: "lineup" },
                 mods: {
                   type: "link"
                 },
                 url: "/lineup",
-                text: "Весь лайн-ап"
+                text: "Весь лайн-ап",
+                icon: {
+                  block: "icon",
+                  mods: {
+                    arrow: "right"
+                  }
+                }
               }
             ]
           }
@@ -221,10 +240,10 @@ block("page-index").content()(() => {
                 mix: {
                   block: "page-index",
                   elem: "absImage",
-                  elemMods: { middle: true }
+                  elemMods: { top: true }
                 },
                 mods: {
-                  view: "midStar"
+                  view: "topStar"
                 }
               },
               "Gallery with photo"
@@ -233,6 +252,9 @@ block("page-index").content()(() => {
         },
         {
           elem: "fifth",
+          attrs: {
+            id: "place"
+          },
           content: {
             elem: "contentWrapper",
             mix: {
@@ -249,14 +271,14 @@ block("page-index").content()(() => {
               },
               {
                 block: "paragraph",
-                mods: { size: "s" },
-                content:
-                  'Фестиваль будет проходить на частной территории. Горнолыжный курорт "Красное Озеро"'
+                mods: { size: "s", narrow: true },
+                content: 'Фестиваль будет проходить на частной территории. Горнолыжный курорт "Красное Озеро"'
               },
               {
                 block: "title",
                 mods: {
-                  size: "m"
+                  size: "m",
+                  blue: true
                 },
                 content: "Как добраться"
               },
@@ -277,7 +299,8 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: {
-                  size: "s"
+                  size: "s",
+                  blue: true
                 },
                 content:
                   "Автобус № К898 от станции метро «Парнас». Билеты покупать заранее в кассе. Справки по телефону: +7(812)748-27-39 Время отправления автобусов: 9:30, 13:00, 15:00, 18:30, 20:30 Автобус № 897 от станции метро «Девяткино». Время отправления автобусов: 08:40, 10:10, 11:15, 14:50, 16:50, 19:10 Справки по телефонам: +7(981)696-30-37"
@@ -292,7 +315,8 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: {
-                  size: "s"
+                  size: "s",
+                  blue: true
                 },
                 content: {
                   html:
@@ -302,7 +326,8 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: {
-                  size: "s"
+                  size: "s",
+                  blue: true
                 },
                 content: {
                   html:
@@ -319,7 +344,8 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: {
-                  size: "s"
+                  size: "s",
+                  blue: true
                 },
                 content: [
                   'Из Санкт-Петербурга много вариантов такси, машина стоит около 2000-2500 руб. Рассчитайте поездку из вашего района, указав диспетчеру Горнолыжный курорт "Красное Озеро", вблизи пос. Коробицыно. Также в районе поселков: Первомайское, Рощино и Курорта "Красное Озеро" будут курировать машины такси. Цены: от Рощино до Фестиваля - 1300₽; от Первомайского до Фестиваля - 900₽'
@@ -330,7 +356,10 @@ block("page-index").content()(() => {
         },
         {
           elem: "sixth",
-          content: "Here will be yandex Maps Widget"
+          content: {
+            html:
+              '<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A85a6825746cf088954a942bed768433f64ad7a55de4898b553ab4d69823aac27&width=100%25&height=550&lang=ru_RU&scroll=true"></script>'
+          }
         },
         {
           elem: "seventh",
@@ -345,12 +374,12 @@ block("page-index").content()(() => {
             content: [
               {
                 block: "title",
-                mods: { size: "m" },
+                mods: { size: "m", blue: true },
                 content: "Кемпинг"
               },
               {
                 block: "paragraph",
-                mods: { size: "s" },
+                mods: { size: "s", blue: true },
                 content:
                   "На территории фестиваля оборудованы места для кемпинга. Создана вся необходимая инфраструктура: туалеты, места сбора мусора, места для разведения огня. За проживание в кемпинге дополнительная плата не взимается. Проживая в кемпинге, гости фестиваля могут посещать столовую, душ. Если у Вас нет своего снаряжения, его можно арендовать."
               },
@@ -364,12 +393,12 @@ block("page-index").content()(() => {
               },
               {
                 block: "title",
-                mods: { size: "m" },
+                mods: { size: "m", blue: true },
                 content: "Аренда домика"
               },
               {
                 block: "paragraph",
-                mods: { size: "s" },
+                mods: { size: "s", blue: true },
                 content:
                   "На Фестивале Abstraction X вы можете волшебно отдохнуть в уютном коттедже после похода на мейн: спать в удобной кровати, принять душ, сварить вкусный кофе и наблюдать невероятную красоту Красного озера из своих окон. Ознакомьтесь с информацией о ценах, а также о наличии свободных коттеджей."
               },
@@ -383,14 +412,13 @@ block("page-index").content()(() => {
               },
               {
                 block: "title",
-                mods: { size: "m" },
+                mods: { size: "m", blue: true },
                 content: "Трансфер"
               },
               {
                 block: "paragraph",
-                mods: { size: "s" },
-                content:
-                  "Организован трансфер на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее"
+                mods: { size: "s", blue: true },
+                content: "Организован трансфер на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее"
               },
               {
                 block: "button",
@@ -404,7 +432,7 @@ block("page-index").content()(() => {
           }
         },
         {
-          elem: "seventh",
+          elem: "eighth",
           content: {
             elem: "contentWrapper",
             mix: {
@@ -418,7 +446,7 @@ block("page-index").content()(() => {
                 block: "graphics",
                 mix: {
                   block: "page-index",
-                  elem: "absImageBottom",
+                  elem: "absImage",
                   elemMods: { star: true }
                 },
                 mods: {
@@ -429,7 +457,7 @@ block("page-index").content()(() => {
                 block: "graphics",
                 mix: {
                   block: "page-index",
-                  elem: "absImageBottom",
+                  elem: "absImage",
                   elemMods: { slime: true }
                 },
                 mods: {

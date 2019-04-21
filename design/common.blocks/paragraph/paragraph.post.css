@@ -1,14 +1,16 @@
 block(paragraph) {
   margin: 0;
-  color: #7797ae;
-
+  color: #fff;
   text-align: center;
   margin: 0 auto;
+
+  &.mod(blue) {
+    color: #7797ae;
+  }
 
   &.mod(size l) {
     font-size: 25px;
     line-height: 43px;
-    color: #fff;
     max-width: 780px;
   }
 
@@ -21,5 +23,9 @@ block(paragraph) {
     font-size: 16px;
     line-height: 28px;
     max-width: 700px;
+  }
+
+  &.mod(narrow) {
+    max-width: 428px !important;
   }
 }

@@ -1,0 +1,7 @@
+block(icon) {
+  &.mod(socials inst) {
+    background-image: url("/assets/images/inst.svg");
+    max-width: 40px;
+    max-height: 40px;
+  }
+}

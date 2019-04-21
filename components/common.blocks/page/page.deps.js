@@ -24,13 +24,15 @@
     {
       block: 'title',
       mods: {
-        size: ['l', 'm', 's']
+        size: ['l', 'm', 's'],
+        blue: true
       }
     },
     {
       block: 'paragraph',
       mods: {
-        size: ['l','m','s']
+        size: ['l','m','s'],
+        blue: true
       }
     }
   ]

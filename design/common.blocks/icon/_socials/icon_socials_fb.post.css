@@ -1,0 +1,7 @@
+block(icon) {
+  &.mod(socials fb) {
+    background-image: url("/assets/images/fb.svg");
+    max-width: 40px;
+    max-height: 40px;
+  }
+}

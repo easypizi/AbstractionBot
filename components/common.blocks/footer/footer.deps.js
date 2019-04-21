@@ -2,7 +2,10 @@
 	mustDeps: 'i18n',
 	shouldDeps: [
 		{
-			block: 'socials'
+			block: 'socials',
+			mods: {
+				horizontal: true
+			}
 		},
 		{
 			block: 'nav-menu',

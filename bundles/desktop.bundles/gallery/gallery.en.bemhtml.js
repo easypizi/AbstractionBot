@@ -2805,9 +2805,12 @@ block("socials").content()(function() {
 });
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/socials/socials.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-notfound/page-notfound.bemhtml.js */
-block('page-notfound').js()(true)
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-notfound/page-notfound.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemhtml.js */
+block('page-gallery').content()(function() {
+    return;
+});
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_check.bemhtml.js */
 block('button').mod('togglable', 'check').addAttrs()(function() {
     return this.extend({ 'aria-pressed' : String(!!this.mods.checked) },

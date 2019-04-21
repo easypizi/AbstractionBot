@@ -12,9 +12,9 @@ module.exports = function(app) {
 
   app.get("/lineup", function(req, res) {
     render(req, res, {
-      page: "edit",
+      page: "gallery",
       bundle: "desktop",
-      title: "Edit page",
+      title: "Abstraction Lineup",
       lang: "en"
     });
   });

@@ -2643,9 +2643,6 @@ block('image').js()(true)
 block("paragraph")(tag()("p"));
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
-block('header').js()(true)
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/icon/icon.bemhtml.js */
 block('icon')(
     tag()('span'),
@@ -2662,6 +2659,9 @@ block('icon')(
 block("icon").js()(true);
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/icon/icon.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
+block('header').js()(true)
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
 block("nav-menu").content()(() => {
   return [

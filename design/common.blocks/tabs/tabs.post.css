@@ -1,180 +1,104 @@
-    block(tabs) {
+block(tabs) {
+  width: 100%;
+
+  elem(pane) {
+    display: none;
+
+    &.mod(active) {
+      display: block;
+    }
+  }
+
+  elem(tabs-group) {
+    margin-bottom: 30px;
+    position: relative;
+
+    @media (max-width: 600px) {
+      padding: 0 10px;
+    }
+
+    block(control-group) {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      block(radio) {
+        width: 45%;
+        max-width: 206px;
+
+        &.mod(checked) {
+          opacity: 1;
+
+          @media (max-width: 600px) {
+            box-shadow: unset;
+          }
+
+          block(button) {
+            background-color: #4337c7;
+          }
+        }
+      }
+    }
+  }
+
+  block(radio) {
+    block(button) {
+      background-color: transparent;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 5px;
+      position: relative;
+      border-radius: 10px;
+      transition: all 0.3s;
+      outline: none;
+      -webkit-appearance: none;
+
+      &.mod(pressed) {
+        background-color: #2519a9;
+      }
+
+      &.mod(hovered) {
+        background-color: #4337c7;
+        elem(text) {
+          color: #ffffff;
+        }
+      }
+
+      elem(text) {
+        color: #fff;
+        font-size: 16px;
+        line-height: 26px;
+        margin: 0;
+        display: block;
         width: 100%;
 
-
-        elem(pane) {
-            display: none;
-
-            &.mod(active) {
-                display: block;
-            }
+        @media (max-width: 600px) {
+          /* font-size: 14px; */
         }
-
-        elem(tabs-group) {
-            margin-bottom: 30px;
-            position: relative;
-
-            @media(max-width: 600px) {
-                padding: 0 10px;
-                height: 10px;
-            }
-
-            block(control-group) {
-                display: flex;
-                justify-content: flex-start;
-                width: 100%;
-                flex-direction: row-reverse;
-                background-color: #FAFAFA;
-
-                block(radio) {
-                    width: 50%;
-
-                    @media(max-width: 600px) {
-                        position: absolute;
-                        width: calc(100% - 20px);
-                        left: 10px;
-                        top: 0;
-                    }
-
-                    &.mod(passed) {
-
-                        block(button) {
-                            background-color: #FFF!important;
-
-                            elem(text) {
-                                opacity: 0.3;
-                            }
-
-                            &::after {
-                                box-shadow: 1px 1px 1px 0px rgba(255, 255, 255, 1);
-                            }
-                        }
-                    }
-
-                    &:last-child {
-                        block(button) {
-                            box-shadow: -1px 0 1px 0 rgba(190, 190, 190, 0.5);
-
-                            @media(max-width: 600px) {
-                                box-shadow: 0 0 0 1px rgba(190, 190, 190, 0.5);
-                            }
-                        }
-                    }
-
-                    &.mod(checked) {
-                        opacity: 1;
-                        z-index: 10;
-                        box-shadow: 0 1px 0 0 rgba(190, 190, 190, 0.5), 0 -1px 0 0 rgba(190, 190, 190, 0.5);
-
-                        @media(max-width: 600px) {
-                            box-shadow: unset;
-                        }
-
-
-
-                        block(button) {
-                            background-color: #FFF!important;
-
-
-                            &::after {
-                                box-shadow: 1px 1px 0px 0px rgba(190, 190, 190, 0.5);
-                                background-color: #FFF!important;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        block(radio) {
-            block(button) {
-                background-color: #fff;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 30px 40px;
-                position: relative;
-                border-radius: 4px 0 0 4px;
-                background-color: transparent;
-                transition: none;
-
-                @media(max-width: 600px) {
-                    padding: 20px 10px;
-                    border-radius: 4px;
-                }
-
-                &.mod(pressed) {
-                    background-color: transparent!important;
-                }
-
-                &.mod(hovered) {
-                    background-color: transparent!important;
-                }
-
-
-                &::after {
-                    content: " ";
-                    display: block;
-                    width: 60px;
-                    height: 60px;
-                    position: absolute;
-                    top: 50%;
-                    margin-top: -30px;
-                    right: 0;
-                    margin-right: -29px;
-                    z-index: 2;
-                    transform: rotate(-45deg);
-                    background-color: #FAFAFA;
-                    z-index: 5;
-
-                    @media(max-width: 600px) {
-                        display: none;
-                    }
-                }
-
-                elem(text) {
-                    color: #333;
-                    font-size: 18px;
-                    line-height: 24px;
-                    margin: 0;
-                    display: block;
-                    width: 100%;
-
-                    @media(max-width: 600px) {
-                        font-size: 14px;
-                    }
-                }
-
-                &.mod(checked) {
-                    elem(text) {}
-                }
-
-                &:hover {
-                    elem(text) {}
-                }
-            }
-        }
-
-        elem(pane) {
-
-            @media(max-width: 600px) {
-                padding: 0 10px;
-                box-sizing: border-box;
-            }
-
-            block(layout) {
-                @media(max-width: 600px) {
-                    flex-direction: column;
-                    margin-top: 80px;
-                }
-
-                elem(aside) {
-                    @media(max-width: 600px) {
-                        margin-top: 30px;
-                        padding: 0 10px;
-                    }
-                }
-            }
-        }
+      }
     }
+  }
+
+  elem(pane) {
+    @media (max-width: 600px) {
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    block(layout) {
+      @media (max-width: 600px) {
+        flex-direction: column;
+        margin-top: 80px;
+      }
+
+      elem(aside) {
+        @media (max-width: 600px) {
+          margin-top: 30px;
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+}

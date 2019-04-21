@@ -2,7 +2,7 @@
   "author": "Corpse",
   "version": "1.0.0",
   "engines": {
-    "node": "9"
+    "node": "10"
   },
   "browserslist": [
     "ie >= 10",
@@ -98,7 +98,8 @@
     "make": "enb make",
     "drop-cache": "rm -rf .enb/tmp",
     "dev": "npm run drop-cache && npm run make && nodemon",
-    "lint": "eslint . && bemhint ."
+    "lint": "eslint . && bemhint .",
+    "jshint": "jshint --config .jshintrc \"src/js\""
   },
   "private": true
 }

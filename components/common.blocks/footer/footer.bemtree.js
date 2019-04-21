@@ -10,7 +10,10 @@ block("footer").content()(() => {
           }
         },
         {
-          block: "socials"
+          block: "socials",
+          mods: {
+            horizontal: true
+          }
         }
       ]
     }

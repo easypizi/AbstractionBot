@@ -276,10 +276,18 @@ exports.deps = [
         "val": "s"
     },
     {
-        "block": "header"
+        "block": "paragraph",
+        "mod": "narrow"
     },
     {
         "block": "icon"
+    },
+    {
+        "block": "icon",
+        "mod": "arrow"
+    },
+    {
+        "block": "header"
     },
     {
         "block": "icon",
@@ -312,6 +320,24 @@ exports.deps = [
         "mod": "no-animate"
     },
     {
+        "block": "icon",
+        "mod": "socials"
+    },
+    {
+        "block": "icon",
+        "mod": "socials",
+        "val": "inst"
+    },
+    {
+        "block": "icon",
+        "mod": "socials",
+        "val": "vk"
+    },
+    {
+        "block": "socials",
+        "mod": "horizontal"
+    },
+    {
         "block": "nav-menu",
         "mod": "mobile"
     },
@@ -340,6 +366,14 @@ exports.deps = [
         "block": "title",
         "mod": "size",
         "val": "s"
+    },
+    {
+        "block": "title",
+        "mod": "blue"
+    },
+    {
+        "block": "paragraph",
+        "mod": "blue"
     },
     {
         "block": "page",
@@ -482,14 +516,34 @@ exports.deps = [
         "val": "l"
     },
     {
+        "block": "paragraph",
+        "mod": "narrow",
+        "val": true
+    },
+    {
+        "block": "icon",
+        "mod": "arrow",
+        "val": "right"
+    },
+    {
         "block": "icon",
         "mod": "symbol",
         "val": "arrow"
     },
     {
+        "block": "socials",
+        "mod": "horizontal",
+        "val": true
+    },
+    {
         "block": "link",
         "mod": "no-animate",
         "val": true
+    },
+    {
+        "block": "icon",
+        "mod": "socials",
+        "val": "fb"
     },
     {
         "block": "nav-menu",
@@ -505,6 +559,16 @@ exports.deps = [
         "block": "title",
         "mod": "size",
         "val": "l"
+    },
+    {
+        "block": "title",
+        "mod": "blue",
+        "val": true
+    },
+    {
+        "block": "paragraph",
+        "mod": "blue",
+        "val": true
     },
     {
         "block": "page",

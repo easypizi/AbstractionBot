@@ -32,7 +32,14 @@
     {
       block: 'paragraph',
       mods: {
-        size: ['l','m', 's']
+        size: ['l','m', 's'],
+        narrow: true
+      }
+    },
+    {
+      block: 'icon',
+      mods: {
+        arrow: '*'
       }
     }
   ]

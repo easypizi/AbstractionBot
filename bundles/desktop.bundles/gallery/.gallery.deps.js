@@ -26,6 +26,9 @@ exports.deps = [
         "elem": "config"
     },
     {
+        "block": "ua"
+    },
+    {
         "block": "objects"
     },
     {
@@ -81,9 +84,6 @@ exports.deps = [
         "block": "i-bem-dom",
         "elem": "init",
         "mod": "auto"
-    },
-    {
-        "block": "ua"
     },
     {
         "block": "page",
@@ -376,10 +376,6 @@ exports.deps = [
         "mod": "blue"
     },
     {
-        "block": "ua",
-        "elem": "dom"
-    },
-    {
         "block": "page",
         "mod": "theme"
     },
@@ -396,6 +392,9 @@ exports.deps = [
         "block": "page",
         "mod": "width",
         "val": "small"
+    },
+    {
+        "block": "page-gallery"
     },
     {
         "block": "root"

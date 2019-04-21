@@ -1,8 +1,21 @@
 block(socials) {
-	display: flex;
-	&.mod(horizontal) {
-		justify-content: space-between;
-		width: 100%;
-		max-width: 120px;
-	}
+  display: flex;
+  &.mod(horizontal) {
+    justify-content: space-between;
+    width: 100%;
+    max-width: 250px;
+    height: 40px;
+
+    block(link) {
+      width: 50px;
+      opacity: 0.8;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+  }
 }

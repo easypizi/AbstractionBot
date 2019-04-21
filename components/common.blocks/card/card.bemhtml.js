@@ -1,0 +1,1 @@
+block("card").js()(true);

@@ -1,0 +1,7 @@
+block(icon) {
+  &.mod(arrow right) {
+    background-image: url("/assets/images/arrow_right.svg");
+    max-width: 15px;
+    max-height: 15px;
+  }
+}
