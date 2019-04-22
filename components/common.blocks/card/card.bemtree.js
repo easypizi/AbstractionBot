@@ -15,7 +15,7 @@ block("card").content()((node, ctx) => {
         {
           block: "lazyImage",
           mix: [{ block: "lazyImage", mods: { hidden: true } }, { block: "card", elem: "photo" }],
-          imgSrc: artist.photo ? "/assets/images/photos/" + artist.photo : "default.png"
+          imgSrc: artist.photo ? "/assets/images/photos/" + artist.photo : "/assets/images/photos/default.png"
         },
         {
           elem: "link",
@@ -49,7 +49,7 @@ block("card")
         {
           block: "lazyImage",
           mix: [{ block: "lazyImage", mods: { hidden: true } }, { block: "card", elem: "photo" }],
-          imgSrc: ctx.photo ? "/assets/images/photos/" + ctx.photo : "default.png"
+          imgSrc: ctx.photo ? "/assets/images/photos/" + ctx.photo : "/assets/images/photos/default.png"
         }
       ]
     }

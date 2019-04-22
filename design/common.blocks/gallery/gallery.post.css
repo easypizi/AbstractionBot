@@ -42,6 +42,8 @@ block(gallery) {
   }
 
   &.mod(photo) {
+    width: 100%;
+
     elem(controls) {
       width: calc(100% + 30px);
       left: -15px;

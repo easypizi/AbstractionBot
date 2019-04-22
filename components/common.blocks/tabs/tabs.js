@@ -1,8 +1,4 @@
-modules.define("tabs", ["i-bem-dom", "radio-group"], function(
-  provide,
-  bemDom,
-  RadioGroup
-) {
+modules.define("tabs", ["i-bem-dom", "radio-group"], function(provide, bemDom, RadioGroup) {
   const Tabs = bemDom.declBlock(
     this.name,
     {
@@ -11,9 +7,7 @@ modules.define("tabs", ["i-bem-dom", "radio-group"], function(
           inited() {
             const params = this.params;
 
-            this._radioGroup = this.findChildElem("tabs-group").findChildBlock(
-              RadioGroup
-            );
+            this._radioGroup = this.findChildElem("tabs-group").findChildBlock(RadioGroup);
             this._prevQuery = "";
             this._panes = this.findChildElems("pane");
             this._urls = params.urls;
@@ -52,13 +46,10 @@ modules.define("tabs", ["i-bem-dom", "radio-group"], function(
       }
     },
     {
-      lazyInit: true,
+      lazyInit: false,
 
       onInit() {
-        this._events(RadioGroup).on(
-          "change",
-          this.prototype._onRadioGroupChange
-        );
+        this._events(RadioGroup).on("change", this.prototype._onRadioGroupChange);
       }
     }
   );
