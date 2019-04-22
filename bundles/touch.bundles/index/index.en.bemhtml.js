@@ -2659,76 +2659,10 @@ block('icon')(
 block("icon").js()(true);
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/icon/icon.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
-block('header').js()(true)
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
-block("nav-menu").content()(() => {
-  return [
-    {
-      elem: "content",
-      content: [
-        {
-          block: "link",
-          mix: {
-            block: "font",
-            mods: {
-              family: "bold"
-            }
-          },
-          url: "/a",
-          content: "лайн-ап"
-        },
-        {
-          block: "link",
-          mix: {
-            block: "font",
-            mods: {
-              family: "bold"
-            }
-          },
-          url: "/a",
-          content: "место"
-        },
-        {
-          block: "link",
-          mix: {
-            block: "font",
-            mods: {
-              family: "bold"
-            }
-          },
-          url: "/a",
-          content: "арт"
-        },
-        {
-          block: "link",
-          mix: {
-            block: "font",
-            mods: {
-              family: "bold"
-            }
-          },
-          url: "/a",
-          content: "партнерам"
-        },
-        {
-          block: "link",
-          mix: {
-            block: "font",
-            mods: {
-              family: "bold"
-            }
-          },
-          url: "/a",
-          content: "принять участие"
-        }
-      ]
-    }
-  ];
-});
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/card/card.bemhtml.js */
+block("card").js()(true);
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/card/card.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/link/link.bemhtml.js */
 block('link')(
     def()(function() {
@@ -2776,36 +2710,10 @@ block('link')(
 );
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/link/link.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
-block('burger').js()(true)
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemhtml.js */
+block("page-gallery").js()(true);
 
-block('burger').content()(function() {
-    return[
-    {
-      elem: 'content',
-      content: [
-      {
-        elem: 'line',
-        tag: 'span'
-      },
-      {
-        elem: 'line',
-        tag: 'span'
-      },
-      {
-        elem: 'line',
-        tag: 'span'
-      }
-      ]
-    }
-    ]
-});
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
-block("footer").js()(true);
-
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/socials/socials.bemhtml.js */
 block("socials").content()(function() {
   let socials = [
@@ -2848,6 +2756,98 @@ block("socials").content()(function() {
 });
 
 /* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/socials/socials.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
+block('header').js()(true)
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
+block("nav-menu").content()(() => {
+  return [
+    {
+      elem: "content",
+      content: [
+        {
+          block: "link",
+          mix: {
+            block: "font",
+            mods: {
+              family: "bold"
+            }
+          },
+          url: "/lineup",
+          content: "лайн-ап"
+        },
+        {
+          block: "link",
+          mods: {
+            click: true
+          },
+          mix: {
+            block: "font",
+            mods: {
+              family: "bold"
+            }
+          },
+          url: "",
+          content: "место"
+        },
+        {
+          block: "link",
+          mix: {
+            block: "font",
+            mods: {
+              family: "bold"
+            }
+          },
+          url: "https://docs.google.com/forms/d/173ZqPW_pSS8ImydVO6ZhlWa2RBYB5SuCCRLL2SKMYoE/viewform?edit_requested=true",
+          content: "арт"
+        },
+        {
+          block: "link",
+          mix: {
+            block: "font",
+            mods: {
+              family: "bold"
+            }
+          },
+          url: "mailto:abstractionfest@gmail.com",
+          content: "партнерам"
+        },
+        // {
+        //   block: "link",
+        //   mix: {
+        //     block: "font",
+        //     mods: {
+        //       family: "bold"
+        //     }
+        //   },
+        //   url: "https://docs.google.com/forms/d/1Rj1rRmOI9t11Dymg_Zbkbbm5Fu61QhgrXa9pGBVJogs/viewform?edit_requested=true",
+        //   content: "волонтерам"
+        // },
+        {
+          block: "link",
+          mix: {
+            block: "font",
+            mods: {
+              family: "bold"
+            }
+          },
+          url: "https://docs.google.com/forms/d/1HcdGDQabhPeqIaTUC5niaydRr-FmytwoPzHLTAtdQFM/viewform?edit_requested=true",
+          content: "принять участие"
+        }
+      ]
+    }
+  ];
+});
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
+block("burger").js()(true);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
+block("footer").js()(true);
+
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
 /* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_check.bemhtml.js */
 block('button').mod('togglable', 'check').addAttrs()(function() {
     return this.extend({ 'aria-pressed' : String(!!this.mods.checked) },

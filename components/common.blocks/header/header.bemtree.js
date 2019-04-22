@@ -1,20 +1,17 @@
 block("header").content()(() => {
   return [
     {
-      elem: "wrapper",
-      mods: {
-        visible: false
-      },
-      content: [
-        {
-          block: "burger"
-        }
-      ]
-    },
-    {
       block: "nav-menu",
       mods: {
-        mobile: false
+        mobile: false,
+        hide: true
+      }
+    },
+    {
+      block: "burger",
+      mix: {
+        block: "header",
+        elem: "burger"
       }
     }
   ];

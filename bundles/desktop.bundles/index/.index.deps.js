@@ -287,14 +287,22 @@ exports.deps = [
         "mod": "arrow"
     },
     {
-        "block": "header"
+        "block": "gallery"
+    },
+    {
+        "block": "tns-module"
     },
     {
         "block": "icon",
         "mod": "symbol"
     },
     {
-        "block": "nav-menu"
+        "block": "card"
+    },
+    {
+        "block": "icon",
+        "mod": "symbol",
+        "val": "link"
     },
     {
         "block": "link"
@@ -304,13 +312,11 @@ exports.deps = [
         "mod": "disabled"
     },
     {
-        "block": "burger"
+        "block": "gallery",
+        "mod": "photo"
     },
     {
-        "block": "body"
-    },
-    {
-        "block": "footer"
+        "block": "page-gallery"
     },
     {
         "block": "socials"
@@ -335,11 +341,31 @@ exports.deps = [
     },
     {
         "block": "socials",
-        "mod": "horizontal"
+        "mod": "vertical"
     },
     {
-        "block": "nav-menu",
-        "mod": "mobile"
+        "block": "header"
+    },
+    {
+        "block": "icon",
+        "mod": "symbol",
+        "val": "arrow"
+    },
+    {
+        "block": "nav-menu"
+    },
+    {
+        "block": "burger"
+    },
+    {
+        "block": "body"
+    },
+    {
+        "block": "footer"
+    },
+    {
+        "block": "socials",
+        "mod": "horizontal"
     },
     {
         "block": "font"
@@ -526,13 +552,18 @@ exports.deps = [
         "val": "right"
     },
     {
+        "block": "gallery",
+        "mod": "photo",
+        "val": true
+    },
+    {
         "block": "icon",
         "mod": "symbol",
-        "val": "arrow"
+        "val": "round"
     },
     {
         "block": "socials",
-        "mod": "horizontal",
+        "mod": "vertical",
         "val": true
     },
     {
@@ -546,8 +577,8 @@ exports.deps = [
         "val": "fb"
     },
     {
-        "block": "nav-menu",
-        "mod": "mobile",
+        "block": "socials",
+        "mod": "horizontal",
         "val": true
     },
     {

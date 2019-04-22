@@ -9,9 +9,6 @@
 		},
 		{
 			block: 'nav-menu',
-			mods: {
-				mobile: true
-			}
 		}
 	]
 })

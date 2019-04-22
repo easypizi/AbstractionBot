@@ -1,0 +1,5 @@
+block(icon) {
+  &.mod(symbol round) {
+    background-image: svg-load("../svg/arrow_round.svg");
+  }
+}

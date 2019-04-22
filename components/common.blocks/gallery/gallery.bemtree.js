@@ -1,11 +1,11 @@
-block("gallery").content()(() => {
+block("gallery").content()((node, ctx) => {
   return [
     {
       elem: "slides",
       content:
-        this.ctx &&
-        this.ctx.elems &&
-        this.ctx.elems.map(item => {
+        ctx &&
+        ctx.elems &&
+        ctx.elems.map(item => {
           return {
             elem: "card",
             content: item
@@ -23,7 +23,7 @@ block("gallery").content()(() => {
           icon: {
             block: "icon",
             mods: {
-              symbol: "arrow"
+              symbol: "round"
             }
           }
         },
@@ -35,7 +35,7 @@ block("gallery").content()(() => {
           icon: {
             block: "icon",
             mods: {
-              symbol: "arrow"
+              symbol: "round"
             }
           }
         }

@@ -1,3 +1,1 @@
-block('page-gallery').content()(function() {
-    return;
-});
+block("page-gallery").js()(true);

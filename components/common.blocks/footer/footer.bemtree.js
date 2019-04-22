@@ -5,9 +5,7 @@ block("footer").content()(() => {
       content: [
         {
           block: "nav-menu",
-          mods: {
-            mobile: false
-          }
+          js: true
         },
         {
           block: "socials",

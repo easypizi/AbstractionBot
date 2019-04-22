@@ -7,17 +7,36 @@ block(header) {
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-
-  @media (max-width: 600px) {
-    padding: 25px 0;
-    flex-direction: column;
-  }
+  position: relative;
 
   elem(wrapper) {
     display: none;
 
     &.mod(visible) {
       display: block;
+    }
+  }
+
+  elem(burger) {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    padding: 25px 0;
+    flex-direction: column;
+
+    elem(burger) {
+      position: absolute;
+      top: 20px;
+      right: 5%;
+    }
+  }
+
+  block(nav-menu) {
+    @media (max-width: 768px) {
+      &.mod(hide) {
+        display: none;
+      }
     }
   }
 }

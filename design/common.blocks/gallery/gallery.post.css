@@ -1,39 +1,70 @@
 block(gallery) {
-	position: relative;
-	visibility: hidden;
+  position: relative;
+  visibility: hidden;
+  margin-top: 70px;
 
-	&.mod(show) {
-		visibility: visible;
-	}
+  &.mod(show) {
+    visibility: visible;
+  }
 
-	elem(galleryBlock) {
-		@media(max-width: 600px) {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-	}
+  elem(galleryBlock) {
+    @media (max-width: 600px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 
-	elem(controls) {
-		position: absolute;
-		display: flex;
-		justify-content: space-between;
-		top: 40%;
-		height: 30px;
-		width: calc(100% + 90px);
-		left: -45px;
-		outline: none!important;
+  elem(controls) {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 45%;
+    height: 40px;
+    width: calc(100% + 90px);
+    left: -45px;
+    outline: none !important;
+    z-index: 20;
 
-		@media(max-width: 600px) {
-			width: 30%;
-			left: 120px;
-			top: unset;
-			bottom: -15%;
-		}
-	}
+    block(button) {
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      box-shadow: none;
+      padding: 0;
+      border: 0;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &.mod(photo) {
+    elem(controls) {
+      width: calc(100% + 30px);
+      left: -15px;
+    }
+  }
 }
 
 .tns-outer {
-	padding: 0 1.5px!important;
-	box-sizing: border-box;
+  padding: 0 1.5px !important;
+  box-sizing: border-box;
+  padding-left: 50px !important;
+}
+
+.tns-outer button:first-child {
+  display: none;
+}
+
+.tns-inner {
+  width: 99%;
+}
+
+@media (max-width: 600px) {
+  .tns-outer {
+    padding: 0 1.5px !important;
+  }
 }

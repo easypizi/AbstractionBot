@@ -1,5 +1,6 @@
 ({
-	shouldDeps: [{
+	shouldDeps: [
+		{
 			block: 'tns-module'
 		},
 		{
@@ -11,8 +12,11 @@
 		{
 			block: 'icon',
 			mods: {
-				symbol: 'arrow'
+				symbol: 'round'
 			}
+		},
+		{
+			block: 'card'
 		}
 	]
 })

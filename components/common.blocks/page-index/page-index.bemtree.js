@@ -1,4 +1,109 @@
 block("page-index").content()(() => {
+  let lineup = {
+    techno: [
+      {
+        title: "First Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "First Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "First Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "First Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "First Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "First Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      }
+    ],
+    trance: [
+      {
+        title: "Trance Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "Trance Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "Trance Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "Trance Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "Trance Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      },
+      {
+        title: "Trance Musician",
+        description: "lalalala",
+        photo: "default.png",
+        link: "/"
+      }
+    ]
+  };
+
+  let technoArray = lineup.techno.map(item => {
+    return {
+      block: "card",
+      artist: item
+    };
+  });
+
+  let tranceArray = lineup.trance.map(item => {
+    return {
+      block: "card",
+      artist: item
+    };
+  });
+
+  let photoArchive = [1, 2, 3, 4, 5, 6];
+
+  let photoArray = photoArchive.map(() => {
+    return {
+      block: "card",
+      mods: {
+        image: true
+      },
+      photo: "default.png"
+    };
+  });
+
   return [
     {
       elem: "content",
@@ -74,7 +179,7 @@ block("page-index").content()(() => {
                   mods: {
                     type: "link"
                   },
-                  url: "/buy",
+                  url: "http://rupor.biz/widgets/event-tickets/361",
                   text: "Купить билет"
                 },
                 {
@@ -197,12 +302,28 @@ block("page-index").content()(() => {
                   {
                     elem: "pane",
                     elemMods: { active: true },
-                    content: ["транс"]
+                    content: [
+                      {
+                        block: "gallery",
+                        js: {
+                          slides: 4
+                        },
+                        elems: tranceArray
+                      }
+                    ]
                   },
                   {
                     elem: "pane",
                     elemMods: { active: false },
-                    content: ["техно"]
+                    content: [
+                      {
+                        block: "gallery",
+                        js: {
+                          slides: 4
+                        },
+                        elems: technoArray
+                      }
+                    ]
                   }
                 ]
               },
@@ -246,7 +367,16 @@ block("page-index").content()(() => {
                   view: "topStar"
                 }
               },
-              "Gallery with photo"
+              {
+                block: "gallery",
+                mods: {
+                  photo: true
+                },
+                js: {
+                  slides: 4
+                },
+                elems: photoArray
+              }
             ]
           }
         },
@@ -407,7 +537,7 @@ block("page-index").content()(() => {
                 mods: {
                   type: "link"
                 },
-                url: "/rent",
+                url: "http://rupor.biz/widgets/event-tickets/393",
                 text: "Арендовать домик"
               },
               {
@@ -469,7 +599,7 @@ block("page-index").content()(() => {
                 mods: {
                   type: "link"
                 },
-                url: "/buy",
+                url: "http://rupor.biz/widgets/event-tickets/361",
                 text: "Купить билет"
               }
             ]

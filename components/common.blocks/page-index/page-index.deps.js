@@ -41,6 +41,15 @@
       mods: {
         arrow: '*'
       }
+    },
+    {
+      block: 'gallery',
+      mods: {
+        photo: true
+      }
+    },
+    {
+      block: 'card'
     }
   ]
 });

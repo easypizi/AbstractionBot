@@ -10,7 +10,10 @@ block("page").content()(function() {
       block: "footer"
     },
     {
-      block: "card"
+      block: "socials",
+      mods: {
+        vertical: true
+      }
     }
   ];
 });

@@ -1,10 +1,19 @@
 ({  
   mustDeps: [
-    'i18n'
+    'i18n',
   ],
   shouldDeps: [
     {
       block: 'page-index'
+    },
+        {
+      block: 'page-gallery'
+    },
+    {
+      block: 'socials',
+      mods: {
+        vertical: true
+      }
     },
     {
       block: 'page',
@@ -34,7 +43,7 @@
         size: ['l','m','s'],
         blue: true
       }
-    }
+    }, 
   ]
 })
 

@@ -1,7 +1,14 @@
 block(burger) {
-  width: 30px;
-  height: 30px;
-  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: #1a2835;
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .burger__content {
@@ -17,7 +24,6 @@ block(burger) {
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 .burger span {
@@ -25,7 +31,7 @@ block(burger) {
   position: absolute;
   height: 2px;
   width: 100%;
-  background: #363839;
+  background: #fff;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
@@ -67,7 +73,8 @@ block(burger) {
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
-  top: -3px;
+  top: -2px;
+  left: 4px;
 }
 
 .burger_open span:nth-child(2) {
@@ -80,5 +87,6 @@ block(burger) {
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  top: 14px;
+  top: 15px;
+  left: 4px;
 }

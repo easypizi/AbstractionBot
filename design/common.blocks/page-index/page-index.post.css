@@ -87,7 +87,7 @@ block(page-index) {
     }
 
     elem(second) {
-      margin-top: 160px;
+      margin-top: 120px;
       position: relative;
 
       block(title) {
@@ -102,6 +102,10 @@ block(page-index) {
     }
 
     elem(third) {
+      elem(contentWrapper) {
+        overflow-x: visible;
+      }
+
       block(title) {
         margin-bottom: 40px;
       }
@@ -165,26 +169,29 @@ block(page-index) {
     }
 
     elem(forth) {
-      height: 500px;
+      height: 100%;
+      min-height: 600px;
 
       elem(contentWrapper) {
-        text-align: center;
         display: flex;
-        flex-direction: column;
         width: 100%;
         height: 100%;
         justify-content: center;
         align-items: center;
+        height: 600px;
+      }
+
+      block(gallery) {
+        max-width: 1160px;
       }
 
       block(graphics) {
         top: 0;
+        height: 100%;
       }
     }
 
     elem(fifth) {
-      margin-top: 180px;
-
       block(title) {
         margin-bottom: 40px;
       }

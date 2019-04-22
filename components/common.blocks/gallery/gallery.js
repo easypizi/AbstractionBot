@@ -13,24 +13,34 @@ modules.define(
               let container = this.findChildElem("slides").domElem[0];
               let controls = this.findChildElem("controls").domElem[0];
 
-              let slidesCount = window.innerWidth < 600 ? 1 : this.params.slides;
+              let slidesCount = this.params.slides;
+
+              if (window.innerWidth < 600) {
+                slidesCount = 1;
+              } else if (window.innerWidth < 769) {
+                slidesCount = 3;
+              } else if (window.innerWidth < 1025) {
+                slidesCount = 3;
+              }
+
               setTimeout(() => {
                 this.setMod("show");
               }, 100);
 
-              var slider = tns({
+              tns({
                 container: container,
                 controlsContainer: controls,
                 items: slidesCount,
                 slideBy: 1,
                 nav: false,
                 loop: true,
-                gutter: 30,
+                gutter: 0,
                 edgePadding: 0,
                 mouseDrag: true,
                 touch: true,
                 controlsText: ["", ""],
-                rewind: true
+                rewind: true,
+                autoplay: true
               });
             }
           }
