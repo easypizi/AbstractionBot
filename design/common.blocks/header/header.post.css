@@ -18,14 +18,16 @@ block(header) {
   }
 
   elem(burger) {
-    display: none;
+    display: none !important;
   }
 
-  @media (max-width: 600px) {
-    padding: 25px 0;
-    flex-direction: column;
+  @media (max-width: 768px) {
+    padding: 0;
+    height: 60px;
+    z-index: 18;
 
     elem(burger) {
+      display: flex !important;
       position: absolute;
       top: 20px;
       right: 5%;
@@ -33,9 +35,35 @@ block(header) {
   }
 
   block(nav-menu) {
+    &.mod(hide) {
+      display: none;
+    }
+
     @media (max-width: 768px) {
-      &.mod(hide) {
-        display: none;
+      transform: translateY(-400px);
+      background-color: #1a2835;
+
+      elem(content) {
+        flex-direction: column;
+        padding: 25px 10px;
+        box-sizing: border-box;
+
+        block(link) {
+          text-align: center;
+          margin-bottom: 15px;
+          height: 50px;
+          padding: 0;
+          box-shadow: 0 1px 0 0 #3a4655;
+          line-height: 40px;
+
+          &:first-child {
+            margin-top: 230px;
+          }
+        }
+      }
+      &.mod(open) {
+        transition: transform 0.3s;
+        transform: translateY(100px);
       }
     }
   }

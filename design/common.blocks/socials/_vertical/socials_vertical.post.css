@@ -8,7 +8,7 @@ block(socials) {
     top: 30%;
     flex-direction: column;
     align-items: center;
-    z-index: 20;
+    z-index: 15;
 
     block(link) {
       width: 50px;
