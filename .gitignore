@@ -9,14 +9,13 @@ package-lock.json
 shrinkwrap.yaml
 .env
 
-.enb/tmp/
-
+# bem
 .enb/tmp/
 *bundles*/*/*.*
 !*bundles*/*/*.bemdecl.js
 *bundles*/*/*.tmpl.bemdecl.js
 !*bundles*/.bem/*
 
+
 dist/
 
-static/assets/
