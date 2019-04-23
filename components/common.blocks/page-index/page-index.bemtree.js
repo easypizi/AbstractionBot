@@ -54,15 +54,19 @@ block("page-index").content()(() => {
     };
   });
 
-  let photoArchive = [1, 2, 3, 4, 5, 6];
+  let photoArchive = [];
 
-  let photoArray = photoArchive.map(() => {
+  for (let i = 1; i < 47; i++) {
+    photoArchive.push(i);
+  }
+
+  let photoArray = photoArchive.map(item => {
     return {
       block: "card",
       mods: {
         image: true
       },
-      photo: "default.png"
+      photo: item + ".jpg"
     };
   });
 

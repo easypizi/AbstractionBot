@@ -49,7 +49,7 @@ block("card")
         {
           block: "lazyImage",
           mix: [{ block: "lazyImage", mods: { hidden: true } }, { block: "card", elem: "photo" }],
-          imgSrc: ctx.photo ? "assets/images/photos/" + ctx.photo : "assets/images/photos/default.png"
+          imgSrc: "assets/images/photos/" + ctx.photo
         }
       ]
     }
