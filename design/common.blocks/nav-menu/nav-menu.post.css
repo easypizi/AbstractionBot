@@ -7,9 +7,27 @@ block(nav-menu) {
     justify-content: space-between;
     max-width: 960px;
     margin: 0 auto;
+
+    @media (max-width: 1400px) {
+      max-width: 600px;
+    }
+  }
+
+  &.mod(open) {
+    elem(content) {
+      max-width: unset;
+    }
   }
 
   block(link) {
     font-size: 24px;
+
+    @media (max-width: 1400px) {
+      font-size: 18px;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 24px;
+    }
   }
 }

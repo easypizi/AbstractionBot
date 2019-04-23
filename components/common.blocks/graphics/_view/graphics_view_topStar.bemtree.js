@@ -6,7 +6,7 @@ block("graphics")
       {
         block: "lazyImage",
         mix: [{ block: "lazyImage", mods: { hidden: true } }],
-        imgSrc: "/assets/images/abs1.svg"
+        imgSrc: "assets/images/abs1.svg"
       }
     ]
   ];

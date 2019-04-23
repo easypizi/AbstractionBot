@@ -89,10 +89,7 @@ block("form").content()(function() {
                 block: "form",
                 elem: "main-image-preview"
               },
-              url:
-                data && data.mainImg
-                  ? data.mainImg
-                  : "/assets/images/default.jpg",
+              url: data && data.mainImg ? data.mainImg : "assets/images/default.jpg",
               width: 300,
               height: 220
             }
@@ -147,10 +144,7 @@ block("form").content()(function() {
                 block: "form",
                 elem: "share-image-preview"
               },
-              url:
-                data && data.shareImg
-                  ? data.shareImg
-                  : "/assets/images/default.jpg",
+              url: data && data.shareImg ? data.shareImg : "assets/images/default.jpg",
               width: 300,
               height: 220
             }
@@ -361,10 +355,7 @@ block("form").content()(function() {
                 block: "form",
                 elem: "upload-image-preview"
               },
-              url:
-                data && data.shareImg
-                  ? data.shareImg
-                  : "/assets/images/default.jpg",
+              url: data && data.shareImg ? data.shareImg : "assets/images/default.jpg",
               width: 640,
               height: 480
             }

@@ -21,7 +21,7 @@ block(header) {
     display: none !important;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 0;
     height: 60px;
     z-index: 18;
@@ -39,7 +39,7 @@ block(header) {
       display: none;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       transform: translateY(-400px);
       background-color: #1a2835;
 

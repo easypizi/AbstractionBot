@@ -9,31 +9,31 @@ block("root").replace()(function() {
   return {
     block: "page",
     title: data.title || "Abstraction Fest 2019",
-    favicon: "/favicon.ico",
+    favicon: "favicon.ico",
     lang: lang,
     styles: [
       {
         elem: "css",
-        url: "/assets/css/" + bundle + "/" + bundle + ".min.css"
+        url: "assets/css/" + bundle + "/" + bundle + ".min.css"
       }
     ],
     scripts: [
       {
         elem: "js",
-        url: "/assets/js/" + bundle + "/" + bundle + "." + lang + ".min.js",
+        url: "assets/js/" + bundle + "/" + bundle + "." + lang + ".min.js",
         attrs: { async: true }
       },
       {
         elem: "js",
-        url: "//code.jquery.com/jquery-1.11.0.min.js"
+        url: "https://code.jquery.com/jquery-1.11.0.min.js"
       },
       {
         elem: "js",
-        url: "//code.jquery.com/jquery-migrate-1.2.1.min.js"
+        url: "https://code.jquery.com/jquery-migrate-1.2.1.min.js"
       },
       {
         elem: "js",
-        url: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        url: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       },
       {
         elem: "js",
@@ -41,11 +41,11 @@ block("root").replace()(function() {
       },
       {
         elem: "js",
-        url: "/vendor/tinyslider_helper.js"
+        url: "vendor/tinyslider_helper.js"
       },
       {
         elem: "js",
-        url: "/vendor/tinyslider.js"
+        url: "vendor/tinyslider.js"
       }
     ],
     head: [
@@ -121,12 +121,12 @@ block("root").replace()(function() {
       },
       //  <!— End Facebook Pixel Code —>
       {
-        html: '<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />'
+        html: '<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />'
       },
       {
-        html: '<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>'
+        html: '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>'
       },
-      { html: '<link href="//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.7.4/tiny-slider.css" rel="stylesheet">' },
+      { html: '<link href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.7.4/tiny-slider.css" rel="stylesheet">' },
       { elem: "meta", attrs: { name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" } },
       { elem: "meta", attrs: { "http-equip": "Content-Security-Policy", content: "upgrade-insecure-requests" } },
       { elem: "meta", attrs: { name: "description", content: "Abstraction festival | Красное озеро | Транс | Техно" } },
@@ -154,14 +154,14 @@ block("root").replace()(function() {
 
       // G+ share methods
       { elem: "meta", attrs: { itemprop: "name", content: "Abstraction festival" } },
-      { elem: "meta", attrs: { itemprop: "image", content: "https://artscp.com/artscp-tw.png" } },
+      { elem: "meta", attrs: { itemprop: "image", content: "http://abstractionfest.ru/share_image.png" } },
       { elem: "meta", attrs: { itemprop: "description", content: "Abstraction festival | Красное озеро | Транс | Техно" } },
 
       { elem: "meta", attrs: { name: "apple-mobile-web-app-capable", content: "yes" } },
       { html: '<link rel="canonical" href=http://abstractionfest.ru>' },
       { html: '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">' },
-      { html: '<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">' },
-      { html: '<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">' },
+      { html: '<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">' },
+      { html: '<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">' },
       { html: '<meta name="msapplication-TileColor" content="#ff0000">' },
       { html: '<meta name="theme-color" content="#ffffff">' }
     ],

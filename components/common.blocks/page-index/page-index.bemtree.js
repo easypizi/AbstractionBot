@@ -121,7 +121,7 @@ block("page-index").content()(() => {
                     {
                       block: "lazyImage",
                       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-                      imgSrc: "/assets/images/Date.png"
+                      imgSrc: "assets/images/Date.png"
                     }
                   ]
                 },
@@ -131,7 +131,7 @@ block("page-index").content()(() => {
                     {
                       block: "lazyImage",
                       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-                      imgSrc: "/assets/images/Logo.png"
+                      imgSrc: "assets/images/Logo.png"
                     }
                   ]
                 },
@@ -374,13 +374,13 @@ block("page-index").content()(() => {
                 },
                 content: "Как добраться"
               },
-              {
-                block: "title",
-                mods: {
-                  size: "s"
-                },
-                content: "Фестивальным трансфером"
-              },
+              // {
+              //   block: "title",
+              //   mods: {
+              //     size: "s"
+              //   },
+              //   content: "Фестивальным трансфером"
+              // },
               {
                 block: "title",
                 mods: {
@@ -450,7 +450,7 @@ block("page-index").content()(() => {
           elem: "sixth",
           content: {
             html:
-              '<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A85a6825746cf088954a942bed768433f64ad7a55de4898b553ab4d69823aac27&width=100%25&height=550&lang=ru_RU&scroll=true"></script>'
+              '<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A85a6825746cf088954a942bed768433f64ad7a55de4898b553ab4d69823aac27&width=100%25&height=100%&lang=ru_RU&scroll=true"></script>'
           }
         },
         {

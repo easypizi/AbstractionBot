@@ -48,15 +48,15 @@ block(page) {
   }
 
   .mod(width small) {
-    max-width: 500px;
-    padding: 40px 0px;
+    max-width: 540px;
+    padding: 40px 20px;
     margin: 0 auto;
     box-sizing: border-box;
   }
 
   .mod(width narrow) {
     max-width: 1200px;
-    padding: 40px 20px;
+    padding: 0 20px;
     margin: 0 auto;
     box-sizing: border-box;
   }

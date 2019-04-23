@@ -2155,7 +2155,7 @@ block("page-index").content()(() => {
                     {
                       block: "lazyImage",
                       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-                      imgSrc: "/assets/images/Date.png"
+                      imgSrc: "assets/images/Date.png"
                     }
                   ]
                 },
@@ -2165,7 +2165,7 @@ block("page-index").content()(() => {
                     {
                       block: "lazyImage",
                       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-                      imgSrc: "/assets/images/Logo.png"
+                      imgSrc: "assets/images/Logo.png"
                     }
                   ]
                 },
@@ -2408,13 +2408,13 @@ block("page-index").content()(() => {
                 },
                 content: "Как добраться"
               },
-              {
-                block: "title",
-                mods: {
-                  size: "s"
-                },
-                content: "Фестивальным трансфером"
-              },
+              // {
+              //   block: "title",
+              //   mods: {
+              //     size: "s"
+              //   },
+              //   content: "Фестивальным трансфером"
+              // },
               {
                 block: "title",
                 mods: {
@@ -2484,7 +2484,7 @@ block("page-index").content()(() => {
           elem: "sixth",
           content: {
             html:
-              '<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A85a6825746cf088954a942bed768433f64ad7a55de4898b553ab4d69823aac27&width=100%25&height=550&lang=ru_RU&scroll=true"></script>'
+              '<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A85a6825746cf088954a942bed768433f64ad7a55de4898b553ab4d69823aac27&width=100%25&height=100%&lang=ru_RU&scroll=true"></script>'
           }
         },
         {
@@ -2636,7 +2636,7 @@ block("graphics")
     {
       block: "lazyImage",
       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-      imgSrc: "/assets/images/topR.png"
+      imgSrc: "assets/images/topR.png"
     }
   ];
 });
@@ -2651,7 +2651,7 @@ block("graphics")
       {
         block: "lazyImage",
         mix: [{ block: "lazyImage", mods: { hidden: true } }],
-        imgSrc: "/assets/images/abs1.svg"
+        imgSrc: "assets/images/abs1.svg"
       }
     ]
   ];
@@ -2667,7 +2667,7 @@ block("graphics")
       {
         block: "lazyImage",
         mix: [{ block: "lazyImage", mods: { hidden: true } }],
-        imgSrc: "/assets/images/abs2.svg"
+        imgSrc: "assets/images/abs2.svg"
       }
     ]
   ];
@@ -2682,7 +2682,7 @@ block("graphics")
     {
       block: "lazyImage",
       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-      imgSrc: "/assets/images/abs3.svg"
+      imgSrc: "assets/images/abs3.svg"
     }
   ];
 });
@@ -2696,7 +2696,7 @@ block("graphics")
     {
       block: "lazyImage",
       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-      imgSrc: "/assets/images/BotC.png"
+      imgSrc: "assets/images/BotC.png"
     }
   ];
 });
@@ -2768,7 +2768,7 @@ block("card").content()((node, ctx) => {
         {
           block: "lazyImage",
           mix: [{ block: "lazyImage", mods: { hidden: true } }, { block: "card", elem: "photo" }],
-          imgSrc: artist.photo ? "/assets/images/photos/" + artist.photo : "/assets/images/photos/default.png"
+          imgSrc: artist.photo ? "assets/images/photos/" + artist.photo : "assets/images/photos/default.png"
         },
         {
           elem: "link",
@@ -2802,7 +2802,7 @@ block("card")
         {
           block: "lazyImage",
           mix: [{ block: "lazyImage", mods: { hidden: true } }, { block: "card", elem: "photo" }],
-          imgSrc: ctx.photo ? "/assets/images/photos/" + ctx.photo : "/assets/images/photos/default.png"
+          imgSrc: ctx.photo ? "assets/images/photos/" + ctx.photo : "assets/images/photos/default.png"
         }
       ]
     }
@@ -3035,31 +3035,31 @@ block("root").replace()(function() {
   return {
     block: "page",
     title: data.title || "Abstraction Fest 2019",
-    favicon: "/favicon.ico",
+    favicon: "favicon.ico",
     lang: lang,
     styles: [
       {
         elem: "css",
-        url: "/assets/css/" + bundle + "/" + bundle + ".min.css"
+        url: "assets/css/" + bundle + "/" + bundle + ".min.css"
       }
     ],
     scripts: [
       {
         elem: "js",
-        url: "/assets/js/" + bundle + "/" + bundle + "." + lang + ".min.js",
+        url: "assets/js/" + bundle + "/" + bundle + "." + lang + ".min.js",
         attrs: { async: true }
       },
       {
         elem: "js",
-        url: "//code.jquery.com/jquery-1.11.0.min.js"
+        url: "https://code.jquery.com/jquery-1.11.0.min.js"
       },
       {
         elem: "js",
-        url: "//code.jquery.com/jquery-migrate-1.2.1.min.js"
+        url: "https://code.jquery.com/jquery-migrate-1.2.1.min.js"
       },
       {
         elem: "js",
-        url: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+        url: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
       },
       {
         elem: "js",
@@ -3067,11 +3067,11 @@ block("root").replace()(function() {
       },
       {
         elem: "js",
-        url: "/vendor/tinyslider_helper.js"
+        url: "vendor/tinyslider_helper.js"
       },
       {
         elem: "js",
-        url: "/vendor/tinyslider.js"
+        url: "vendor/tinyslider.js"
       }
     ],
     head: [
@@ -3147,12 +3147,12 @@ block("root").replace()(function() {
       },
       //  <!— End Facebook Pixel Code —>
       {
-        html: '<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />'
+        html: '<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />'
       },
       {
-        html: '<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>'
+        html: '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>'
       },
-      { html: '<link href="//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.7.4/tiny-slider.css" rel="stylesheet">' },
+      { html: '<link href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.7.4/tiny-slider.css" rel="stylesheet">' },
       { elem: "meta", attrs: { name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" } },
       { elem: "meta", attrs: { "http-equip": "Content-Security-Policy", content: "upgrade-insecure-requests" } },
       { elem: "meta", attrs: { name: "description", content: "Abstraction festival | Красное озеро | Транс | Техно" } },
@@ -3180,14 +3180,14 @@ block("root").replace()(function() {
 
       // G+ share methods
       { elem: "meta", attrs: { itemprop: "name", content: "Abstraction festival" } },
-      { elem: "meta", attrs: { itemprop: "image", content: "https://artscp.com/artscp-tw.png" } },
+      { elem: "meta", attrs: { itemprop: "image", content: "http://abstractionfest.ru/share_image.png" } },
       { elem: "meta", attrs: { itemprop: "description", content: "Abstraction festival | Красное озеро | Транс | Техно" } },
 
       { elem: "meta", attrs: { name: "apple-mobile-web-app-capable", content: "yes" } },
       { html: '<link rel="canonical" href=http://abstractionfest.ru>' },
       { html: '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">' },
-      { html: '<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">' },
-      { html: '<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">' },
+      { html: '<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">' },
+      { html: '<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">' },
       { html: '<meta name="msapplication-TileColor" content="#ff0000">' },
       { html: '<meta name="theme-color" content="#ffffff">' }
     ],
@@ -3207,7 +3207,7 @@ block("graphics")
     {
       block: "lazyImage",
       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-      imgSrc: "/assets/images/topL.png"
+      imgSrc: "assets/images/topL.png"
     }
   ];
 });

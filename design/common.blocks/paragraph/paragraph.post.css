@@ -12,6 +12,11 @@ block(paragraph) {
     font-size: 25px;
     line-height: 43px;
     max-width: 780px;
+
+    @media (max-width: 600px) {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 
   &.mod(size m) {

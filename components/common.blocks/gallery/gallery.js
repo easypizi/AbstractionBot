@@ -18,8 +18,8 @@ modules.define(
               if (window.innerWidth < 600) {
                 slidesCount = 1;
               } else if (window.innerWidth < 769) {
-                slidesCount = 3;
-              } else if (window.innerWidth < 1025) {
+                slidesCount = 2;
+              } else if (window.innerWidth < 1220) {
                 slidesCount = 3;
               }
 
@@ -39,8 +39,8 @@ modules.define(
                 mouseDrag: true,
                 touch: true,
                 controlsText: ["", ""],
-                rewind: true,
-                autoplay: true
+                rewind: true
+                // autoplay: true
               });
             }
           }

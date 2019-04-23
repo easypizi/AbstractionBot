@@ -5,7 +5,7 @@ block("graphics")
     {
       block: "lazyImage",
       mix: [{ block: "lazyImage", mods: { hidden: true } }],
-      imgSrc: "/assets/images/BotC.png"
+      imgSrc: "assets/images/BotC.png"
     }
   ];
 });

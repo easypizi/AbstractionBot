@@ -7,6 +7,10 @@ block(card) {
   border: 1px solid #000000;
   border-radius: 10px;
 
+  @media (max-width: 1180px) {
+    width: 90%;
+  }
+
   @media (max-width: 600px) {
     width: 100%;
   }
@@ -67,6 +71,11 @@ block(card) {
     border-radius: 0;
     background: transparent;
     border: 0;
+
+    @media (max-width: 1180px) {
+      width: 90%;
+      height: 400px;
+    }
 
     @media (max-width: 600px) {
       width: 100%;

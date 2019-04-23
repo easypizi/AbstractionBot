@@ -8,7 +8,7 @@ block(page-gallery) {
 
   elem(backButton) {
     position: absolute;
-    top: 30px;
+    top: 40px;
     left: 5%;
     display: flex;
     align-items: center;
@@ -28,8 +28,7 @@ block(page-gallery) {
       background-size: 50% 50%;
     }
 
-    @media (max-width: 768px) {
-      top: 20px;
+    @media (max-width: 1200px) {
       width: 40px;
 
       block(link) {
@@ -37,6 +36,11 @@ block(page-gallery) {
           display: none;
         }
       }
+    }
+
+    @media (max-width: 600px) {
+      top: 20px;
+      width: 40px;
     }
   }
 
@@ -69,9 +73,18 @@ block(page-gallery) {
       &.mod(active) {
         display: flex;
         flex-wrap: wrap;
+
+        block(card) {
+          max-width: 250px;
+
+          @media (max-width: 600px) {
+            max-width: 100%;
+          }
+        }
       }
+
       block(card) {
-        margin: 20px auto 0;
+        margin: 0 auto 40px;
       }
     }
   }
