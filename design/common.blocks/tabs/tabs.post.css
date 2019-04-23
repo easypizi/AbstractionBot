@@ -54,13 +54,14 @@ block(tabs) {
       transition: all 0.3s;
       outline: none;
       -webkit-appearance: none;
+      border: 0;
 
       &.mod(pressed) {
         background-color: #2519a9;
       }
 
       &.mod(hovered) {
-        background-color: #4337c7;
+        background-color: #162027;
         elem(text) {
           color: #ffffff;
         }
@@ -73,10 +74,6 @@ block(tabs) {
         margin: 0;
         display: block;
         width: 100%;
-
-        @media (max-width: 600px) {
-          /* font-size: 14px; */
-        }
       }
     }
   }

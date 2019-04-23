@@ -3,11 +3,12 @@ block(footer) {
     display: flex;
     padding: 80px 100px;
     background-color: rgba(0, 0, 0, 0.7);
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     block(nav-menu) {
-      max-width: 60%;
+      max-width: 50%;
+      margin-right: 30px;
 
       elem(content) {
         max-width: 600px;
