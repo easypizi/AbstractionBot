@@ -1,5 +1,5 @@
 {
-  "author": "Corpse",
+  "author": "Dead Trooper",
   "version": "1.0.0",
   "engines": {
     "node": "10"
@@ -24,7 +24,6 @@
     "moment": "^2.21.0",
     "pm2": "^2.10.3",
     "qs": "^6.5.2",
-    "slimbot": "^0.8.6",
     "smoothscroll-polyfill": "^0.4.4",
     "tiny-slider": "^2.7.4",
     "vow": "^0.4.17",

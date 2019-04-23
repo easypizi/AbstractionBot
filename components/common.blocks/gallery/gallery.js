@@ -39,8 +39,8 @@ modules.define(
                 mouseDrag: true,
                 touch: true,
                 controlsText: ["", ""],
-                rewind: true
-                // autoplay: true
+                rewind: true,
+                autoplay: true
               });
             }
           }
