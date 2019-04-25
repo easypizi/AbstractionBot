@@ -1,6 +1,6 @@
 block(icon) {
   &.mod(socials vk) {
-    background-image: url("/assets/images/vk.svg");
+    background-image: svg-load("../svg/vk.svg");
     max-width: 40px;
     max-height: 40px;
   }

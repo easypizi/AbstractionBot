@@ -3,19 +3,22 @@ block("card").content()((node, ctx) => {
   return [
     {
       elem: "wrapper",
+      js: {
+        link: artist.link
+      },
       content: [
         {
           elem: "title",
-          content: artist.title ? artist.title : "artist title"
+          content: artist.title ? artist.title : "TBA"
         },
         {
           elem: "description",
-          content: artist.description ? artist.description : "artist description"
+          content: artist.description ? artist.description : ""
         },
         {
           block: "lazyImage",
           mix: [{ block: "lazyImage", mods: { hidden: true } }, { block: "card", elem: "photo" }],
-          imgSrc: artist.photo ? "assets/images/photos/" + artist.photo : "assets/images/photos/default.png"
+          imgSrc: artist.photo ? "assets/images/artist/" + artist.photo + ".png" : "assets/images/photos/default.png"
         },
         {
           elem: "link",
