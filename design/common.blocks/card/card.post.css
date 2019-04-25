@@ -26,7 +26,6 @@ block(card) {
       font-size: 16px;
       line-height: 26px;
       text-align: center;
-      margin-bottom: 12px;
     }
 
     elem(description) {
@@ -34,9 +33,7 @@ block(card) {
       font-size: 14px;
       line-height: 23px;
       text-align: center;
-
       color: #a6abae;
-
       width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;

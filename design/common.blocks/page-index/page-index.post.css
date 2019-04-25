@@ -1,5 +1,6 @@
 block(page-index) {
   elem(content) {
+    overflow-x: hidden;
     elem(first) {
       elem(contentWrapper) {
         display: flex;
@@ -77,6 +78,9 @@ block(page-index) {
 
         @media (max-width: 600px) {
           top: 200px;
+          width: 100%;
+          left: 0;
+          margin-left: 0;
         }
       }
 
@@ -118,8 +122,10 @@ block(page-index) {
         }
 
         @media (max-width: 600px) {
-          width: 70%;
+          width: 60%;
           height: 600px;
+          top: -3%;
+          right: 0;
         }
       }
 

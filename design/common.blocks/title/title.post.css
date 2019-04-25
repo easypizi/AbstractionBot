@@ -31,5 +31,6 @@ block(title) {
 
   &.mod(blue) {
     color: #389fff;
+    margin-top: 20px;
   }
 }

@@ -1,19 +1,19 @@
 block("page-gallery").content()(function() {
   let lineup = {
     techno: [
-      { title: "Alekseev ", description: "", photo: "ALEKSEEV", link: "https://soundcloud.com/ellixalien" },
-      { title: "NICK-OS ", description: "", photo: "NICK-OS", link: "https://vk.com/djnick_os" },
-      { title: "Kaya / Ten-G", description: "", photo: "Kaya", link: "https://soundcloud.com/tengi  " },
-      { title: "Alex Panchenco ", description: "", photo: "Alex", link: "https://soundcloud.com/alex-panchenco " },
-      { title: "Oscar Schultz ", description: "", photo: "Oscar", link: "https://vk.com/oscarschultz" },
-      { title: "Bagus aka Mr.B ", description: "", photo: "Bagus", link: "https://soundcloud.com/kirillbagus" },
-      { title: "Daniil Waigelman ", description: "", photo: "Waigelman", link: "https://soundcloud.com/daniilwaigelman" },
-      { title: "Taiwa ", description: "", photo: "TAIWA", link: "https://soundcloud.com/aidartaiwa " },
-      { title: "Voodoo Noise aka Otto O'Shea", description: "", photo: "Voodoo", link: "https://soundcloud.com/voodoonoise" },
-      { title: "Eye Que ", description: "", photo: "EYE", link: "https://soundcloud.com/eye_que " },
-      { title: "German Air  (hybrid live/dj set)", description: "", photo: "GermanAir", link: "https://soundcloud.com/german_air " },
-      { title: "Mixa Wawer", description: "", photo: "Waver", link: "https://soundcloud.com/technopunks " },
-      { title: "Space Modular LIVE", description: "", photo: "Space", link: "https://soundcloud.com/space-modular " }
+      { title: "Alekseev ", description: "Fantazery, LABYRINTH", photo: "ALEKSEEV", link: "https://soundcloud.com/ellixalien" },
+      { title: "NICK-OS ", description: "LABYRINTH", photo: "NICK-OS", link: "https://vk.com/djnick_os" },
+      { title: "Kaya / Ten-G", description: "LABYRINTH", photo: "Kaya", link: "https://soundcloud.com/tengi  " },
+      { title: "Alex Panchenco ", description: "Escade Music, Aura Music", photo: "Alex", link: "https://soundcloud.com/alex-panchenco " },
+      { title: "Oscar Schultz ", description: "Deep Ladoga", photo: "Oscar", link: "https://vk.com/oscarschultz" },
+      { title: "Bagus aka Mr.B ", description: "(dj set)", photo: "Bagus", link: "https://soundcloud.com/kirillbagus" },
+      { title: "Daniil Waigelman ", description: "Psycometrik Recordings (Spain)", photo: "Waigelman", link: "https://soundcloud.com/daniilwaigelman" },
+      { title: "Taiwa ", description: "(dj set)", photo: "TAIWA", link: "https://soundcloud.com/aidartaiwa " },
+      { title: "Voodoo Noise aka Otto O'Shea", description: "Mistral'", photo: "Voodoo", link: "https://soundcloud.com/voodoonoise" },
+      { title: "Eye Que ", description: "SubSpace", photo: "EYE", link: "https://soundcloud.com/eye_que " },
+      { title: "German Air  (hybrid live/dj set)", description: "Heartbeat Records, Baikonur Recordings ", photo: "GermanAir", link: "https://soundcloud.com/german_air " },
+      { title: "Mixa Wawer", description: "(dj set)", photo: "Waver", link: "https://soundcloud.com/technopunks " },
+      { title: "Space Modular LIVE", description: "Techno Vinyls Records", photo: "Space", link: "https://soundcloud.com/space-modular " }
     ],
     trance: [
       { title: "Fagin's Reject ", description: "(Wildthings Records), UK - LIVE ", link: "https://soundcloud.com/fagins_reject ", photo: "fagins" },

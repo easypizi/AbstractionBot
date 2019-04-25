@@ -129,12 +129,12 @@ block("root").replace()(function() {
       { html: '<link href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.7.4/tiny-slider.css" rel="stylesheet">' },
       { elem: "meta", attrs: { name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" } },
       { elem: "meta", attrs: { "http-equip": "Content-Security-Policy", content: "upgrade-insecure-requests" } },
-      { elem: "meta", attrs: { name: "description", content: "Abstraction festival | Красное озеро | Транс | Техно" } },
+      { elem: "meta", attrs: { name: "description", content: "Abstraction festival | Красное озеро | Транс | Техно | Фестиваль " } },
       { elem: "meta", attrs: { name: "image", content: "/share_image.png" } },
 
       // Search Engine
       { elem: "meta", attrs: { id: "SearchEngine-Title", itemprop: "name", content: "Abstraction festival" } },
-      { elem: "meta", attrs: { id: "SearchEngine-Description", itemprop: "description", content: "Abstraction festival | Красное озеро | Транс | Техно" } },
+      { elem: "meta", attrs: { id: "SearchEngine-Description", itemprop: "description", content: "Abstraction festival | Красное озеро | Транс | Техно | Фестиваль " } },
       { elem: "meta", attrs: { id: "SearchEngine-Title", itemprop: "image", content: "/share_image.png" } },
 
       // Facebook & VK shares
@@ -143,19 +143,19 @@ block("root").replace()(function() {
       { elem: "meta", attrs: { property: "og:site_name", content: "AbstractioN" } },
       { elem: "meta", attrs: { property: "og:locale", content: "ru_RU" } },
       { elem: "meta", attrs: { property: "og:type", content: "website" } },
-      { elem: "meta", attrs: { property: "og:description", content: "Abstraction festival | Красное озеро | Транс | Техно" } },
+      { elem: "meta", attrs: { property: "og:description", content: "Abstraction festival | Красное озеро | Транс | Техно | Фестиваль " } },
       { elem: "meta", attrs: { property: "og:image", content: "/share_image.png" } },
 
       // Twitter share methods
       { elem: "meta", attrs: { name: "twitter:title", content: "Abstraction festival" } },
       { elem: "meta", attrs: { property: "twitter:image", content: "http://abstractionfest.ru/share_image.png" } },
-      { elem: "meta", attrs: { name: "twitter:description", content: "Abstraction festival | Красное озеро | Транс | Техно" } },
+      { elem: "meta", attrs: { name: "twitter:description", content: "Abstraction festival | Красное озеро | Транс | Техно | Фестиваль " } },
       { elem: "meta", attrs: { name: "twitter:card", content: "summary_large_image" } },
 
       // G+ share methods
       { elem: "meta", attrs: { itemprop: "name", content: "Abstraction festival" } },
       { elem: "meta", attrs: { itemprop: "image", content: "http://abstractionfest.ru/share_image.png" } },
-      { elem: "meta", attrs: { itemprop: "description", content: "Abstraction festival | Красное озеро | Транс | Техно" } },
+      { elem: "meta", attrs: { itemprop: "description", content: "Abstraction festival | Красное озеро | Транс | Техно | Фестиваль " } },
 
       { elem: "meta", attrs: { name: "apple-mobile-web-app-capable", content: "yes" } },
       { html: '<link rel="canonical" href=http://abstractionfest.ru>' },

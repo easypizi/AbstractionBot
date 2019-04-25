@@ -13,7 +13,7 @@ block("card").content()((node, ctx) => {
         },
         {
           elem: "description",
-          content: artist.description ? artist.description : ""
+          content: artist.description ? artist.description : "(dj set)"
         },
         {
           block: "lazyImage",
