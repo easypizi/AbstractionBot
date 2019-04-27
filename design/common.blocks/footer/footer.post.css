@@ -7,7 +7,7 @@ block(footer) {
     align-items: center;
 
     block(nav-menu) {
-      max-width: 50%;
+      max-width: 60%;
       margin-right: 30px;
 
       elem(content) {

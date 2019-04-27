@@ -50,17 +50,17 @@ block("nav-menu").content()(() => {
           url: "mailto:abstractionfest@gmail.com",
           content: "партнерам"
         },
-        // {
-        //   block: "link",
-        //   mix: {
-        //     block: "font",
-        //     mods: {
-        //       family: "bold"
-        //     }
-        //   },
-        //   url: "https://docs.google.com/forms/d/1Rj1rRmOI9t11Dymg_Zbkbbm5Fu61QhgrXa9pGBVJogs/viewform?edit_requested=true",
-        //   content: "волонтерам"
-        // },
+        {
+          block: "link",
+          mix: {
+            block: "font",
+            mods: {
+              family: "bold"
+            }
+          },
+          url: "https://docs.google.com/forms/d/1Rj1rRmOI9t11Dymg_Zbkbbm5Fu61QhgrXa9pGBVJogs/viewform?edit_requested=true",
+          content: "волонтерам"
+        },
         {
           block: "link",
           mix: {
@@ -70,7 +70,7 @@ block("nav-menu").content()(() => {
             }
           },
           url: "https://docs.google.com/forms/d/1HcdGDQabhPeqIaTUC5niaydRr-FmytwoPzHLTAtdQFM/viewform?edit_requested=true",
-          content: "принять участие"
+          content: "ярмарка"
         }
       ]
     }

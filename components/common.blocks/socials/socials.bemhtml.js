@@ -2,7 +2,7 @@ block("socials").content()(function() {
   let socials = [
     {
       title: "fb",
-      link: "https://www.facebook.com/abstraction.festival"
+      link: "https://www.facebook.com/abstractionfest/"
     },
     {
       title: "inst",
