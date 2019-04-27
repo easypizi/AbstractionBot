@@ -25,11 +25,12 @@ block("nav-menu").content()(() => {
               family: "bold"
             }
           },
-          url: "",
+          url: "/#place",
           content: "место"
         },
         {
           block: "link",
+          target: "blank",
           mix: {
             block: "font",
             mods: {
@@ -41,6 +42,7 @@ block("nav-menu").content()(() => {
         },
         {
           block: "link",
+          target: "blank",
           mix: {
             block: "font",
             mods: {
@@ -52,6 +54,7 @@ block("nav-menu").content()(() => {
         },
         {
           block: "link",
+          target: "blank",
           mix: {
             block: "font",
             mods: {
@@ -63,6 +66,7 @@ block("nav-menu").content()(() => {
         },
         {
           block: "link",
+          target: "blank",
           mix: {
             block: "font",
             mods: {
