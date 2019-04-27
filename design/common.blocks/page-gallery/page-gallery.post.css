@@ -28,7 +28,7 @@ block(page-gallery) {
       background-size: 50% 50%;
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
       width: 40px;
 
       block(link) {
