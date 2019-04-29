@@ -43,7 +43,13 @@
         size: ['l','m','s'],
         blue: true
       }
-    }, 
+    },
+    {
+      block: 'button',
+      mods: {
+        ym: true
+      }
+    }
   ]
 })
 

@@ -8,6 +8,7 @@ block(button) {
   transition: all 0.3s;
   cursor: pointer;
   outline: none;
+  user-select: none;
 
   @media (max-width: 769px) {
     padding: 14px 38px;

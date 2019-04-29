@@ -319,6 +319,14 @@ exports.deps = [
         "block": "page-gallery"
     },
     {
+        "block": "button",
+        "mod": "ym"
+    },
+    {
+        "block": "page",
+        "mod": "width"
+    },
+    {
         "block": "socials"
     },
     {
@@ -404,10 +412,6 @@ exports.deps = [
     {
         "block": "page",
         "mod": "theme"
-    },
-    {
-        "block": "page",
-        "mod": "width"
     },
     {
         "block": "page",
@@ -565,6 +569,16 @@ exports.deps = [
         "val": "round"
     },
     {
+        "block": "button",
+        "mod": "ym",
+        "val": true
+    },
+    {
+        "block": "page",
+        "mod": "width",
+        "val": "narrow"
+    },
+    {
         "block": "socials",
         "mod": "vertical",
         "val": true
@@ -603,10 +617,5 @@ exports.deps = [
         "block": "paragraph",
         "mod": "blue",
         "val": true
-    },
-    {
-        "block": "page",
-        "mod": "width",
-        "val": "narrow"
     }
 ];

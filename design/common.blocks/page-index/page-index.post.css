@@ -234,9 +234,14 @@ block(page-index) {
           flex-direction: row-reverse;
           align-items: center;
           justify-content: center;
-          width: 300px;
+          max-width: 300px;
+          width: 100%;
           border: none;
           margin: 40px auto 0;
+
+          @media (max-width: 330px) {
+            max-width: 230px;
+          }
 
           block(icon) {
             margin-left: 12px;
@@ -356,9 +361,14 @@ block(page-index) {
         flex-direction: row-reverse;
         align-items: center;
         justify-content: center;
-        width: 300px;
+        max-width: 300px;
+        width: 100%;
         border: none;
         margin: 40px auto 80px;
+
+        @media (max-width: 330px) {
+          max-width: 230px;
+        }
 
         block(icon) {
           margin-left: 12px;

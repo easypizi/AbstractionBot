@@ -143,7 +143,8 @@ block("page-index").content()(() => {
                   block: "button",
                   mix: { block: "page-index", elem: "buyButton" },
                   mods: {
-                    type: "link"
+                    type: "link",
+                    ym: true
                   },
                   url: "http://rupor.biz/widgets/event-tickets/361",
                   text: "Купить билет"
@@ -564,7 +565,8 @@ block("page-index").content()(() => {
               {
                 block: "button",
                 mods: {
-                  type: "link"
+                  type: "link",
+                  ym: true
                 },
                 url: "http://rupor.biz/widgets/event-tickets/361",
                 text: "Купить билет"

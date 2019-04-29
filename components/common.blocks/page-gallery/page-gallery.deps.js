@@ -16,7 +16,13 @@
     {
       block: 'graphics',
       mods: {
-        view: ['midStar']
+        view: ['midStar', 'botStar', 'bottom']
+      }
+    },
+    {
+      block: 'button',
+      mods: {
+        ym: true
       }
     },
     {
@@ -27,6 +33,19 @@
     },
     {
       block: 'card'
+    },
+    {
+      block: 'paragraph',
+      mods: {
+        size: ['l','m', 's'],
+        narrow: true
+      }
+    },
+    {
+      block: 'page',
+      mods: {
+        width: 'narrow'
+      }
     }
   ]
 })

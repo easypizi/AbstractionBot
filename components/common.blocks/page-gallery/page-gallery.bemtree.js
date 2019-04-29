@@ -142,6 +142,51 @@ block("page-gallery").content()(function() {
           ]
         }
       ]
+    },
+    {
+      elem: "eighth",
+      content: {
+        elem: "contentWrapper",
+        mix: {
+          block: "page",
+          mods: {
+            width: "narrow"
+          }
+        },
+        content: [
+          {
+            block: "graphics",
+            mix: {
+              block: "page-gallery",
+              elem: "absImage",
+              elemMods: { star: true }
+            },
+            mods: {
+              view: "botStar"
+            }
+          },
+          {
+            block: "graphics",
+            mix: {
+              block: "page-gallery",
+              elem: "absImage",
+              elemMods: { slime: true }
+            },
+            mods: {
+              view: "bottom"
+            }
+          },
+          {
+            block: "button",
+            mods: {
+              type: "link",
+              ym: true
+            },
+            url: "http://rupor.biz/widgets/event-tickets/361",
+            text: "Купить билет"
+          }
+        ]
+      }
     }
   ];
 });
