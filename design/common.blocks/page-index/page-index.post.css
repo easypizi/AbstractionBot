@@ -1,10 +1,25 @@
 block(page-index) {
+  position: relative;
+
+  elem(canvas) {
+    position: absolute;
+    width: 1680px;
+    height: 1200px;
+    top: 0;
+    left: 50%;
+    margin-left: -840px;
+    z-index: 2;
+  }
+
   elem(content) {
     overflow-x: hidden;
     elem(first) {
       elem(contentWrapper) {
         display: flex;
         flex-direction: column;
+        position: relative;
+        z-index: 3;
+
         justify-column: center;
         align-items: center;
 
@@ -27,6 +42,8 @@ block(page-index) {
 
         elem(buyButton) {
           margin-top: 100px;
+          position: relative;
+          z-index: 5;
 
           @media (max-width: 769px) {
             margin-top: 120px;

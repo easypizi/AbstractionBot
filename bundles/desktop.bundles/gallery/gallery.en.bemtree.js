@@ -1,8 +1,12 @@
 var BEMTREE;
+
 (function(global) {
-function buildBemXjst(libs) {
-var exports;
-/* BEM-XJST Runtime Start */
+    function buildBemXjst(__bem_xjst_libs__) {
+        var exports = {};
+
+        /// -------------------------------------
+/// --------- BEM-XJST Runtime Start ----
+/// -------------------------------------
 var BEMTREE = function(module, exports) {
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.bemtree = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var inherits = require('inherits');
@@ -108,19 +112,9 @@ BEMTREE.prototype.runUnescaped = function(context) {
 
 },{"../bemxjst":7,"../bemxjst/utils":10,"./entity":1,"inherits":11}],3:[function(require,module,exports){
 function ClassBuilder(options) {
+  this.modDelim = options.mod || '_';
   this.elemDelim = options.elem || '__';
-
-  this.modDelim = typeof options.mod === 'string' ?
-    {
-      name: options.mod || '_',
-      val: options.mod || '_'
-    } :
-    {
-      name: options.mod && options.mod.name || '_',
-      val: options.mod && options.mod.val || '_'
-    };
 }
-
 exports.ClassBuilder = ClassBuilder;
 
 ClassBuilder.prototype.build = function(block, elem) {
@@ -131,8 +125,8 @@ ClassBuilder.prototype.build = function(block, elem) {
 };
 
 ClassBuilder.prototype.buildModPostfix = function(modName, modVal) {
-  var res = this.modDelim.name + modName;
-  if (modVal !== true) res += this.modDelim.val + modVal;
+  var res = this.modDelim + modName;
+  if (modVal !== true) res += this.modDelim + modVal;
   return res;
 };
 
@@ -188,15 +182,6 @@ Context.prototype.identify = utils.identify;
 Context.prototype.xmlEscape = utils.xmlEscape;
 Context.prototype.attrEscape = utils.attrEscape;
 Context.prototype.jsAttrEscape = utils.jsAttrEscape;
-
-Context.prototype.onError = function(context, e) {
-  console.error('bem-xjst rendering error:', {
-    block: context.ctx.block,
-    elem: context.ctx.elem,
-    mods: context.ctx.mods,
-    elemMods: context.ctx.elemMods
-  }, e);
-};
 
 Context.prototype.isFirst = function() {
   return this.position === 1;
@@ -425,25 +410,10 @@ module.exports = BEMXJST;
 BEMXJST.prototype.locals = Tree.methods
     .concat('local', 'applyCtx', 'applyNext', 'apply');
 
-BEMXJST.prototype.runOninit = function(oninits, ret) {
-  var self = ret || this;
-
-  self.BEMContext = this.contextConstructor;
-  for (var i = 0; i < oninits.length; i++) {
-    // NOTE: oninit has global context instead of BEMXJST
-    var oninit = oninits[i];
-    oninit(self, { BEMContext: self.BEMContext });
-  }
-};
-
 BEMXJST.prototype.compile = function(code) {
   var self = this;
 
   function applyCtx() {
-    return self.run(self.context.ctx);
-  }
-
-  function _applyCtx() {
     return self._run(self.context.ctx);
   }
 
@@ -451,16 +421,6 @@ BEMXJST.prototype.compile = function(code) {
     // Fast case
     if (!changes)
       return self.local({ ctx: ctx }, applyCtx);
-
-    return self.local(changes, function() {
-      return self.local({ ctx: ctx }, _applyCtx);
-    });
-  }
-
-  function _applyCtxWrap(ctx, changes) {
-    // Fast case
-    if (!changes)
-      return self.local({ ctx: ctx }, _applyCtx);
 
     return self.local(changes, function() {
       return self.local({ ctx: ctx }, applyCtx);
@@ -480,7 +440,6 @@ BEMXJST.prototype.compile = function(code) {
   var tree = new Tree({
     refs: {
       applyCtx: applyCtxWrap,
-      _applyCtx: _applyCtxWrap,
       apply: apply
     }
   });
@@ -502,8 +461,6 @@ BEMXJST.prototype.compile = function(code) {
   // Concatenate templates with existing ones
   // TODO(indutny): it should be possible to incrementally add templates
   if (this.tree) {
-    this.runOninit(out.oninit);
-
     out = {
       templates: out.templates.concat(this.tree.templates),
       oninit: this.tree.oninit.concat(out.oninit)
@@ -693,7 +650,6 @@ BEMXJST.prototype._run = function(context) {
 BEMXJST.prototype.run = function(json) {
   var match = this.match;
   var context = this.context;
-  var depth = this.depth;
 
   this.match = null;
   this.context = new this.contextConstructor(this);
@@ -706,7 +662,6 @@ BEMXJST.prototype.run = function(json) {
 
   this.match = match;
   this.context = context;
-  this.depth = depth;
 
   return res;
 };
@@ -816,7 +771,14 @@ BEMXJST.prototype.tryRun = function(context, ent) {
   try {
     return ent.run(context);
   } catch (e) {
-    return context.onError(context, e) || '';
+    console.error('BEMXJST ERROR: cannot render ' +
+      [
+        'block ' + context.block,
+        'elem ' + context.elem,
+        'mods ' + JSON.stringify(context.mods),
+        'elemMods ' + JSON.stringify(context.elemMods)
+      ].join(', '), e);
+    return '';
   }
 };
 
@@ -925,7 +887,13 @@ BEMXJST.prototype.exportApply = function(exports) {
     return ret;
   };
 
-  this.runOninit(self.oninit, ret);
+  ret.BEMContext = this.contextConstructor;
+
+  for (var i = 0; i < this.oninit.length; i++) {
+    // NOTE: oninit has global context instead of BEMXJST
+    var oninit = self.oninit[i];
+    oninit(ret, { BEMContext: ret.BEMContext });
+  }
 
   return ret;
 };
@@ -1086,19 +1054,6 @@ Match.prototype.tryCatch = function(fn, ctx) {
     return fn.call(ctx, ctx, ctx.ctx);
   } catch (e) {
     this.thrownError = e;
-    if (this.modeName) {
-      this.thrownError.ctx = ctx;
-      this.thrownError.name = 'BEMXJST ERROR';
-      var classBuilder = this.entity.bemxjst.classBuilder;
-
-      var cause = e.stack.split('\n')[1];
-      this.thrownError.message = 'Template error in mode ' +
-            this.modeName + ' in block ' +
-            classBuilder.build(ctx.ctx.block, ctx.ctx.elem) +
-            '\n    ' + e.message + '\n';
-      this.thrownError.stack = this.thrownError.name + ': ' +
-            this.thrownError.message + ' ' + cause + '\n' + e.stack;
-    }
   }
 };
 
@@ -1135,8 +1090,6 @@ Match.prototype.exec = function(context) {
   }
 
   if (i === this.count) {
-    this.restoreDepth(save);
-
     if (this.modeName === 'mods')
       return context.mods;
 
@@ -1254,16 +1207,16 @@ inherits(WrapMatch, MatchBase);
 exports.WrapMatch = WrapMatch;
 
 WrapMatch.prototype.wrapBody = function(body) {
-  var _applyCtx = this.refs._applyCtx;
+  var applyCtx = this.refs.applyCtx;
 
   if (typeof body !== 'function') {
     return function() {
-      return _applyCtx(body);
+      return applyCtx(body);
     };
   }
 
   return function() {
-    return _applyCtx(body.call(this, this, this.ctx));
+    return applyCtx(body.call(this, this, this.ctx));
   };
 };
 
@@ -1527,75 +1480,11 @@ Tree.prototype.flush = function(conditions, item) {
 
     // Body
     } else {
-      if (this.isShortcutAllowed(arg, conditions)) {
-        var keys = Object.keys(arg);
-        for (var n = 0; n < keys.length; n++)
-          this.addTemplate(
-            conditions.concat(this.createMatch(keys[n])),
-            arg[keys[n]]
-          );
-      } else {
-        this.addTemplate(conditions, arg);
-      }
+      var template = new Template(conditions, arg);
+      template.wrap();
+      this.templates.push(template);
     }
   }
-};
-
-Tree.prototype.createMatch = function(modeName) {
-  switch (modeName) {
-    case 'addAttrs':
-      return [
-        new PropertyMatch('_mode', 'attrs'),
-        new AddMatch('attrs', this.refs)
-      ];
-    case 'addJs':
-      return [
-        new PropertyMatch('_mode', 'js'),
-        new AddMatch('js', this.refs)
-      ];
-    case 'addMix':
-      return [
-        new PropertyMatch('_mode', 'mix'),
-        new AddMatch('mix', this.refs)
-      ];
-    case 'addMods':
-      return [
-        new PropertyMatch('_mode', 'mods'),
-        new AddMatch('mods', this.refs)
-      ];
-    case 'addElemMods':
-      return [
-        new PropertyMatch('_mode', 'elemMods'),
-        new AddMatch('elemMods', this.refs)
-      ];
-    case 'appendContent':
-    case 'prependContent':
-      return [
-        new PropertyMatch('_mode', 'content'),
-        new AddMatch(modeName, this.refs)
-      ];
-
-    case 'wrap':
-      return new WrapMatch(this.refs);
-
-    case 'replace':
-      return new ReplaceMatch(this.refs);
-
-    case 'extend':
-      return new ExtendMatch(this.refs);
-
-    case 'def':
-      return new PropertyMatch('_mode', 'default');
-
-    default:
-      return new PropertyMatch('_mode', modeName);
-  }
-};
-
-Tree.prototype.addTemplate = function(conditions, arg) {
-  var template = new Template(conditions, arg);
-  template.wrap();
-  this.templates.push(template);
 };
 
 Tree.prototype.body = function() {
@@ -1610,28 +1499,6 @@ Tree.prototype.body = function() {
     this.flush([], this.queue.shift());
 
   return this.boundBody;
-};
-
-Tree.modsCheck = { mods: 1, elemMods: 1 };
-
-Tree.checkConditions = function(conditions) {
-  for (var i = 0; i < conditions.length; i++) {
-    var condition = conditions[i];
-    if (condition.key === 'block' ||
-      condition.key === 'elem' ||
-      (Array.isArray(condition.key) && Tree.modsCheck[condition.key[0]]) ||
-      condition instanceof CustomMatch) continue;
-    return false;
-  }
-
-  return true;
-};
-
-Tree.prototype.isShortcutAllowed = function(arg, conditions) {
-  return typeof arg === 'object' &&
-    arg !== null &&
-    !Array.isArray(arg) &&
-    Tree.checkConditions(conditions);
 };
 
 Tree.prototype.match = function() {
@@ -2003,13 +1870,23 @@ if (typeof Object.create === 'function') {
 }
 
 },{}]},{},[2])(2)
-});;
-return module.exports || exports.BEMTREE;
+});
+;
+  return module.exports ||
+      exports.BEMTREE;
 }({}, {});
-var api = new BEMTREE({"exportName":"BEMTREE","sourceMap":{"from":"gallery.en.bemtree.js"},"to":"/Users/user/Documents/DEV/AbstractionBot"});
-api.compile(function(match, block, elem, mod, elemMod, oninit, xjstOptions, wrap, replace, extend, mode, def, content, appendContent, prependContent, attrs, addAttrs, js, addJs, mix, addMix, mods, addMods, addElemMods, elemMods, tag, cls, bem, local, applyCtx, applyNext, apply) {
-/* BEM-XJST User code here: */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page/page.bemtree.js */
+/// -------------------------------------
+/// --------- BEM-XJST Runtime End ------
+/// -------------------------------------
+
+var api = new BEMTREE({});
+/// -------------------------------------
+/// ------ BEM-XJST User-code Start -----
+/// -------------------------------------
+api.compile(function(
+match, block, elem, mod, elemMod, oninit, xjstOptions, wrap, replace, extend, mode, def, content, appendContent, prependContent, attrs, addAttrs, js, addJs, mix, addMix, mods, addMods, addElemMods, elemMods, tag, cls, bem, local, applyCtx, applyNext, apply
+) {
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page/page.bemtree.js */
 block("page").content()(function() {
   return [
     {
@@ -2030,47 +1907,208 @@ block("page").content()(function() {
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page/page.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-index/page-index.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page/page.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page-index/page-index.bemtree.js */
 block("page-index").content()(() => {
   let lineup = {
     techno: [
-      { title: "Alekseev ", description: "Fantazery, LABYRINTH", photo: "ALEKSEEV", link: "https://soundcloud.com/ellixalien" },
-      { title: "NICK-OS ", description: "LABYRINTH", photo: "NICK-OS", link: "https://vk.com/djnick_os" },
-      { title: "Kaya / Ten-G", description: "LABYRINTH", photo: "Kaya", link: "https://soundcloud.com/tengi  " },
-      { title: "Alex Panchenco ", description: "Escade Music, Aura Music", photo: "Alex", link: "https://soundcloud.com/alex-panchenco " },
-      { title: "Oscar Schultz ", description: "Deep Ladoga", photo: "Oscar", link: "https://vk.com/oscarschultz" },
-      { title: "Bagus aka Mr.B ", description: "(dj set)", photo: "Bagus", link: "https://soundcloud.com/kirillbagus" },
-      { title: "Daniil Waigelman ", description: "Psycometrik Recordings (Spain)", photo: "Waigelman", link: "https://soundcloud.com/daniilwaigelman" },
-      { title: "Taiwa ", description: "(dj set)", photo: "TAIWA", link: "https://soundcloud.com/aidartaiwa " },
-      { title: "Voodoo Noise aka Otto O'Shea", description: "Mistral'", photo: "Voodoo", link: "https://soundcloud.com/voodoonoise" },
-      { title: "Eye Que ", description: "SubSpace", photo: "EYE", link: "https://soundcloud.com/eye_que " },
-      { title: "German Air  (hybrid live/dj set)", description: "Heartbeat Records, Baikonur Recordings ", photo: "GermanAir", link: "https://soundcloud.com/german_air " },
-      { title: "Mixa Wawer", description: "(dj set)", photo: "Waver", link: "https://soundcloud.com/technopunks " },
-      { title: "Space Modular LIVE", description: "Techno Vinyls Records", photo: "Space", link: "https://soundcloud.com/space-modular " }
+      {
+        title: "Alekseev ",
+        description: "Fantazery, LABYRINTH",
+        photo: "ALEKSEEV",
+        link: "https://soundcloud.com/ellixalien"
+      },
+      {
+        title: "NICK-OS ",
+        description: "LABYRINTH",
+        photo: "NICK-OS",
+        link: "https://vk.com/djnick_os"
+      },
+      {
+        title: "Kaya / Ten-G",
+        description: "LABYRINTH",
+        photo: "Kaya",
+        link: "https://soundcloud.com/tengi  "
+      },
+      {
+        title: "Alex Panchenco ",
+        description: "Escade Music, Aura Music",
+        photo: "Alex",
+        link: "https://soundcloud.com/alex-panchenco "
+      },
+      {
+        title: "Oscar Schultz ",
+        description: "Deep Ladoga",
+        photo: "Oscar",
+        link: "https://vk.com/oscarschultz"
+      },
+      {
+        title: "Bagus aka Mr.B ",
+        description: "(dj set)",
+        photo: "Bagus",
+        link: "https://soundcloud.com/kirillbagus"
+      },
+      {
+        title: "Daniil Waigelman ",
+        description: "Psycometrik Recordings (Spain)",
+        photo: "Waigelman",
+        link: "https://soundcloud.com/daniilwaigelman"
+      },
+      {
+        title: "Taiwa ",
+        description: "(dj set)",
+        photo: "TAIWA",
+        link: "https://soundcloud.com/aidartaiwa "
+      },
+      {
+        title: "Voodoo Noise aka Otto O'Shea",
+        description: "Mistral'",
+        photo: "Voodoo",
+        link: "https://soundcloud.com/voodoonoise"
+      },
+      {
+        title: "Eye Que ",
+        description: "SubSpace",
+        photo: "EYE",
+        link: "https://soundcloud.com/eye_que "
+      },
+      {
+        title: "German Air  (hybrid live/dj set)",
+        description: "Heartbeat Records, Baikonur Recordings ",
+        photo: "GermanAir",
+        link: "https://soundcloud.com/german_air "
+      },
+      {
+        title: "Mixa Wawer",
+        description: "(dj set)",
+        photo: "Waver",
+        link: "https://soundcloud.com/technopunks "
+      },
+      {
+        title: "Space Modular",
+        description: "Techno Vinyls Records",
+        photo: "Space",
+        link: "https://soundcloud.com/space-modular "
+      }
     ],
     trance: [
-      { title: "Fagin's Reject ", description: "(Wildthings Records), UK - LIVE ", link: "https://soundcloud.com/fagins_reject ", photo: "fagins" },
-      { title: "Headworks ", description: "(Wildthings Records), UK - LIVE ", link: "https://soundcloud.com/headworks-1 ", photo: "Headworks" },
-      { title: "Beardy Weardy ", description: "(Wildthings Records) UK - LIVE + Dj set ", link: "https://soundcloud.com/beardy-weardy-wildthings ", photo: "Beardy" },
-      { title: "Samadhi ", description: "(Hilltop Records) - Goa/Ru  ", link: "https://soundcloud.com/samadhi  ", photo: "samadhi" },
-      { title: "Groove Hunter ", description: "( World People Production/NT Group ), Ru - LIVE  ", link: "https://soundcloud.com/groove_hunter  ", photo: "gh" },
-      { title: "LaaToka ", description: "(Sunstation rec), Ru  ", link: "https://soundcloud.com/laatoka  ", photo: "Laatoka" },
-      { title: "Exciter ", description: "(Bounce Recordings), Ru  ", link: "https://soundcloud.com/exciteroffical   ", photo: "Exciter" },
-      { title: "Anumana ", description: "(Timewarp Records) ", link: "https://soundcloud.com/anumana ", photo: "Anumana" },
-      { title: "Belonica ", link: "https://soundcloud.com/belonica", photo: "blnc" },
-      { title: "Casper ", description: "(NT Group Promotion), Ru ", link: "http://promodj.com/hystericalmind/music ", photo: "Casper" },
+      {
+        title: "Fagin's Reject ",
+        description: "(Wildthings Records), UK - LIVE ",
+        link: "https://soundcloud.com/fagins_reject ",
+        photo: "fagins"
+      },
+      {
+        title: "Headworks ",
+        description: "(Wildthings Records), UK - LIVE ",
+        link: "https://soundcloud.com/headworks-1 ",
+        photo: "Headworks"
+      },
+      {
+        title: "Beardy Weardy ",
+        description: "(Wildthings Records) UK - LIVE + Dj set ",
+        link: "https://soundcloud.com/beardy-weardy-wildthings ",
+        photo: "Beardy"
+      },
+      {
+        title: "Samadhi ",
+        description: "(Hilltop Records) - Goa/Ru  ",
+        link: "https://soundcloud.com/samadhi  ",
+        photo: "samadhi"
+      },
+      {
+        title: "Groove Hunter ",
+        description: "( World People Production/NT Group ), Ru - LIVE  ",
+        link: "https://soundcloud.com/groove_hunter  ",
+        photo: "gh"
+      },
+      {
+        title: "LaaToka ",
+        description: "(Sunstation rec), Ru  ",
+        link: "https://soundcloud.com/laatoka  ",
+        photo: "Laatoka"
+      },
+      {
+        title: "Exciter ",
+        description: "(Bounce Recordings), Ru  ",
+        link: "https://soundcloud.com/exciteroffical   ",
+        photo: "Exciter"
+      },
+      {
+        title: "Anumana ",
+        description: "(Timewarp Records) ",
+        link: "https://soundcloud.com/anumana ",
+        photo: "Anumana"
+      },
+      {
+        title: "Belonica ",
+        link: "https://soundcloud.com/belonica",
+        photo: "blnc"
+      },
+      {
+        title: "Casper ",
+        description: "(NT Group Promotion), Ru ",
+        link: "http://promodj.com/hystericalmind/music ",
+        photo: "Casper"
+      },
       { title: "Doozer  ", link: "https://vk.com/djdoozer ", photo: "Doozer" },
-      { title: "Funkyjunky ", description: "(Basic Algorithm), Ru ", link: "https://soundcloud.com/funkyshmunky   ", photo: "fj" },
-      { title: "psYphomet ", description: "(Multifrequency Records), Ru ", link: "https://soundcloud.com/psyphometboobblegooms    ", photo: "psy" },
-      { title: "Plazmer ", description: "(Basic Algorithm Records) ", link: "https://mixcloud.com/plazmer20  ", photo: "plazmer" },
-      { title: "Sure ", description: "(NT Group Promotion), Ru  ", link: "https://www.mixcloud.com/surepb/  ", photo: "sure" },
-      { title: "Satori ", description: "(Vertigo Records), Ru ", link: "https://www.facebook.com/nata.satori ", photo: "satori" },
-      { title: "Troll machine   ", link: "https://soundcloud.com/troll-machine ", photo: "tm" },
-      { title: "Will  ", description: "(NT Group Promotion), Ru  ", link: "https://soundcloud.com/willspb ", photo: "will" },
-      { title: "Yhtiot    ", description: "(Feeless Records), Ru ", link: "https://soundcloud.com/yhtiot ", photo: "yt" },
-      { title: "ToyFog ", link: "https://soundcloud.com/toyfog ", photo: "toyfog" },
-      { title: "On", link: "https://www.mixcloud.com/olegfreerider/ ", photo: "on2" }
+      {
+        title: "Funkyjunky ",
+        description: "(Basic Algorithm), Ru ",
+        link: "https://soundcloud.com/funkyshmunky   ",
+        photo: "fj"
+      },
+      {
+        title: "psYphomet ",
+        description: "(Multifrequency Records), Ru ",
+        link: "https://soundcloud.com/psyphometboobblegooms    ",
+        photo: "psy"
+      },
+      {
+        title: "Plazmer ",
+        description: "(Basic Algorithm Records) ",
+        link: "https://mixcloud.com/plazmer20  ",
+        photo: "plazmer"
+      },
+      {
+        title: "Sure ",
+        description: "(NT Group Promotion), Ru  ",
+        link: "https://www.mixcloud.com/surepb/  ",
+        photo: "sure"
+      },
+      {
+        title: "Satori ",
+        description: "(Vertigo Records), Ru ",
+        link: "https://www.facebook.com/nata.satori ",
+        photo: "satori"
+      },
+      {
+        title: "Troll machine   ",
+        link: "https://soundcloud.com/troll-machine ",
+        photo: "tm"
+      },
+      {
+        title: "Will  ",
+        description: "(NT Group Promotion), Ru  ",
+        link: "https://soundcloud.com/willspb ",
+        photo: "will"
+      },
+      {
+        title: "Yhtiot    ",
+        description: "(Feeless Records), Ru ",
+        link: "https://soundcloud.com/yhtiot ",
+        photo: "yt"
+      },
+      {
+        title: "ToyFog ",
+        link: "https://soundcloud.com/toyfog ",
+        photo: "toyfog"
+      },
+      {
+        title: "On",
+        link: "https://www.mixcloud.com/olegfreerider/ ",
+        photo: "on2"
+      }
     ]
   };
 
@@ -2191,6 +2229,12 @@ block("page-index").content()(() => {
                   }
                 }
               ]
+            },
+            {
+              elem: "canvas",
+              content: {
+                html: "<canvas id='nokey' width=2000 height=1200></canvas>"
+              }
             }
           ]
         },
@@ -2228,7 +2272,8 @@ block("page-index").content()(() => {
                 mods: {
                   size: "l"
                 },
-                content: "Techno, trance и природа. 2 дня, 3 ночи, частная территория, более 100 артистов и ди джеев, музыка нон-стоп. Здесь будет всё, как ты любишь. Погнали!"
+                content:
+                  "Techno, trance и природа. 3 дня, 2 ночи, частная территория, более 100 артистов и ди джеев, музыка нон-стоп. Здесь будет всё, как ты любишь. Погнали!"
               },
               {
                 block: "paragraph",
@@ -2280,7 +2325,8 @@ block("page-index").content()(() => {
                 mods: {
                   size: "s"
                 },
-                content: "В 2019 году привозим самый прогрессивный саунд мира в лице самых мощных и актуальных артистов"
+                content:
+                  "В 2019 году привозим самый прогрессивный саунд мира в лице самых мощных и актуальных артистов"
               },
               {
                 block: "tabs",
@@ -2403,7 +2449,8 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: { size: "s", narrow: true },
-                content: 'Фестиваль будет проходить на частной территории. Горнолыжный курорт "Красное Озеро"'
+                content:
+                  'Фестиваль будет проходить на частной территории. Горнолыжный курорт "Красное Озеро"'
               },
               {
                 block: "title",
@@ -2549,7 +2596,8 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: { size: "s", blue: true },
-                content: "Будет организован трансфер на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее. Информация появится позже."
+                content:
+                  "Будет организован трансфер на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее. Информация появится позже."
               }
               // {
               //   block: "button",
@@ -2613,8 +2661,8 @@ block("page-index").content()(() => {
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-index/page-index.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page-index/page-index.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemtree.js */
 block("lazyImage").content()(function() {
   return [
     {
@@ -2634,8 +2682,8 @@ block("lazyImage").content()(function() {
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_right.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_right.bemtree.js */
 block("graphics")
   .mod("view", "right")
   .content()(function() {
@@ -2648,8 +2696,8 @@ block("graphics")
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_right.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_topStar.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_right.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_topStar.bemtree.js */
 block("graphics")
   .mod("view", "topStar")
   .content()(function() {
@@ -2664,8 +2712,8 @@ block("graphics")
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_topStar.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_midStar.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_topStar.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_midStar.bemtree.js */
 block("graphics")
   .mod("view", "midStar")
   .content()(function() {
@@ -2680,8 +2728,8 @@ block("graphics")
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_midStar.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_botStar.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_midStar.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_botStar.bemtree.js */
 block("graphics")
   .mod("view", "botStar")
   .content()(function() {
@@ -2694,8 +2742,8 @@ block("graphics")
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_botStar.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_bottom.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_botStar.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_bottom.bemtree.js */
 block("graphics")
   .mod("view", "bottom")
   .content()(function() {
@@ -2708,8 +2756,8 @@ block("graphics")
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_bottom.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/gallery/gallery.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_bottom.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/gallery/gallery.bemtree.js */
 block("gallery").content()((node, ctx) => {
   return [
     {
@@ -2756,8 +2804,8 @@ block("gallery").content()((node, ctx) => {
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/gallery/gallery.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/card/card.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/gallery/gallery.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/card/card.bemtree.js */
 block("card").content()((node, ctx) => {
   let artist = ctx.artist;
   return [
@@ -2819,47 +2867,208 @@ block("card")
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/card/card.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/card/card.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemtree.js */
 block("page-gallery").content()(function() {
   let lineup = {
     techno: [
-      { title: "Alekseev ", description: "Fantazery, LABYRINTH", photo: "ALEKSEEV", link: "https://soundcloud.com/ellixalien" },
-      { title: "NICK-OS ", description: "LABYRINTH", photo: "NICK-OS", link: "https://vk.com/djnick_os" },
-      { title: "Kaya / Ten-G", description: "LABYRINTH", photo: "Kaya", link: "https://soundcloud.com/tengi  " },
-      { title: "Alex Panchenco ", description: "Escade Music, Aura Music", photo: "Alex", link: "https://soundcloud.com/alex-panchenco " },
-      { title: "Oscar Schultz ", description: "Deep Ladoga", photo: "Oscar", link: "https://vk.com/oscarschultz" },
-      { title: "Bagus aka Mr.B ", description: "(dj set)", photo: "Bagus", link: "https://soundcloud.com/kirillbagus" },
-      { title: "Daniil Waigelman ", description: "Psycometrik Recordings (Spain)", photo: "Waigelman", link: "https://soundcloud.com/daniilwaigelman" },
-      { title: "Taiwa ", description: "(dj set)", photo: "TAIWA", link: "https://soundcloud.com/aidartaiwa " },
-      { title: "Voodoo Noise aka Otto O'Shea", description: "Mistral'", photo: "Voodoo", link: "https://soundcloud.com/voodoonoise" },
-      { title: "Eye Que ", description: "SubSpace", photo: "EYE", link: "https://soundcloud.com/eye_que " },
-      { title: "German Air  (hybrid live/dj set)", description: "Heartbeat Records, Baikonur Recordings ", photo: "GermanAir", link: "https://soundcloud.com/german_air " },
-      { title: "Mixa Wawer", description: "(dj set)", photo: "Waver", link: "https://soundcloud.com/technopunks " },
-      { title: "Space Modular LIVE", description: "Techno Vinyls Records", photo: "Space", link: "https://soundcloud.com/space-modular " }
+      {
+        title: "Alekseev ",
+        description: "Fantazery, LABYRINTH",
+        photo: "ALEKSEEV",
+        link: "https://soundcloud.com/ellixalien"
+      },
+      {
+        title: "NICK-OS ",
+        description: "LABYRINTH",
+        photo: "NICK-OS",
+        link: "https://vk.com/djnick_os"
+      },
+      {
+        title: "Kaya / Ten-G",
+        description: "LABYRINTH",
+        photo: "Kaya",
+        link: "https://soundcloud.com/tengi  "
+      },
+      {
+        title: "Alex Panchenco ",
+        description: "Escade Music, Aura Music",
+        photo: "Alex",
+        link: "https://soundcloud.com/alex-panchenco "
+      },
+      {
+        title: "Oscar Schultz ",
+        description: "Deep Ladoga",
+        photo: "Oscar",
+        link: "https://vk.com/oscarschultz"
+      },
+      {
+        title: "Bagus aka Mr.B ",
+        description: "(dj set)",
+        photo: "Bagus",
+        link: "https://soundcloud.com/kirillbagus"
+      },
+      {
+        title: "Daniil Waigelman ",
+        description: "Psycometrik Recordings (Spain)",
+        photo: "Waigelman",
+        link: "https://soundcloud.com/daniilwaigelman"
+      },
+      {
+        title: "Taiwa ",
+        description: "(dj set)",
+        photo: "TAIWA",
+        link: "https://soundcloud.com/aidartaiwa "
+      },
+      {
+        title: "Voodoo Noise aka Otto O'Shea",
+        description: "Mistral'",
+        photo: "Voodoo",
+        link: "https://soundcloud.com/voodoonoise"
+      },
+      {
+        title: "Eye Que ",
+        description: "SubSpace",
+        photo: "EYE",
+        link: "https://soundcloud.com/eye_que "
+      },
+      {
+        title: "German Air  (hybrid live/dj set)",
+        description: "Heartbeat Records, Baikonur Recordings ",
+        photo: "GermanAir",
+        link: "https://soundcloud.com/german_air "
+      },
+      {
+        title: "Mixa Wawer",
+        description: "(dj set)",
+        photo: "Waver",
+        link: "https://soundcloud.com/technopunks "
+      },
+      {
+        title: "Space Modular",
+        description: "Techno Vinyls Records",
+        photo: "Space",
+        link: "https://soundcloud.com/space-modular "
+      }
     ],
     trance: [
-      { title: "Fagin's Reject ", description: "(Wildthings Records), UK - LIVE ", link: "https://soundcloud.com/fagins_reject ", photo: "fagins" },
-      { title: "Headworks ", description: "(Wildthings Records), UK - LIVE ", link: "https://soundcloud.com/headworks-1 ", photo: "Headworks" },
-      { title: "Beardy Weardy ", description: "(Wildthings Records) UK - LIVE + Dj set ", link: "https://soundcloud.com/beardy-weardy-wildthings ", photo: "Beardy" },
-      { title: "Samadhi ", description: "(Hilltop Records) - Goa/Ru  ", link: "https://soundcloud.com/samadhi  ", photo: "samadhi" },
-      { title: "Groove Hunter ", description: "( World People Production/NT Group ), Ru - LIVE  ", link: "https://soundcloud.com/groove_hunter  ", photo: "gh" },
-      { title: "LaaToka ", description: "(Sunstation rec), Ru  ", link: "https://soundcloud.com/laatoka  ", photo: "Laatoka" },
-      { title: "Exciter ", description: "(Bounce Recordings), Ru  ", link: "https://soundcloud.com/exciteroffical   ", photo: "Exciter" },
-      { title: "Anumana ", description: "(Timewarp Records) ", link: "https://soundcloud.com/anumana ", photo: "Anumana" },
-      { title: "Belonica ", link: "https://soundcloud.com/belonica", photo: "blnc" },
-      { title: "Casper ", description: "(NT Group Promotion), Ru ", link: "http://promodj.com/hystericalmind/music ", photo: "Casper" },
+      {
+        title: "Fagin's Reject ",
+        description: "(Wildthings Records), UK - LIVE ",
+        link: "https://soundcloud.com/fagins_reject ",
+        photo: "fagins"
+      },
+      {
+        title: "Headworks ",
+        description: "(Wildthings Records), UK - LIVE ",
+        link: "https://soundcloud.com/headworks-1 ",
+        photo: "Headworks"
+      },
+      {
+        title: "Beardy Weardy ",
+        description: "(Wildthings Records) UK - LIVE + Dj set ",
+        link: "https://soundcloud.com/beardy-weardy-wildthings ",
+        photo: "Beardy"
+      },
+      {
+        title: "Samadhi ",
+        description: "(Hilltop Records) - Goa/Ru  ",
+        link: "https://soundcloud.com/samadhi  ",
+        photo: "samadhi"
+      },
+      {
+        title: "Groove Hunter ",
+        description: "( World People Production/NT Group ), Ru - LIVE  ",
+        link: "https://soundcloud.com/groove_hunter  ",
+        photo: "gh"
+      },
+      {
+        title: "LaaToka ",
+        description: "(Sunstation rec), Ru  ",
+        link: "https://soundcloud.com/laatoka  ",
+        photo: "Laatoka"
+      },
+      {
+        title: "Exciter ",
+        description: "(Bounce Recordings), Ru  ",
+        link: "https://soundcloud.com/exciteroffical   ",
+        photo: "Exciter"
+      },
+      {
+        title: "Anumana ",
+        description: "(Timewarp Records) ",
+        link: "https://soundcloud.com/anumana ",
+        photo: "Anumana"
+      },
+      {
+        title: "Belonica ",
+        link: "https://soundcloud.com/belonica",
+        photo: "blnc"
+      },
+      {
+        title: "Casper ",
+        description: "(NT Group Promotion), Ru ",
+        link: "http://promodj.com/hystericalmind/music ",
+        photo: "Casper"
+      },
       { title: "Doozer  ", link: "https://vk.com/djdoozer ", photo: "Doozer" },
-      { title: "Funkyjunky ", description: "(Basic Algorithm), Ru ", link: "https://soundcloud.com/funkyshmunky   ", photo: "fj" },
-      { title: "psYphomet ", description: "(Multifrequency Records), Ru ", link: "https://soundcloud.com/psyphometboobblegooms    ", photo: "psy" },
-      { title: "Plazmer ", description: "(Basic Algorithm Records) ", link: "https://mixcloud.com/plazmer20  ", photo: "plazmer" },
-      { title: "Sure ", description: "(NT Group Promotion), Ru  ", link: "https://www.mixcloud.com/surepb/  ", photo: "sure" },
-      { title: "Satori ", description: "(Vertigo Records), Ru ", link: "https://www.facebook.com/nata.satori ", photo: "satori" },
-      { title: "Troll machine   ", link: "https://soundcloud.com/troll-machine ", photo: "tm" },
-      { title: "Will  ", description: "(NT Group Promotion), Ru  ", link: "https://soundcloud.com/willspb ", photo: "will" },
-      { title: "Yhtiot    ", description: "(Feeless Records), Ru ", link: "https://soundcloud.com/yhtiot ", photo: "yt" },
-      { title: "ToyFog ", link: "https://soundcloud.com/toyfog ", photo: "toyfog" },
-      { title: "On", link: "https://www.mixcloud.com/olegfreerider/ ", photo: "on2" }
+      {
+        title: "Funkyjunky ",
+        description: "(Basic Algorithm), Ru ",
+        link: "https://soundcloud.com/funkyshmunky   ",
+        photo: "fj"
+      },
+      {
+        title: "psYphomet ",
+        description: "(Multifrequency Records), Ru ",
+        link: "https://soundcloud.com/psyphometboobblegooms    ",
+        photo: "psy"
+      },
+      {
+        title: "Plazmer ",
+        description: "(Basic Algorithm Records) ",
+        link: "https://mixcloud.com/plazmer20  ",
+        photo: "plazmer"
+      },
+      {
+        title: "Sure ",
+        description: "(NT Group Promotion), Ru  ",
+        link: "https://www.mixcloud.com/surepb/  ",
+        photo: "sure"
+      },
+      {
+        title: "Satori ",
+        description: "(Vertigo Records), Ru ",
+        link: "https://www.facebook.com/nata.satori ",
+        photo: "satori"
+      },
+      {
+        title: "Troll machine   ",
+        link: "https://soundcloud.com/troll-machine ",
+        photo: "tm"
+      },
+      {
+        title: "Will  ",
+        description: "(NT Group Promotion), Ru  ",
+        link: "https://soundcloud.com/willspb ",
+        photo: "will"
+      },
+      {
+        title: "Yhtiot    ",
+        description: "(Feeless Records), Ru ",
+        link: "https://soundcloud.com/yhtiot ",
+        photo: "yt"
+      },
+      {
+        title: "ToyFog ",
+        link: "https://soundcloud.com/toyfog ",
+        photo: "toyfog"
+      },
+      {
+        title: "On",
+        link: "https://www.mixcloud.com/olegfreerider/ ",
+        photo: "on2"
+      }
     ]
   };
 
@@ -3014,8 +3223,8 @@ block("page-gallery").content()(function() {
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/header/header.bemtree.js */
 block("header").content()(() => {
   return [
     {
@@ -3031,8 +3240,8 @@ block("header").content()(() => {
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/header/header.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/burger/burger.bemtree.js */
 block("burger").content()(function() {
   return [
     {
@@ -3055,8 +3264,8 @@ block("burger").content()(function() {
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/burger/burger.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/footer/footer.bemtree.js */
 block("footer").content()(() => {
   return [
     {
@@ -3077,8 +3286,8 @@ block("footer").content()(() => {
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/root/root.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/footer/footer.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/root/root.bemtree.js */
 block("root").replace()(function() {
   var ctx = this.ctx,
     data = (this.data = ctx.data),
@@ -3253,8 +3462,8 @@ block("root").replace()(function() {
   };
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/root/root.bemtree.js */
-/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_left.bemtree.js */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/root/root.bemtree.js */
+/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_left.bemtree.js */
 block("graphics")
   .mod("view", "left")
   .content()(function() {
@@ -3267,11 +3476,10 @@ block("graphics")
   ];
 });
 
-/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_left.bemtree.js */
-/* begin: undefined */
+/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/_view/graphics_view_left.bemtree.js */
 oninit(function(exports, context) {
     var BEMContext = exports.BEMContext || context.BEMContext;
-    BEMContext.prototype.i18n = ((function() {
+    BEMContext.prototype.i18n = ((function () {
             var data;
 
             /**
@@ -3311,39 +3519,61 @@ oninit(function(exports, context) {
             return i18n;
         })()).decl({"index":{"indextext":"smthg"}});
 });
-/* end: undefined */
-
-;oninit(function(exports, context) {
-var BEMContext = exports.BEMContext || context.BEMContext;
-BEMContext.prototype.require = function(lib) {
-return this._libs[lib];
-};
+oninit(function(exports, context) {
+    var BEMContext = exports.BEMContext || context.BEMContext;
+    // Provides third-party libraries from different modular systems
+    BEMContext.prototype.require = function(lib) {
+       return __bem_xjst_libs__[lib];
+    };
+});;
 });
-;});
-exports = api.exportApply(exports);
-if (libs) exports.BEMContext.prototype._libs = libs;
-return exports;
-};
-
-var glob = this.window || this.global || this;
-var exp = typeof exports !== "undefined" ? exports : global;
-if (typeof modules === "object") {
+api.exportApply(exports);
+/// -------------------------------------
+/// ------ BEM-XJST User-code End -------
+/// -------------------------------------
 
 
+        return exports;
+    };
 
-modules.define("BEMTREE",[],function(provide) { var engine = buildBemXjst({});provide(engine);});
-} else {
-var _libs = {};
+    
 
+    var defineAsGlobal = true;
 
-if (Object.keys(_libs).length) {
-BEMTREE = buildBemXjst(_libs);
-exp["BEMTREE"] = BEMTREE;
-exp["BEMTREE"].libs = _libs;
-} else {
-BEMTREE= buildBemXjst(glob);
-exp["BEMTREE"] = BEMTREE;exp["BEMTREE"].libs = glob;
+    // Provide with CommonJS
+    if (typeof module === 'object' && typeof module.exports === 'object') {
+        exports['BEMTREE'] = buildBemXjst({
+    
 }
+);
+        defineAsGlobal = false;
+    }
+
+    // Provide to YModules
+    if (typeof modules === 'object') {
+        modules.define(
+            'BEMTREE',
+            [],
+            function(
+                provide
+                
+                ) {
+                    provide(buildBemXjst({
+    
 }
+));
+                }
+            );
+
+        defineAsGlobal = false;
+    }
+
+    // Provide to global scope
+    if (defineAsGlobal) {
+        BEMTREE = buildBemXjst({
+    
+}
+);
+        global['BEMTREE'] = BEMTREE;
+    }
 })(typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : this);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdhbGxlcnkuZW4uYmVtdHJlZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsImZpbGUiOiJnYWxsZXJ5LmVuLmJlbXRyZWUuanMifQ==
