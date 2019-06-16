@@ -24,6 +24,8 @@ modules.define(
                   setTimeout(() => {
                     window.location.href = "http://rupor.biz/widgets/event-tickets/361";
                   }, 500);
+
+                  return;
                 });
               });
             }
