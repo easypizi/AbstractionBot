@@ -198,7 +198,8 @@ block("page-gallery").content()(function() {
         link: "https://www.mixcloud.com/olegfreerider/ ",
         photo: "on2"
       }
-    ]
+    ],
+    chill: []
   };
 
   let technoArray = lineup.techno.map(item => {
@@ -214,6 +215,13 @@ block("page-gallery").content()(function() {
       artist: item
     };
   });
+
+  // let chillArray = lineup.chill.map(item => {
+  //   return {
+  //     block: "card",
+  //     artist: item
+  //   };
+  // });
 
   return [
     {
@@ -276,6 +284,12 @@ block("page-gallery").content()(function() {
               disabled: false,
               checked: false
             }
+            // {
+            //   text: "Чиллаут",
+            //   active: false,
+            //   disabled: false,
+            //   checked: false
+            // }
           ],
           content: [
             {
@@ -300,6 +314,17 @@ block("page-gallery").content()(function() {
               },
               content: technoArray
             }
+            // {
+            //   elem: "pane",
+            //   elemMods: { active: false },
+            //   mix: {
+            //     block: "page-gallery",
+            //     mods: {
+            //       flexBox: true
+            //     }
+            //   },
+            //   content: chillArray
+            // }
           ]
         }
       ]

@@ -2161,7 +2161,7 @@ var api = new BEMHTML({"elemJsInstances":true,"xhtml":false,"omitOptionalEndTags
 api.compile(function(
 match, block, elem, mod, elemMod, oninit, xjstOptions, wrap, replace, extend, mode, def, content, appendContent, prependContent, attrs, addAttrs, js, addJs, mix, addMix, mods, addMods, addElemMods, elemMods, tag, cls, bem, local, applyCtx, applyNext, apply
 ) {
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/common.blocks/page/page.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/page/page.bemhtml.js */
 block('page')(
 
     mode('doctype')(function() {
@@ -2237,12 +2237,12 @@ block('page')(
 
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/common.blocks/page/page.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page/page.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/page/page.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page/page.bemhtml.js */
 block('page').js()( true )
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page/page.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/touch.blocks/page/page.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page/page.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/touch.blocks/page/page.bemhtml.js */
 block('page')(
 
     def()(function() {
@@ -2275,8 +2275,8 @@ block('page')(
     })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/touch.blocks/page/page.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/common.blocks/ua/ua.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/touch.blocks/page/page.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/ua/ua.bemhtml.js */
 block('ua')(
     tag()('script'),
     bem()(false),
@@ -2287,8 +2287,8 @@ block('ua')(
     ])
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/common.blocks/ua/ua.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/touch.blocks/ua/ua.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/ua/ua.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/touch.blocks/ua/ua.bemhtml.js */
 block('ua').js()(function() {
     var ctxJS = applyNext();
 
@@ -2296,8 +2296,8 @@ block('ua').js()(function() {
     return ctxJS || true;
 });
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/touch.blocks/ua/ua.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/common.blocks/page/__css/page__css.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/touch.blocks/ua/ua.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/page/__css/page__css.bemhtml.js */
 block('page').elem('css')(
     bem()(false),
     tag()('style'),
@@ -2309,8 +2309,8 @@ block('page').elem('css')(
     )
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/common.blocks/page/__css/page__css.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/common.blocks/page/__js/page__js.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/page/__css/page__css.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/page/__js/page__js.bemhtml.js */
 block('page').elem('js')(
     bem()(false),
     tag()('script'),
@@ -2326,12 +2326,12 @@ block('page').elem('js')(
     })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-core/common.blocks/page/__js/page__js.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page-index/page-index.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-core/common.blocks/page/__js/page__js.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-index/page-index.bemhtml.js */
 block("page-index").js()(true);
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page-index/page-index.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/title/title.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-index/page-index.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/title/title.bemhtml.js */
 block("title")
   .mod("size", "l")
   .tag()("h1");
@@ -2354,8 +2354,8 @@ block("title")
 
 block("title").js()(true);
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/title/title.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/button.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/title/title.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/button.bemhtml.js */
 block('button')(
     def()(function() {
         var tag = apply('tag'),
@@ -2421,18 +2421,18 @@ block('button')(
     )
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/button.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/_focused/button_focused.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/button.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_focused/button_focused.bemhtml.js */
 block('button').mod('focused', true).js()(function() {
     return this.extend(applyNext(), { lazyInit : false });
 });
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/_focused/button_focused.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/__text/button__text.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_focused/button_focused.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/__text/button__text.bemhtml.js */
 block('button').elem('text').tag()('span');
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/__text/button__text.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/tabs/tabs.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/__text/button__text.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/tabs/tabs.bemhtml.js */
 block("tabs")(
   js()(node => {
     const tabs = node.ctx.tabs || [];
@@ -2467,8 +2467,8 @@ block("tabs")(
   })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/tabs/tabs.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio-group/radio-group.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/tabs/tabs.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio-group/radio-group.bemhtml.js */
 block('radio-group')(
     tag()('span'),
 
@@ -2507,8 +2507,8 @@ block('radio-group')(
     })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio-group/radio-group.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-forms/common.blocks/radio-group/radio-group.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio-group/radio-group.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio-group/radio-group.bemhtml.js */
 block('radio-group')(
 
     match(function() { return this._form_field; }).def()(function() {
@@ -2521,8 +2521,8 @@ block('radio-group')(
     })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-forms/common.blocks/radio-group/radio-group.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/radio.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio-group/radio-group.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/radio.bemhtml.js */
 block('radio')(
     tag()('label'),
     addJs()(true),
@@ -2547,8 +2547,8 @@ block('radio')(
     })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/radio.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-forms/common.blocks/radio/radio.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/radio.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio/radio.bemhtml.js */
 block('radio')(
 
     match(function() { return this._form_field; }).def()(function() {
@@ -2562,12 +2562,12 @@ block('radio')(
 
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-forms/common.blocks/radio/radio.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/__box/radio__box.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-forms/common.blocks/radio/radio.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__box/radio__box.bemhtml.js */
 block('radio').elem('box').tag()('span');
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/__box/radio__box.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/__control/radio__control.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__box/radio__box.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__control/radio__control.bemhtml.js */
 block('radio').elem('control')(
     tag()('input'),
 
@@ -2588,8 +2588,8 @@ block('radio').elem('control')(
     })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/__control/radio__control.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/__text/radio__text.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__control/radio__control.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__text/radio__text.bemhtml.js */
 block('radio').elem('text')(
     tag()('span'),
     addAttrs()(function() {
@@ -2597,21 +2597,21 @@ block('radio').elem('text')(
     })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/__text/radio__text.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_radio.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/__text/radio__text.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_radio.bemhtml.js */
 block('button').mod('togglable', 'radio').addAttrs()(function() {
     return { 'aria-pressed' : String(!!this.mods.checked) };
 });
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_radio.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/graphics.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_radio.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/graphics.bemhtml.js */
 block('graphics').js()(true)
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/graphics/graphics.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/graphics/graphics.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemhtml.js */
 block('lazyImage').js()(true)
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/image/image.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/lazyImage/lazyImage.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/image/image.bemhtml.js */
 block('image')(
     addAttrs()({ role : 'img' }),
 
@@ -2634,16 +2634,16 @@ block('image')(
     )
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/image/image.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/image/image.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/image/image.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/image/image.bemhtml.js */
 block('image').js()(true)
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/image/image.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/image/image.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
 block("paragraph")(tag()("p"));
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/icon/icon.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/paragraph/paragraph.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/icon/icon.bemhtml.js */
 block('icon')(
     tag()('span'),
     addAttrs()(function() {
@@ -2654,16 +2654,16 @@ block('icon')(
     })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/icon/icon.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/icon/icon.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/icon/icon.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/icon/icon.bemhtml.js */
 block("icon").js()(true);
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/icon/icon.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/card/card.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/icon/icon.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/card/card.bemhtml.js */
 block("card").js()(true);
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/card/card.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/link/link.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/card/card.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/link/link.bemhtml.js */
 block('link')(
     def()(function() {
         var ctx = this.ctx;
@@ -2709,12 +2709,12 @@ block('link')(
         })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/link/link.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/link/link.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemhtml.js */
 block("page-gallery").js()(true);
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/socials/socials.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/page-gallery/page-gallery.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/socials/socials.bemhtml.js */
 block("socials").content()(function() {
   let socials = [
     {
@@ -2755,11 +2755,11 @@ block("socials").content()(function() {
   return socialContent;
 });
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/socials/socials.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/socials/socials.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
 block('header').js()(true)
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/header/header.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
 block("nav-menu").content()(() => {
   return [
     {
@@ -2843,23 +2843,23 @@ block("nav-menu").content()(() => {
   ];
 });
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/nav-menu/nav-menu.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
 block("burger").js()(true);
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/burger/burger.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
 block("footer").js()(true);
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_check.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/components/common.blocks/footer/footer.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_check.bemhtml.js */
 block('button').mod('togglable', 'check').addAttrs()(function() {
     return this.extend({ 'aria-pressed' : String(!!this.mods.checked) },
         applyNext());
 });
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_check.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/_type/button_type_link.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_togglable/button_togglable_check.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_type/button_type_link.bemhtml.js */
 block('button').mod('type', 'link')(
     tag()('a'),
 
@@ -2881,8 +2881,8 @@ block('button').mod('type', 'link')(
         })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/button/_type/button_type_link.bemhtml.js */
-/* begin: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/_type/radio_type_button.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/button/_type/button_type_link.bemhtml.js */
+/* begin: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/_type/radio_type_button.bemhtml.js */
 block('radio').mod('type', 'button')(
     content()(function() {
         var ctx = this.ctx,
@@ -2917,7 +2917,7 @@ block('radio').mod('type', 'button')(
     })
 );
 
-/* end: /Users/Dirty_Sanchez/Documents/dev/AbstractionBot/node_modules/bem-components/common.blocks/radio/_type/radio_type_button.bemhtml.js */
+/* end: /Users/user/Documents/DEV/AbstractionBot/node_modules/bem-components/common.blocks/radio/_type/radio_type_button.bemhtml.js */
 oninit(function(exports, context) {
     var BEMContext = exports.BEMContext || context.BEMContext;
     // Provides third-party libraries from different modular systems

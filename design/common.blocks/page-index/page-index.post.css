@@ -1,16 +1,6 @@
 block(page-index) {
   position: relative;
 
-  elem(canvas) {
-    position: absolute;
-    width: 1680px;
-    height: 1200px;
-    top: 0;
-    left: 50%;
-    margin-left: -840px;
-    z-index: 2;
-  }
-
   elem(content) {
     overflow-x: hidden;
     elem(first) {

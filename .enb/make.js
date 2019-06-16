@@ -182,17 +182,17 @@ module.exports = config => {
         [
           techs.borschik,
           {
-            minify: true,
+            minify: false,
             freeze: false,
             source: "?.{lang}.js",
             target: "?.{lang}.min.js"
           }
         ],
-        [techs.borschik, { minify: true, freeze: true, source: "?.css", target: "?.min.css" }],
+        [techs.borschik, { minify: false, freeze: true, source: "?.css", target: "?.min.css" }],
         [
           techs.borschik,
           {
-            minify: true,
+            minify: false,
             freeze: false,
             source: "?.bemhtml.js",
             target: "?.bemhtml.min.js"
