@@ -2,6 +2,36 @@ block("page-index").content()(() => {
   let lineup = {
     techno: [
       {
+        title: "Yaleeni",
+        description: "Global Sect Music / GoaHunter records",
+        link: "https://promodj.com/Yaleeni",
+        photo: "yaleeni"
+      },
+      {
+        title: "Pete",
+        description: "(vinyl dj set)",
+        photo: "pete",
+        link: "https://soundcloud.com/peter-kuschnereit"
+      },
+      {
+        title: "SPTNK",
+        description: "",
+        photo: "sptnk",
+        link: "https://vk.com/sptnk.music"
+      },
+      {
+        title: "Tochka_sborki DJs",
+        description: "",
+        photo: "tochka",
+        link: "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
+      },
+      {
+        title: "qqoma",
+        description: "(vinyl dj set)",
+        photo: "qoma",
+        link: "https://vk.com/qoma_music"
+      },
+      {
         title: "Alekseev ",
         description: "Fantazery, LABYRINTH",
         photo: "ALEKSEEV",
@@ -14,9 +44,15 @@ block("page-index").content()(() => {
         link: "https://vk.com/djnick_os"
       },
       {
-        title: "Kaya / Ten-G",
+        title: "Kaya",
         description: "LABYRINTH",
-        photo: "Kaya",
+        photo: "kaya",
+        link: "https://soundcloud.com/user-695448784"
+      },
+      {
+        title: "Ten-G",
+        description: "Fantazery , Mistral’",
+        photo: "TEN-G1",
         link: "https://soundcloud.com/tengi  "
       },
       {
@@ -82,6 +118,12 @@ block("page-index").content()(() => {
     ],
     trance: [
       {
+        title: "Trickster",
+        description: "Basic Algorithm Records",
+        link: "https://promodj.com/trickster",
+        photo: "trickster"
+      },
+      {
         title: "Fagin's Reject ",
         description: "(Wildthings Records), UK - LIVE ",
         link: "https://soundcloud.com/fagins_reject ",
@@ -140,7 +182,12 @@ block("page-index").content()(() => {
         link: "http://promodj.com/hystericalmind/music ",
         photo: "Casper"
       },
-      { title: "Doozer  ", link: "https://vk.com/djdoozer ", photo: "Doozer" },
+      {
+        title: "Doozer",
+        description: "",
+        link: "https://vk.com/djdoozer ",
+        photo: "Doozer"
+      },
       {
         title: "Funkyjunky ",
         description: "(Basic Algorithm), Ru ",
@@ -172,6 +219,12 @@ block("page-index").content()(() => {
         photo: "satori"
       },
       {
+        title: "Yaleeni",
+        description: "Global Sect Music / GoaHunter records",
+        link: "https://promodj.com/Yaleeni",
+        photo: "yaleeni"
+      },
+      {
         title: "Troll machine   ",
         link: "https://soundcloud.com/troll-machine ",
         photo: "tm"
@@ -198,6 +251,68 @@ block("page-index").content()(() => {
         link: "https://www.mixcloud.com/olegfreerider/ ",
         photo: "on2"
       }
+    ],
+    chill: [
+      {
+        title: "Arthur Pralaya",
+        description: "",
+        link: "https://vk.com/arthur_pralaya",
+        photo: "pralaya"
+      },
+      {
+        title: "Blue Lotus",
+        description: "Microcosmos records",
+        link: "https://blue-lotus.ru/ ",
+        photo: "bluelotus"
+      },
+      {
+        title: "Doozer",
+        description: "",
+        link: "https://vk.com/djdoozer ",
+        photo: "Doozer"
+      },
+      {
+        title: "EDD-989",
+        description: "Microcosmos Records",
+        link: "https://vk.com/edd_989",
+        photo: "edd989"
+      },
+      {
+        title: "Invisible Inks",
+        description: "",
+        link: "https://vk.com/invisible_inks",
+        photo: "invisibleinks"
+      },
+      {
+        title: "Kuzma",
+        description: "",
+        link: "http://kuzma-kuznetsov.bandcamp.com/",
+        photo: "kuzma"
+      },
+      {
+        title: "Олег Bu33a",
+        description: "",
+        link: "https://www.instagram.com/oleg_bu33a/",
+        photo: "bizza"
+      },
+      {
+        title: "Sofi Sayonara",
+        description: "",
+        link: "https://www.mixcloud.com/southfruit/",
+        photo: "sofi"
+      },
+      {
+        title: "Translippers",
+        description: "",
+        link: "https://translippers.ru",
+        photo: "translippers"
+      },
+      {
+        title: "Yaleeni",
+        description: "Global Sect Music / GoaHunter records",
+        link: "https://promodj.com/Yaleeni",
+        photo: "yaleeni"
+      }
     ]
   };
 
@@ -209,6 +324,13 @@ block("page-index").content()(() => {
   });
 
   let tranceArray = lineup.trance.map(item => {
+    return {
+      block: "card",
+      artist: item
+    };
+  });
+
+  let chillArray = lineup.chill.map(item => {
     return {
       block: "card",
       artist: item
@@ -424,6 +546,12 @@ block("page-index").content()(() => {
                     active: false,
                     disabled: false,
                     checked: false
+                  },
+                  {
+                    text: "Чиллаут",
+                    active: false,
+                    disabled: false,
+                    checked: false
                   }
                 ],
                 content: [
@@ -450,6 +578,19 @@ block("page-index").content()(() => {
                           slides: 4
                         },
                         elems: technoArray
+                      }
+                    ]
+                  },
+                  {
+                    elem: "pane",
+                    elemMods: { active: false },
+                    content: [
+                      {
+                        block: "gallery",
+                        js: {
+                          slides: 4
+                        },
+                        elems: chillArray
                       }
                     ]
                   }

@@ -637,6 +637,9 @@
         display: block;
         width: 100%;
       }
+.tabs .radio:nth-child(2) {
+      margin: 0 15px;
+    }
 @media (max-width: 600px) {
 .tabs__pane {
       padding: 0 10px;
