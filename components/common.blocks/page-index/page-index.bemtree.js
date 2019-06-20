@@ -23,7 +23,8 @@ block("page-index").content()(() => {
         title: "Tochka_sborki DJs",
         description: "",
         photo: "tochka",
-        link: "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
+        link:
+          "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
       },
       {
         title: "qqoma",
@@ -46,7 +47,7 @@ block("page-index").content()(() => {
       {
         title: "Kaya",
         description: "LABYRINTH",
-        photo: "kaya",
+        photo: "Kaya",
         link: "https://soundcloud.com/user-695448784"
       },
       {
@@ -477,7 +478,8 @@ block("page-index").content()(() => {
                 mods: {
                   size: "l"
                 },
-                content: "Techno, trance и природа. 3 дня, 2 ночи, частная территория, более 100 артистов и ди джеев, музыка нон-стоп. Здесь будет всё, как ты любишь. Погнали!"
+                content:
+                  "Techno, trance и природа. 3 дня, 2 ночи, частная территория, более 100 артистов и ди джеев, музыка нон-стоп. Здесь будет всё, как ты любишь. Погнали!"
               },
               {
                 block: "paragraph",
@@ -529,7 +531,8 @@ block("page-index").content()(() => {
                 mods: {
                   size: "s"
                 },
-                content: "В 2019 году привозим самый прогрессивный саунд мира в лице самых мощных и актуальных артистов"
+                content:
+                  "В 2019 году привозим самый прогрессивный саунд мира в лице самых мощных и актуальных артистов"
               },
               {
                 block: "tabs",
@@ -671,7 +674,8 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: { size: "s", narrow: true },
-                content: 'Фестиваль будет проходить на частной территории. Горнолыжный курорт "Красное Озеро"'
+                content:
+                  'Фестиваль будет проходить на частной территории. Горнолыжный курорт "Красное Озеро"'
               },
               {
                 block: "title",
@@ -806,6 +810,7 @@ block("page-index").content()(() => {
                 mods: {
                   type: "link"
                 },
+                target: "_blank",
                 url: "http://rupor.biz/widgets/event-tickets/393",
                 text: "Арендовать домик"
               },
@@ -818,17 +823,17 @@ block("page-index").content()(() => {
                 block: "paragraph",
                 mods: { size: "s", blue: true },
                 content:
-                  "Будет организован трансфер на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее. Информация появится позже."
+                  "Трансфер организован на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее. "
+              },
+              {
+                block: "button",
+                mods: {
+                  type: "link"
+                },
+                target: "_blank",
+                url: "http://rupor.biz/widgets/event-tickets/411",
+                text: "Забронировать трансфер"
               }
-              // {
-              //   block: "button",
-              //   mods: {
-              //     type: "link",
-              //     disabled: true
-              //   },
-              //   url: "/rent",
-              //   text: "Забронировать трансфер"
-              // }
             ]
           }
         },

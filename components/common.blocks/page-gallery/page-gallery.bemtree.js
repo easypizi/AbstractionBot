@@ -23,7 +23,8 @@ block("page-gallery").content()(function() {
         title: "Tochka_sborki DJs",
         description: "",
         photo: "tochka",
-        link: "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
+        link:
+          "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
       },
       {
         title: "qqoma",
@@ -46,7 +47,7 @@ block("page-gallery").content()(function() {
       {
         title: "Kaya",
         description: "LABYRINTH",
-        photo: "kaya",
+        photo: "Kaya",
         link: "https://soundcloud.com/user-695448784"
       },
       {
