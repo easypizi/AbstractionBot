@@ -2,10 +2,88 @@ block("page-gallery").content()(function() {
   let lineup = {
     techno: [
       {
-        title: "Yaleeni",
-        description: "Global Sect Music / GoaHunter records",
-        link: "https://promodj.com/Yaleeni",
-        photo: "yaleeni"
+        title: "Alekseev aka Aliksiv",
+        description: "Fantazery, LABYRINTH",
+        photo: "ALEKSEEV",
+        link: "https://soundcloud.com/ellixalien"
+      },
+      {
+        title: "Alex Panchenco ",
+        description: "Escade Music, Aura Music",
+        photo: "Alex",
+        link: "https://soundcloud.com/alex-panchenco "
+      },
+      //   {
+      //     title: "Artarea",
+      //     description: "",
+      //     link: "https://vk.com/artem_miliukov",
+      //     photo: "artarea"
+      //   },
+      {
+        title: "Bagus aka Mr.B ",
+        description: "(dj set)",
+        photo: "Bagus",
+        link: "https://soundcloud.com/kirillbagus"
+      },
+      {
+        title: "Daniil Waigelman ",
+        description: "Psycometrik Recordings (Spain)",
+        photo: "Waigelman",
+        link: "https://soundcloud.com/daniilwaigelman"
+      },
+      //   {
+      //     title: "Danny Mills ",
+      //     description: "",
+      //     link: "https://www.beatport.com/artist/danny-mills/394436",
+      //     photo: "mills"
+      //   },
+      //   {
+      //     title: "DERKNOB",
+      //     description: "",
+      //     link: "https://www.mixcloud.com/der-knob",
+      //     photo: "derknob"
+      //   },
+      {
+        title: "Eye Que ",
+        description: "SubSpace",
+        photo: "EYE",
+        link: "https://soundcloud.com/eye_que "
+      },
+      {
+        title: "German Air  (hybrid live/dj set)",
+        description: "Heartbeat Records, Baikonur Recordings ",
+        photo: "GermanAir",
+        link: "https://soundcloud.com/german_air "
+      },
+      {
+        title: "Kaya",
+        description: "LABYRINTH",
+        photo: "kaya",
+        link: "https://soundcloud.com/user-695448784"
+      },
+      {
+        title: "Mixa Wawer",
+        description: "(dj set)",
+        photo: "Waver",
+        link: "https://soundcloud.com/technopunks "
+      },
+      {
+        title: "NICK-OS ",
+        description: "LABYRINTH",
+        photo: "NICK-OS",
+        link: "https://vk.com/djnick_os"
+      },
+      {
+        title: "Oscar Schultz ",
+        description: "Deep Ladoga",
+        photo: "Oscar",
+        link: "https://vk.com/oscarschultz"
+      },
+      {
+        title: "Voodoo Noise aka Otto O'Shea",
+        description: "Mistral'",
+        photo: "Voodoo",
+        link: "https://soundcloud.com/voodoonoise"
       },
       {
         title: "Pete",
@@ -20,6 +98,18 @@ block("page-gallery").content()(function() {
         link: "https://vk.com/sptnk.music"
       },
       {
+        title: "Space Modular",
+        description: "Techno Vinyls Records",
+        photo: "Space",
+        link: "https://soundcloud.com/space-modular "
+      },
+      {
+        title: "Ten-G",
+        description: "Fantazery , Mistral’",
+        photo: "TEN-G1",
+        link: "https://soundcloud.com/tengi  "
+      },
+      {
         title: "Tochka_sborki DJs",
         description: "",
         photo: "tochka",
@@ -32,97 +122,13 @@ block("page-gallery").content()(function() {
         link: "https://vk.com/qoma_music"
       },
       {
-        title: "Alekseev ",
-        description: "Fantazery, LABYRINTH",
-        photo: "ALEKSEEV",
-        link: "https://soundcloud.com/ellixalien"
-      },
-      {
-        title: "NICK-OS ",
-        description: "LABYRINTH",
-        photo: "NICK-OS",
-        link: "https://vk.com/djnick_os"
-      },
-      {
-        title: "Kaya",
-        description: "LABYRINTH",
-        photo: "kaya",
-        link: "https://soundcloud.com/user-695448784"
-      },
-      {
-        title: "Ten-G",
-        description: "Fantazery , Mistral’",
-        photo: "TEN-G1",
-        link: "https://soundcloud.com/tengi  "
-      },
-      {
-        title: "Alex Panchenco ",
-        description: "Escade Music, Aura Music",
-        photo: "Alex",
-        link: "https://soundcloud.com/alex-panchenco "
-      },
-      {
-        title: "Oscar Schultz ",
-        description: "Deep Ladoga",
-        photo: "Oscar",
-        link: "https://vk.com/oscarschultz"
-      },
-      {
-        title: "Bagus aka Mr.B ",
-        description: "(dj set)",
-        photo: "Bagus",
-        link: "https://soundcloud.com/kirillbagus"
-      },
-      {
-        title: "Daniil Waigelman ",
-        description: "Psycometrik Recordings (Spain)",
-        photo: "Waigelman",
-        link: "https://soundcloud.com/daniilwaigelman"
-      },
-      {
-        title: "Taiwa ",
-        description: "(dj set)",
-        photo: "TAIWA",
-        link: "https://soundcloud.com/aidartaiwa "
-      },
-      {
-        title: "Voodoo Noise aka Otto O'Shea",
-        description: "Mistral'",
-        photo: "Voodoo",
-        link: "https://soundcloud.com/voodoonoise"
-      },
-      {
-        title: "Eye Que ",
-        description: "SubSpace",
-        photo: "EYE",
-        link: "https://soundcloud.com/eye_que "
-      },
-      {
-        title: "German Air  (hybrid live/dj set)",
-        description: "Heartbeat Records, Baikonur Recordings ",
-        photo: "GermanAir",
-        link: "https://soundcloud.com/german_air "
-      },
-      {
-        title: "Mixa Wawer",
-        description: "(dj set)",
-        photo: "Waver",
-        link: "https://soundcloud.com/technopunks "
-      },
-      {
-        title: "Space Modular",
-        description: "Techno Vinyls Records",
-        photo: "Space",
-        link: "https://soundcloud.com/space-modular "
+        title: "Yaleeni",
+        description: "Global Sect Music / GoaHunter records",
+        link: "https://promodj.com/Yaleeni",
+        photo: "yaleeni"
       }
     ],
     trance: [
-      {
-        title: "Trickster",
-        description: "Basic Algorithm Records",
-        link: "https://promodj.com/trickster",
-        photo: "trickster"
-      },
       {
         title: "Fagin's Reject ",
         description: "(Wildthings Records), UK - LIVE ",
@@ -219,12 +225,6 @@ block("page-gallery").content()(function() {
         photo: "satori"
       },
       {
-        title: "Yaleeni",
-        description: "Global Sect Music / GoaHunter records",
-        link: "https://promodj.com/Yaleeni",
-        photo: "yaleeni"
-      },
-      {
         title: "Troll machine   ",
         link: "https://soundcloud.com/troll-machine ",
         photo: "tm"
@@ -247,9 +247,39 @@ block("page-gallery").content()(function() {
         photo: "toyfog"
       },
       {
+        title: "Trickster",
+        description: "Basic Algorithm Records",
+        link: "https://promodj.com/trickster",
+        photo: "trickster"
+      },
+      {
         title: "On",
         link: "https://www.mixcloud.com/olegfreerider/ ",
         photo: "on2"
+      },
+
+      //   {
+      //     title: "Fil Zionpsychedelic",
+      //     link: "http://soundcloud.com/surya-project",
+      //     photo: "zion"
+      //   },
+      //   {
+      //     title: "Mauri Naja",
+      //     description: "",
+      //     link: "https://soundcloud.com/maurinaja",
+      //     photo: "mauri"
+      //   },
+      //   {
+      //     title: "Oxidant ",
+      //     link: "https://vk.com/britva92",
+      //     photo: "oxidant"
+      //   },
+
+      {
+        title: "Yaleeni",
+        description: "Global Sect Music / GoaHunter records",
+        link: "https://promodj.com/Yaleeni",
+        photo: "yaleeni"
       }
     ],
     chill: [
