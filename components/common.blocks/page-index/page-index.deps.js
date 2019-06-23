@@ -14,42 +14,42 @@
         theme: "plus",
         size: "m",
         togglable: "check",
-        type: 'link'
+        type: "link"
       }
     },
     {
-      block: 'tabs',
+      block: "tabs",
       mods: {
-        type: 'button'
+        type: "button"
       }
     },
     {
-      block: 'graphics',
+      block: "graphics",
       mods: {
-        view: ['left', 'right', 'topStar', 'midStar', 'botStar', 'bottom']
+        view: ["left", "right", "topStar", "midStar", "botStar", "bottom"]
       }
     },
     {
-      block: 'paragraph',
+      block: "paragraph",
       mods: {
-        size: ['l','m', 's'],
+        size: ["l", "m", "s"],
         narrow: true
       }
     },
     {
-      block: 'icon',
+      block: "icon",
       mods: {
-        arrow: '*'
+        arrow: "*"
       }
     },
     {
-      block: 'gallery',
+      block: "gallery",
       mods: {
         photo: true
       }
     },
     {
-      block: 'card'
+      block: "card"
     }
   ]
 });

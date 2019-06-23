@@ -2870,6 +2870,7 @@ block("page-index").content()(() => {
                 mods: {
                   type: "link"
                 },
+                target: "_blank",
                 url: "http://rupor.biz/widgets/event-tickets/393",
                 text: "Арендовать домик"
               },
@@ -2881,18 +2882,17 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: { size: "s", blue: true },
-                content:
-                  "Будет организован трансфер на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее. Информация появится позже."
+                content: "Трансфер организован на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее. "
+              },
+              {
+                block: "button",
+                mods: {
+                  type: "link"
+                },
+                target: "_blank",
+                url: "http://rupor.biz/widgets/event-tickets/411",
+                text: "Забронировать трансфер"
               }
-              // {
-              //   block: "button",
-              //   mods: {
-              //     type: "link",
-              //     disabled: true
-              //   },
-              //   url: "/rent",
-              //   text: "Забронировать трансфер"
-              // }
             ]
           }
         },
