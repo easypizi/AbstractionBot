@@ -13,12 +13,12 @@ block("page-index").content()(() => {
         photo: "Alex",
         link: "https://soundcloud.com/alex-panchenco "
       },
-      //   {
-      //     title: "Artarea",
-      //     description: "",
-      //     link: "https://vk.com/artem_miliukov",
-      //     photo: "artarea"
-      //   },
+      {
+        title: "Artarea",
+        description: "",
+        link: "https://vk.com/artem_miliukov",
+        photo: "artarea"
+      },
       {
         title: "Bagus aka Mr.B ",
         description: "(dj set)",
@@ -31,18 +31,18 @@ block("page-index").content()(() => {
         photo: "Waigelman",
         link: "https://soundcloud.com/daniilwaigelman"
       },
-      //   {
-      //     title: "Danny Mills ",
-      //     description: "",
-      //     link: "https://www.beatport.com/artist/danny-mills/394436",
-      //     photo: "mills"
-      //   },
-      //   {
-      //     title: "DERKNOB",
-      //     description: "",
-      //     link: "https://www.mixcloud.com/der-knob",
-      //     photo: "derknob"
-      //   },
+      {
+        title: "Danny Mills ",
+        description: "",
+        link: "https://www.beatport.com/artist/danny-mills/394436",
+        photo: "mills"
+      },
+      {
+        title: "DERKNOB",
+        description: "",
+        link: "https://www.mixcloud.com/der-knob",
+        photo: "derknob"
+      },
       {
         title: "Eye Que ",
         description: "SubSpace",
@@ -61,6 +61,20 @@ block("page-index").content()(() => {
         photo: "kaya",
         link: "https://soundcloud.com/user-695448784"
       },
+
+      {
+        title: "Mila Craft",
+        description: "Mistral'",
+        photo: "mila",
+        link: "https://soundcloud.com/mila_craft/"
+      },
+      {
+        title: "Mish Mish",
+        description: "",
+        photo: "mishmish",
+        link: "http://promodj.com/mishmishdj"
+      },
+
       {
         title: "Mixa Wawer",
         description: "(dj set)",
@@ -257,24 +271,24 @@ block("page-index").content()(() => {
         link: "https://www.mixcloud.com/olegfreerider/ ",
         photo: "on2"
       },
-
-      //   {
-      //     title: "Fil Zionpsychedelic",
-      //     link: "http://soundcloud.com/surya-project",
-      //     photo: "zion"
-      //   },
-      //   {
-      //     title: "Mauri Naja",
-      //     description: "",
-      //     link: "https://soundcloud.com/maurinaja",
-      //     photo: "mauri"
-      //   },
-      //   {
-      //     title: "Oxidant ",
-      //     link: "https://vk.com/britva92",
-      //     photo: "oxidant"
-      //   },
-
+      {
+        title: "Fil Zionpsychedelic",
+        description: "",
+        link: "http://soundcloud.com/surya-project",
+        photo: "fil"
+      },
+      {
+        title: "Mauri Naja",
+        description: "",
+        link: "https://soundcloud.com/maurinaja",
+        photo: "mauri"
+      },
+      {
+        title: "Oxidant ",
+        description: "",
+        link: "https://vk.com/britva92",
+        photo: "oxidant"
+      },
       {
         title: "Yaleeni",
         description: "Global Sect Music / GoaHunter records",
@@ -283,6 +297,18 @@ block("page-index").content()(() => {
       }
     ],
     chill: [
+      {
+        title: "Alexander Daf",
+        description: "",
+        link: "https://soundcloud.com/alexanderdaf",
+        photo: "daf"
+      },
+      {
+        title: "Aedem",
+        description: "",
+        link: "https://soundcloud.com/aedem",
+        photo: "AEDEM"
+      },
       {
         title: "Arthur Pralaya",
         description: "",
@@ -308,6 +334,12 @@ block("page-index").content()(() => {
         photo: "edd989"
       },
       {
+        title: "Helimax",
+        description: "",
+        link: "https://promodj.com/Helimax",
+        photo: "helimax"
+      },
+      {
         title: "Invisible Inks",
         description: "",
         link: "https://vk.com/invisible_inks",
@@ -326,16 +358,40 @@ block("page-index").content()(() => {
         photo: "bizza"
       },
       {
+        title: "Dj Pealot",
+        description: "",
+        link: "https://www.mixcloud.com/peaLot/",
+        photo: "pealot"
+      },
+      {
+        title: "RaFuze",
+        description: "",
+        link: "https://t.me/soundhunter",
+        photo: "rafuze"
+      },
+      {
         title: "Sofi Sayonara",
         description: "",
         link: "https://www.mixcloud.com/southfruit/",
         photo: "sofi"
       },
       {
+        title: "Susie Johnson",
+        description: "",
+        link: "https://soundcloud.com/dj_susie",
+        photo: "susie"
+      },
+      {
         title: "Translippers",
         description: "",
         link: "https://translippers.ru",
         photo: "translippers"
+      },
+      {
+        title: "UMT -:- Unlimited Mental Traffic",
+        description: "",
+        link: "unlim.pdj.ru",
+        photo: "umt"
       },
       {
         title: "Yaleeni",
