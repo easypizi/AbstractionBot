@@ -43,6 +43,8 @@ block(card) {
     elem(photo) {
       margin-top: 12px;
       flex: 1;
+      background-position: center center;
+      background-size: auto 100%;
     }
 
     elem(link) {

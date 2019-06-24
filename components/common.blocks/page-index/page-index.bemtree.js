@@ -2,6 +2,12 @@ block("page-index").content()(() => {
   let lineup = {
     techno: [
       {
+        title: "The Panacea (DE)",
+        description: "",
+        photo: "panacea",
+        link: "https://soundcloud.com/thepanaceaofficial"
+      },
+      {
         title: "Alekseev aka Aliksiv",
         description: "Fantazery, LABYRINTH",
         photo: "ALEKSEEV",
