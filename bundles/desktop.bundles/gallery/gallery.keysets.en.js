@@ -1,4 +1,4 @@
-module.exports = {"i18n":{"i18n":function() {
+module.exports = {"i18n":{"i18n":function () {
             var data;
 
             /**
