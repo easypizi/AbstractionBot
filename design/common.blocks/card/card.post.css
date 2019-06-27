@@ -41,9 +41,10 @@ block(card) {
     }
 
     elem(photo) {
-      border-radius: 8px;
       margin-top: 12px;
       flex: 1;
+      background-position: center center;
+      background-size: auto 100%;
     }
 
     elem(link) {

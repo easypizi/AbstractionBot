@@ -2,59 +2,16 @@ block("page-index").content()(() => {
   let lineup = {
     techno: [
       {
-        title: "Yaleeni",
-        description: "Global Sect Music / GoaHunter records",
-        link: "https://promodj.com/Yaleeni",
-        photo: "yaleeni"
-      },
-      {
-        title: "Pete",
-        description: "(vinyl dj set)",
-        photo: "pete",
-        link: "https://soundcloud.com/peter-kuschnereit"
-      },
-      {
-        title: "SPTNK",
+        title: "The Panacea (DE)",
         description: "",
-        photo: "sptnk",
-        link: "https://vk.com/sptnk.music"
+        photo: "panacea",
+        link: "https://soundcloud.com/thepanaceaofficial"
       },
       {
-        title: "Tochka_sborki DJs",
-        description: "",
-        photo: "tochka",
-        link:
-          "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
-      },
-      {
-        title: "qqoma",
-        description: "(vinyl dj set)",
-        photo: "qoma",
-        link: "https://vk.com/qoma_music"
-      },
-      {
-        title: "Alekseev ",
+        title: "Alekseev aka Aliksiv",
         description: "Fantazery, LABYRINTH",
         photo: "ALEKSEEV",
         link: "https://soundcloud.com/ellixalien"
-      },
-      {
-        title: "NICK-OS ",
-        description: "LABYRINTH",
-        photo: "NICK-OS",
-        link: "https://vk.com/djnick_os"
-      },
-      {
-        title: "Kaya",
-        description: "LABYRINTH",
-        photo: "Kaya",
-        link: "https://soundcloud.com/user-695448784"
-      },
-      {
-        title: "Ten-G",
-        description: "Fantazery , Mistral’",
-        photo: "TEN-G1",
-        link: "https://soundcloud.com/tengi  "
       },
       {
         title: "Alex Panchenco ",
@@ -63,10 +20,10 @@ block("page-index").content()(() => {
         link: "https://soundcloud.com/alex-panchenco "
       },
       {
-        title: "Oscar Schultz ",
-        description: "Deep Ladoga",
-        photo: "Oscar",
-        link: "https://vk.com/oscarschultz"
+        title: "Artarea",
+        description: "",
+        link: "https://vk.com/artem_miliukov",
+        photo: "artarea"
       },
       {
         title: "Bagus aka Mr.B ",
@@ -81,16 +38,16 @@ block("page-index").content()(() => {
         link: "https://soundcloud.com/daniilwaigelman"
       },
       {
-        title: "Taiwa ",
-        description: "(dj set)",
-        photo: "TAIWA",
-        link: "https://soundcloud.com/aidartaiwa "
+        title: "Danny Mills ",
+        description: "",
+        link: "https://www.beatport.com/artist/danny-mills/394436",
+        photo: "mills"
       },
       {
-        title: "Voodoo Noise aka Otto O'Shea",
-        description: "Mistral'",
-        photo: "Voodoo",
-        link: "https://soundcloud.com/voodoonoise"
+        title: "DERKNOB",
+        description: "",
+        link: "https://www.mixcloud.com/der-knob",
+        photo: "derknob"
       },
       {
         title: "Eye Que ",
@@ -105,25 +62,93 @@ block("page-index").content()(() => {
         link: "https://soundcloud.com/german_air "
       },
       {
+        title: "Kaya",
+        description: "LABYRINTH",
+        photo: "kaya",
+        link: "https://soundcloud.com/user-695448784"
+      },
+
+      {
+        title: "Mila Craft",
+        description: "Mistral'",
+        photo: "mila",
+        link: "https://soundcloud.com/mila_craft/"
+      },
+      {
+        title: "Mish Mish",
+        description: "",
+        photo: "mishmish",
+        link: "http://promodj.com/mishmishdj"
+      },
+
+      {
         title: "Mixa Wawer",
         description: "(dj set)",
         photo: "Waver",
         link: "https://soundcloud.com/technopunks "
       },
       {
+        title: "NICK-OS ",
+        description: "LABYRINTH",
+        photo: "NICK-OS",
+        link: "https://vk.com/djnick_os"
+      },
+      {
+        title: "Oscar Schultz ",
+        description: "Deep Ladoga",
+        photo: "Oscar",
+        link: "https://vk.com/oscarschultz"
+      },
+      {
+        title: "Voodoo Noise aka Otto O'Shea",
+        description: "Mistral'",
+        photo: "Voodoo",
+        link: "https://soundcloud.com/voodoonoise"
+      },
+      {
+        title: "Pete",
+        description: "(vinyl dj set)",
+        photo: "pete",
+        link: "https://soundcloud.com/peter-kuschnereit"
+      },
+      {
+        title: "SPTNK",
+        description: "",
+        photo: "sptnk",
+        link: "https://vk.com/sptnk.music"
+      },
+      {
         title: "Space Modular",
         description: "Techno Vinyls Records",
         photo: "Space",
         link: "https://soundcloud.com/space-modular "
+      },
+      {
+        title: "Ten-G",
+        description: "Fantazery , Mistral’",
+        photo: "TEN-G1",
+        link: "https://soundcloud.com/tengi  "
+      },
+      {
+        title: "Tochka_sborki DJs",
+        description: "",
+        photo: "tochka",
+        link: "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
+      },
+      {
+        title: "qqoma",
+        description: "(vinyl dj set)",
+        photo: "qoma",
+        link: "https://vk.com/qoma_music"
+      },
+      {
+        title: "Yaleeni",
+        description: "Global Sect Music / GoaHunter records",
+        link: "https://promodj.com/Yaleeni",
+        photo: "yaleeni"
       }
     ],
     trance: [
-      {
-        title: "Trickster",
-        description: "Basic Algorithm Records",
-        link: "https://promodj.com/trickster",
-        photo: "trickster"
-      },
       {
         title: "Fagin's Reject ",
         description: "(Wildthings Records), UK - LIVE ",
@@ -220,12 +245,6 @@ block("page-index").content()(() => {
         photo: "satori"
       },
       {
-        title: "Yaleeni",
-        description: "Global Sect Music / GoaHunter records",
-        link: "https://promodj.com/Yaleeni",
-        photo: "yaleeni"
-      },
-      {
         title: "Troll machine   ",
         link: "https://soundcloud.com/troll-machine ",
         photo: "tm"
@@ -248,12 +267,54 @@ block("page-index").content()(() => {
         photo: "toyfog"
       },
       {
+        title: "Trickster",
+        description: "Basic Algorithm Records",
+        link: "https://promodj.com/trickster",
+        photo: "trickster"
+      },
+      {
         title: "On",
         link: "https://www.mixcloud.com/olegfreerider/ ",
         photo: "on2"
+      },
+      {
+        title: "Fil Zionpsychedelic",
+        description: "",
+        link: "http://soundcloud.com/surya-project",
+        photo: "fil"
+      },
+      {
+        title: "Mauri Naja",
+        description: "",
+        link: "https://soundcloud.com/maurinaja",
+        photo: "mauri"
+      },
+      {
+        title: "Oxidant ",
+        description: "",
+        link: "https://vk.com/britva92",
+        photo: "oxidant"
+      },
+      {
+        title: "Yaleeni",
+        description: "Global Sect Music / GoaHunter records",
+        link: "https://promodj.com/Yaleeni",
+        photo: "yaleeni"
       }
     ],
     chill: [
+      {
+        title: "Alexander Daf",
+        description: "",
+        link: "https://soundcloud.com/alexanderdaf",
+        photo: "daf"
+      },
+      {
+        title: "Aedem",
+        description: "",
+        link: "https://soundcloud.com/aedem",
+        photo: "AEDEM"
+      },
       {
         title: "Arthur Pralaya",
         description: "",
@@ -279,6 +340,12 @@ block("page-index").content()(() => {
         photo: "edd989"
       },
       {
+        title: "Helimax",
+        description: "",
+        link: "https://promodj.com/Helimax",
+        photo: "helimax"
+      },
+      {
         title: "Invisible Inks",
         description: "",
         link: "https://vk.com/invisible_inks",
@@ -297,16 +364,40 @@ block("page-index").content()(() => {
         photo: "bizza"
       },
       {
+        title: "Dj Pealot",
+        description: "",
+        link: "https://www.mixcloud.com/peaLot/",
+        photo: "pealot"
+      },
+      {
+        title: "RaFuze",
+        description: "",
+        link: "https://t.me/soundhunter",
+        photo: "rafuze"
+      },
+      {
         title: "Sofi Sayonara",
         description: "",
         link: "https://www.mixcloud.com/southfruit/",
         photo: "sofi"
       },
       {
+        title: "Susie Johnson",
+        description: "",
+        link: "https://soundcloud.com/dj_susie",
+        photo: "susie"
+      },
+      {
         title: "Translippers",
         description: "",
         link: "https://translippers.ru",
         photo: "translippers"
+      },
+      {
+        title: "UMT -:- Unlimited Mental Traffic",
+        description: "",
+        link: "unlim.pdj.ru",
+        photo: "umt"
       },
       {
         title: "Yaleeni",
@@ -478,8 +569,7 @@ block("page-index").content()(() => {
                 mods: {
                   size: "l"
                 },
-                content:
-                  "Techno, trance и природа. 3 дня, 2 ночи, частная территория, более 100 артистов и ди джеев, музыка нон-стоп. Здесь будет всё, как ты любишь. Погнали!"
+                content: "Techno, trance и природа. 3 дня, 2 ночи, частная территория, более 100 артистов и ди джеев, музыка нон-стоп. Здесь будет всё, как ты любишь. Погнали!"
               },
               {
                 block: "paragraph",
@@ -531,8 +621,7 @@ block("page-index").content()(() => {
                 mods: {
                   size: "s"
                 },
-                content:
-                  "В 2019 году привозим самый прогрессивный саунд мира в лице самых мощных и актуальных артистов"
+                content: "В 2019 году привозим самый прогрессивный саунд мира в лице самых мощных и актуальных артистов"
               },
               {
                 block: "tabs",
@@ -674,8 +763,7 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: { size: "s", narrow: true },
-                content:
-                  'Фестиваль будет проходить на частной территории. Горнолыжный курорт "Красное Озеро"'
+                content: 'Фестиваль будет проходить на частной территории. Горнолыжный курорт "Красное Озеро"'
               },
               {
                 block: "title",
@@ -822,8 +910,7 @@ block("page-index").content()(() => {
               {
                 block: "paragraph",
                 mods: { size: "s", blue: true },
-                content:
-                  "Трансфер организован на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее. "
+                content: "Трансфер организован на автобусах из Санкт-Петербурга и из Москвы. Количество мест в автобусах ограничено. Бронируйте места заранее. "
               },
               {
                 block: "button",
