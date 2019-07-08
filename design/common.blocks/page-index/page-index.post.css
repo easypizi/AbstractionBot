@@ -44,6 +44,39 @@ block(page-index) {
           }
         }
 
+        elem(sideButton) {
+          margin-top: 50px;
+          position: relative;
+          z-index: 5;
+          padding: 20px 5px;
+          max-width: 300px;
+          width: 100%;
+          border: none;
+          text-align: center;
+
+          .button__text {
+            font-size: 16px;
+            line-height: normal;
+            text-align: center;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            font-weight: 700;
+
+            @media (max-width: 600px) {
+              font-size: 14px;
+            }
+          }
+
+          @media (max-width: 769px) {
+            margin-top: 60px;
+          }
+
+          @media (max-width: 600px) {
+            margin-top: 20px;
+          }
+        }
+
         elem(video) {
           width: 100%;
           height: 640px;

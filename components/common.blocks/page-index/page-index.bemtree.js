@@ -526,6 +526,26 @@ block("page-index").content()(() => {
                   text: "Купить билет"
                 },
                 {
+                  block: "button",
+                  mix: { block: "page-index", elem: "sideButton" },
+                  mods: {
+                    type: "link"
+                  },
+                  target: "_blank",
+                  url: "http://rupor.biz/widgets/event-tickets/393",
+                  text: "Арендовать домик"
+                },
+                {
+                  block: "button",
+                  mix: { block: "page-index", elem: "sideButton" },
+                  mods: {
+                    type: "link"
+                  },
+                  target: "_blank",
+                  url: "http://rupor.biz/widgets/event-tickets/411",
+                  text: "Забронировать трансфер"
+                },
+                {
                   elem: "video",
                   content: {
                     html:
