@@ -133,7 +133,8 @@ block("page-gallery").content()(function() {
         title: "Tochka_sborki DJs",
         description: "",
         photo: "tochka",
-        link: "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
+        link:
+          "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
       },
       {
         title: "qqoma",
@@ -146,6 +147,12 @@ block("page-gallery").content()(function() {
         description: "Global Sect Music / GoaHunter records",
         link: "https://promodj.com/Yaleeni",
         photo: "yaleeni"
+      },
+      {
+        title: "Denis Podgorniy",
+        description: "",
+        link: "https://soundcloud.com/denis-podgorny-1",
+        photo: "podgor"
       }
     ],
     trance: [
@@ -300,6 +307,18 @@ block("page-gallery").content()(function() {
         description: "Global Sect Music / GoaHunter records",
         link: "https://promodj.com/Yaleeni",
         photo: "yaleeni"
+      },
+      {
+        title: "Blastourist (HU)",
+        description: "",
+        link: "https://soundcloud.com/blastourist",
+        photo: "blastourist"
+      },
+      {
+        title: "Racoon",
+        description: "",
+        link: "https://soundcloud.com/raccoon-374329708",
+        photo: "racoon"
       }
     ],
     chill: [
@@ -404,6 +423,48 @@ block("page-gallery").content()(function() {
         description: "Global Sect Music / GoaHunter records",
         link: "https://promodj.com/Yaleeni",
         photo: "yaleeni"
+      },
+      {
+        title: "Alexander S. Karlov and E-Motive",
+        description: "",
+        link: "https://vk.com/djkarlov",
+        photo: "backtoback"
+      },
+      {
+        title: "ch1ga",
+        description: "",
+        link: "https://vk.com/ch1ga",
+        photo: "chiga"
+      },
+      {
+        title: "Doqta",
+        description: "",
+        link: "https://vk.com/vdoqte",
+        photo: "doqta"
+      },
+      {
+        title: "#EkzaSelecta",
+        description: "",
+        link: "https://soundcloud.com/ekzaselecta",
+        photo: "ekza"
+      },
+      {
+        title: "ISTWA",
+        description: "",
+        link: "https://vk.com/kosmoaila",
+        photo: "istwa"
+      },
+      {
+        title: "Mir Ashov",
+        description: "",
+        link: "https://vk.com/id79322013",
+        photo: "mirashov"
+      },
+      {
+        title: "Vuestra Merced",
+        description: "",
+        link: "https://soundcloud.com/vuestramerced",
+        photo: "vuestra"
       }
     ]
   };
