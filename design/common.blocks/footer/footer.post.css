@@ -1,8 +1,39 @@
 block(footer) {
+  background-color: rgba(0, 0, 0, 0.7);
+
+  elem(partners) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 180px;
+    padding: 10px 100px;
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      padding: 10px;
+      justify-content: center;
+    }
+
+    block(link) {
+      height: 100%;
+      width: 15%;
+      flex-shrink: 0;
+      display: block;
+
+      @media (max-width: 768px) {
+        width: 40%;
+        margin-bottom: 30px;
+        height: 30%;
+      }
+    }
+  }
+
   elem(content) {
     display: flex;
     padding: 80px 100px;
-    background-color: rgba(0, 0, 0, 0.7);
+
     justify-content: center;
     align-items: center;
 
