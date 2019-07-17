@@ -56,7 +56,6 @@ block(page) {
   }
 
   .mod(width small) {
-    max-width: 540px;
     padding: 40px 20px;
     margin: 0 auto;
     box-sizing: border-box;

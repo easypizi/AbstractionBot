@@ -144,13 +144,20 @@ module.exports = config => {
           techs.fileMerge,
           {
             target: ".?.pre.es6.{lang}.js",
-            sources: ["?.lang.{lang}.js", ".?.browser.bemhtml.js", ".?.browser.js"],
+            sources: [
+              "?.lang.{lang}.js",
+              ".?.browser.bemhtml.js",
+              ".?.browser.js"
+            ],
             lang: "{lang}"
           }
         ],
 
         __DEV__
-          ? [techs.fileCopy, { target: "?.pre.{lang}.js", source: ".?.pre.es6.{lang}.js" }]
+          ? [
+              techs.fileCopy,
+              { target: "?.pre.{lang}.js", source: ".?.pre.es6.{lang}.js" }
+            ]
           : [
               techs.babel,
               {
@@ -188,7 +195,10 @@ module.exports = config => {
             target: "?.{lang}.min.js"
           }
         ],
-        [techs.borschik, { minify: true, freeze: true, source: "?.css", target: "?.min.css" }],
+        [
+          techs.borschik,
+          { minify: true, freeze: true, source: "?.css", target: "?.min.css" }
+        ],
         [
           techs.borschik,
           {
@@ -215,7 +225,10 @@ module.exports = config => {
         ]
       ]);
 
-      nodeConfig.addTargets(["../../static/assets/css/" + platform + "/?.min.css", "../../static/assets/js/" + platform + "/?.{lang}.min.js"]);
+      nodeConfig.addTargets([
+        "../../static/assets/css/" + platform + "/?.min.css",
+        "../../static/assets/js/" + platform + "/?.{lang}.min.js"
+      ]);
     });
   });
 };

@@ -2520,7 +2520,7 @@ block("page-index").content()(() => {
                   elem: "video",
                   content: {
                     html:
-                      '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/agp0yNzh64Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+                      '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/V5qSnIgMr80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
                   }
                 }
               ]
@@ -2973,6 +2973,73 @@ block("page-index").content()(() => {
               }
             ]
           }
+        },
+        {
+          elem: "phoneBlock",
+          mix: {
+            block: "page",
+            mods: { width: "small" }
+          },
+          content: [
+            {
+              block: "paragraph",
+              mods: {
+                size: "l"
+              },
+              content:
+                "Вы можете приобрести бумажные билеты в Москве и Санкт-Петербурге, подробная информация по телефонам: "
+            },
+            {
+              elem: "phoneBtnArea",
+              content: [
+                {
+                  elem: "call",
+                  content: [
+                    {
+                      elem: "label",
+                      content: "Мария, Москва: +79030131482"
+                    },
+                    {
+                      block: "button",
+                      mods: {
+                        type: "link"
+                      },
+                      url: "tel:+79030131482",
+                      content: {
+                        block: "icon",
+                        mods: {
+                          symbol: "call"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  elem: "call",
+                  content: [
+                    {
+                      elem: "label",
+                      content: "Ирина, Санкт-Петербург: +79819895041"
+                    },
+                    {
+                      block: "button",
+                      mods: {
+                        type: "link"
+                      },
+                      url: "tel:+79819895041",
+
+                      content: {
+                        block: "icon",
+                        mods: {
+                          symbol: "call"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }
