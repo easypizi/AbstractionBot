@@ -3,6 +3,8 @@ block("lazyImage").content()(function() {
     {
       block: "image",
       alt: "Abstraction fest",
+      width: "1px",
+      height: "1px",
       attrs: {
         "data-src": this.ctx.imgSrc
       }

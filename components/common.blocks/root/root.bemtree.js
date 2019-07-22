@@ -25,26 +25,22 @@ block("root").replace()(function() {
       },
       {
         elem: "js",
-        url: "https://code.jquery.com/jquery-1.11.0.min.js"
+        attrs: { async: true },
+        url: "vendor/jquery.js"
       },
       {
         elem: "js",
-        url: "https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+        attrs: { async: true },
+        url: "vendor/smoothscroll.js"
       },
       {
         elem: "js",
-        url: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-      },
-      {
-        elem: "js",
-        url: "https://cdnjs.cloudflare.com/ajax/libs/iamdustan-smoothscroll/0.4.0/smoothscroll.min.js"
-      },
-      {
-        elem: "js",
+        attrs: { async: true },
         url: "vendor/tinyslider_helper.js"
       },
       {
         elem: "js",
+        attrs: { async: true },
         url: "vendor/tinyslider.js"
       }
     ],

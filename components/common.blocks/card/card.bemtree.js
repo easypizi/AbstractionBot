@@ -18,7 +18,7 @@ block("card").content()((node, ctx) => {
         {
           block: "lazyImage",
           mix: [{ block: "lazyImage", mods: { hidden: true } }, { block: "card", elem: "photo" }],
-          imgSrc: artist.photo ? "assets/images/artist/" + artist.photo + ".png" : "assets/images/photos/default.png"
+          imgSrc: artist.photo ? "assets/images/artist/" + artist.photo + ".jpg" : "assets/images/photos/default.png"
         },
         {
           elem: "link",
