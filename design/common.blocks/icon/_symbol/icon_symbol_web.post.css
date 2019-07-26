@@ -1,0 +1,6 @@
+block(icon) {
+  &.mod(symbol web) {
+    background-image: svg-load("../svg/web.svg", fill=#ffffff);
+    transform: translateY(3px);
+  }
+}

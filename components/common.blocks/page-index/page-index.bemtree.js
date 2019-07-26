@@ -67,13 +67,6 @@ block("page-index").content()(() => {
         photo: "kaya",
         link: "https://soundcloud.com/user-695448784"
       },
-
-      {
-        title: "Mila Craft",
-        description: "Mistral'",
-        photo: "mila",
-        link: "https://soundcloud.com/mila_craft/"
-      },
       {
         title: "Mish Mish",
         description: "",
@@ -118,12 +111,6 @@ block("page-index").content()(() => {
         link: "https://vk.com/sptnk.music"
       },
       {
-        title: "Space Modular",
-        description: "Techno Vinyls Records",
-        photo: "Space",
-        link: "https://soundcloud.com/space-modular "
-      },
-      {
         title: "Ten-G",
         description: "Fantazery , Mistral’",
         photo: "TEN-G1",
@@ -152,6 +139,12 @@ block("page-index").content()(() => {
         description: "",
         link: "https://soundcloud.com/denis-podgorny-1",
         photo: "podgor"
+      },
+      {
+        title: "Norton Commander ↓",
+        description: "",
+        link: "",
+        photo: "norton"
       }
     ],
     trance: [
@@ -172,6 +165,12 @@ block("page-index").content()(() => {
         description: "(Wildthings Records) UK - LIVE + Dj set ",
         link: "https://soundcloud.com/beardy-weardy-wildthings ",
         photo: "Beardy"
+      },
+      {
+        title: "Blastourist (HU)",
+        description: "",
+        link: "https://soundcloud.com/blastourist",
+        photo: "blastourist"
       },
       {
         title: "Samadhi ",
@@ -308,16 +307,28 @@ block("page-index").content()(() => {
         photo: "yaleeni"
       },
       {
-        title: "Blastourist (HU)",
-        description: "",
-        link: "https://soundcloud.com/blastourist",
-        photo: "blastourist"
-      },
-      {
         title: "Racoon",
         description: "",
         link: "https://soundcloud.com/raccoon-374329708",
         photo: "racoon"
+      },
+      {
+        title: "Egova",
+        description: "",
+        link: "https://soundcloud.com/egova",
+        photo: "egova"
+      },
+      {
+        title: "Lacerta",
+        description: "",
+        link: "https://soundcloud.com/lacerta-artist",
+        photo: "lacerta"
+      },
+      {
+        title: "Psy-h",
+        description: "",
+        link: "https://vk.com/psyh_project",
+        photo: "psyh"
       }
     ],
     chill: [
@@ -464,6 +475,30 @@ block("page-index").content()(() => {
         description: "",
         link: "https://soundcloud.com/vuestramerced",
         photo: "vuestra"
+      },
+      {
+        title: "Dj biosintez",
+        description: "",
+        link: "https://vk.com/bsntz",
+        photo: "biosintez"
+      },
+      {
+        title: "Djony Yoga",
+        description: "",
+        link: "https://soundcloud.com/djonyoga2/djony-yoga-wonderlan",
+        photo: "yoga"
+      },
+      {
+        title: "Marushin",
+        description: "",
+        link: "",
+        photo: "marushin"
+      },
+      {
+        title: "Шаманика",
+        description: "",
+        link: "https://vk.com/shamanikamusic",
+        photo: "shaman"
       }
     ]
   };
@@ -504,6 +539,65 @@ block("page-index").content()(() => {
       photo: item + ".jpg"
     };
   });
+
+  let shopsArray = [
+    {
+      name: "Мария",
+      address: "",
+      city: "Мск",
+      site: "",
+      phone: "+79030131482"
+    },
+    {
+      name: "Ирина",
+      address: "",
+      city: "Спб",
+      site: "",
+      phone: "+79819895041"
+    },
+    {
+      name: "Дмитрий",
+      address: "",
+      city: "Пермь",
+      site: "",
+      phone: "+79630147655"
+    },
+    {
+      name: "СпбБонг",
+      address: "ул. Гончарная, д.13",
+      city: "Спб",
+      site: "https://spbbong.com/",
+      phone: "+79219396299"
+    },
+    {
+      name: "ACID WEAR",
+      address: "ул. Холодильный пер., д.3",
+      city: "Мcк",
+      site: "https://www.acidwear.ru",
+      phone: "+74954819966"
+    },
+    {
+      name: "Boogie shop",
+      address: "ул. Б.Конюшенная, д.17",
+      city: "Спб",
+      site: "https://www.boogie-shop.ru/shop/boogie-shop-na-bolshoy-konyushennoy-17",
+      phone: "+79650463665"
+    },
+    {
+      name: "Boogie shop",
+      address: "ЛОФТ-ПРОЕКТ ЭТАЖИ",
+      city: "Спб",
+      site: "https://www.boogie-shop.ru/shop/boogie-shop-v-loft-etazhi",
+      phone: "+79319707320"
+    },
+    {
+      name: "СпбГриб",
+      address: "Лиговский пр., д.56",
+      city: "Спб",
+      site: "http://spbgrib.ru/",
+      phone: "+79817254565"
+    }
+  ];
 
   return [
     {
@@ -1070,55 +1164,134 @@ block("page-index").content()(() => {
               mods: {
                 size: "l"
               },
-              content: "Вы можете приобрести бумажные билеты в Москве и Санкт-Петербурге, подробная информация по телефонам: "
+              content: "Вы можете приобрести бумажные билеты в магазинах и у распространителей: "
             },
             {
-              elem: "phoneBtnArea",
+              block: "table",
               content: [
                 {
-                  elem: "call",
+                  elem: "header",
                   content: [
                     {
-                      elem: "label",
-                      content: "Мария, Москва: +79030131482"
+                      elem: "cell",
+                      mix: {
+                        block: "table",
+                        mods: { "h-cell": true }
+                      },
+                      content: "Представитель"
                     },
                     {
-                      block: "button",
-                      mods: {
-                        type: "link"
+                      elem: "cell",
+                      mix: {
+                        block: "table",
+                        mods: { "h-cell": true }
                       },
-                      url: "tel:+79030131482",
-                      content: {
-                        block: "icon",
-                        mods: {
-                          symbol: "call"
-                        }
-                      }
+                      content: "Город"
+                    },
+                    {
+                      elem: "cell",
+                      mix: {
+                        block: "table",
+                        mods: { "h-cell": true }
+                      },
+                      content: "Адрес"
+                    },
+                    {
+                      elem: "cell",
+                      mix: {
+                        block: "table",
+                        mods: { "h-cell": true }
+                      },
+                      content: "Сайт"
+                    },
+                    {
+                      elem: "cell",
+                      mix: {
+                        block: "table",
+                        mods: { "h-cell": true }
+                      },
+                      content: "Телефон"
                     }
                   ]
                 },
                 {
-                  elem: "call",
-                  content: [
-                    {
-                      elem: "label",
-                      content: "Ирина, Санкт-Петербург: +79819895041"
-                    },
-                    {
-                      block: "button",
-                      mods: {
-                        type: "link"
-                      },
-                      url: "tel:+79819895041",
-
-                      content: {
-                        block: "icon",
-                        mods: {
-                          symbol: "call"
+                  elem: "body",
+                  content: shopsArray.map(item => {
+                    return {
+                      elem: "row",
+                      content: [
+                        {
+                          elem: "cell",
+                          mix: {
+                            block: "table",
+                            mods: { "b-cell": true }
+                          },
+                          content: item.name
+                        },
+                        {
+                          elem: "cell",
+                          mix: {
+                            block: "table",
+                            mods: { "b-cell": true }
+                          },
+                          content: item.city
+                        },
+                        {
+                          elem: "cell",
+                          mix: {
+                            block: "table",
+                            mods: { "b-cell": true }
+                          },
+                          content: item.address
+                        },
+                        {
+                          elem: "cell",
+                          mix: {
+                            block: "table",
+                            mods: { "b-cell": true }
+                          },
+                          content: [
+                            item.site &&
+                              item.site !== "" && {
+                                block: "button",
+                                mods: {
+                                  type: "link"
+                                },
+                                url: item.site,
+                                content: {
+                                  block: "icon",
+                                  mods: {
+                                    symbol: "web"
+                                  }
+                                }
+                              }
+                          ]
+                        },
+                        {
+                          elem: "cell",
+                          mix: {
+                            block: "table",
+                            mods: { "b-cell": true }
+                          },
+                          content: [
+                            {
+                              block: "button",
+                              mods: {
+                                type: "link"
+                              },
+                              url: "tel:" + item.phone,
+                              content: {
+                                block: "icon",
+                                mods: {
+                                  symbol: "call"
+                                }
+                              }
+                            }
+                          ]
                         }
-                      }
-                    }
-                  ]
+                      ]
+                    };
+                  })
                 }
               ]
             }

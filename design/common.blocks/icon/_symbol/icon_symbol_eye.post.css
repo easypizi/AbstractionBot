@@ -1,5 +1,0 @@
-block(icon) {
-  &.mod(symbol eye) {
-    background-image: svg-load("../svg/eye.svg");
-  }
-}

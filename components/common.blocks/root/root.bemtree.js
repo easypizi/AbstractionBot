@@ -6,6 +6,8 @@ block("root").replace()(function() {
 
   if (ctx.context) return ctx.context;
 
+  let time = Date.now();
+
   return {
     block: "page",
     title: data.title || "Abstraction Fest 2019",
@@ -14,7 +16,7 @@ block("root").replace()(function() {
     styles: [
       {
         elem: "css",
-        url: "assets/css/" + bundle + "/" + bundle + ".min.css"
+        url: "assets/css/" + bundle + "/" + bundle + ".min.css?t=" + time
       }
     ],
     scripts: [

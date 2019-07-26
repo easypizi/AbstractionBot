@@ -465,50 +465,17 @@ block(page-index) {
       display: flex;
       flex-direction: column;
       margin: 0 auto 90px;
-      max-width: 800px;
+      max-width: 1200px;
 
-      @media (max-width: 768px) {
-        height: 330px;
-      }
+      block(button) {
+        background: #1a2835;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        padding: 10px;
 
-      elem(phoneBtnArea) {
-        margin-top: 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        elem(call) {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          max-width: 48%;
-          align-items: center;
-          justify-content: flex-start;
-          height: 130px;
-
-          @media (max-width: 768px) {
-            height: 180px;
-          }
-
-          elem(label) {
-            font-size: 18px;
-            line-height: 29px;
-            margin-bottom: 20px;
-            text-align: center;
-            flex: 1;
-          }
-        }
-
-        block(button) {
-          background: #1a2835;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          padding: 10px;
-
-          &:hover {
-            background: #00ff00;
-          }
+        &:hover {
+          background: #00ff00;
         }
       }
     }

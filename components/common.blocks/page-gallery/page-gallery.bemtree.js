@@ -67,13 +67,6 @@ block("page-gallery").content()(function() {
         photo: "kaya",
         link: "https://soundcloud.com/user-695448784"
       },
-
-      {
-        title: "Mila Craft",
-        description: "Mistral'",
-        photo: "mila",
-        link: "https://soundcloud.com/mila_craft/"
-      },
       {
         title: "Mish Mish",
         description: "",
@@ -118,12 +111,6 @@ block("page-gallery").content()(function() {
         link: "https://vk.com/sptnk.music"
       },
       {
-        title: "Space Modular",
-        description: "Techno Vinyls Records",
-        photo: "Space",
-        link: "https://soundcloud.com/space-modular "
-      },
-      {
         title: "Ten-G",
         description: "Fantazery , Mistral’",
         photo: "TEN-G1",
@@ -133,8 +120,7 @@ block("page-gallery").content()(function() {
         title: "Tochka_sborki DJs",
         description: "",
         photo: "tochka",
-        link:
-          "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
+        link: "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
       },
       {
         title: "qqoma",
@@ -153,6 +139,12 @@ block("page-gallery").content()(function() {
         description: "",
         link: "https://soundcloud.com/denis-podgorny-1",
         photo: "podgor"
+      },
+      {
+        title: "Norton Commander ↓",
+        description: "",
+        link: "",
+        photo: "norton"
       }
     ],
     trance: [
@@ -173,6 +165,12 @@ block("page-gallery").content()(function() {
         description: "(Wildthings Records) UK - LIVE + Dj set ",
         link: "https://soundcloud.com/beardy-weardy-wildthings ",
         photo: "Beardy"
+      },
+      {
+        title: "Blastourist (HU)",
+        description: "",
+        link: "https://soundcloud.com/blastourist",
+        photo: "blastourist"
       },
       {
         title: "Samadhi ",
@@ -309,16 +307,28 @@ block("page-gallery").content()(function() {
         photo: "yaleeni"
       },
       {
-        title: "Blastourist (HU)",
-        description: "",
-        link: "https://soundcloud.com/blastourist",
-        photo: "blastourist"
-      },
-      {
         title: "Racoon",
         description: "",
         link: "https://soundcloud.com/raccoon-374329708",
         photo: "racoon"
+      },
+      {
+        title: "Egova",
+        description: "",
+        link: "https://soundcloud.com/egova",
+        photo: "egova"
+      },
+      {
+        title: "Lacerta",
+        description: "",
+        link: "https://soundcloud.com/lacerta-artist",
+        photo: "lacerta"
+      },
+      {
+        title: "Psy-h",
+        description: "",
+        link: "https://vk.com/psyh_project",
+        photo: "psyh"
       }
     ],
     chill: [
@@ -465,6 +475,30 @@ block("page-gallery").content()(function() {
         description: "",
         link: "https://soundcloud.com/vuestramerced",
         photo: "vuestra"
+      },
+      {
+        title: "Dj biosintez",
+        description: "",
+        link: "https://vk.com/bsntz",
+        photo: "biosintez"
+      },
+      {
+        title: "Djony Yoga",
+        description: "",
+        link: "https://soundcloud.com/djonyoga2/djony-yoga-wonderlan",
+        photo: "yoga"
+      },
+      {
+        title: "Marushin",
+        description: "",
+        link: "",
+        photo: "marushin"
+      },
+      {
+        title: "Шаманика",
+        description: "",
+        link: "https://vk.com/shamanikamusic",
+        photo: "shaman"
       }
     ]
   };
