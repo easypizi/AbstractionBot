@@ -2061,7 +2061,7 @@ block("page-index").content()(() => {
       },
       {
         title: "Bagus aka Mr.B ",
-        description: "(dj set)",
+        description: "",
         photo: "Bagus",
         link: "https://soundcloud.com/kirillbagus"
       },
@@ -2090,7 +2090,7 @@ block("page-index").content()(() => {
         link: "https://soundcloud.com/eye_que "
       },
       {
-        title: "German Air  (hybrid live/dj set)",
+        title: "German Air",
         description: "Heartbeat Records, Baikonur Recordings ",
         photo: "GermanAir",
         link: "https://soundcloud.com/german_air "
@@ -2110,7 +2110,7 @@ block("page-index").content()(() => {
 
       {
         title: "Mixa Wawer",
-        description: "(dj set)",
+        description: "",
         photo: "Waver",
         link: "https://soundcloud.com/technopunks "
       },
@@ -2134,7 +2134,7 @@ block("page-index").content()(() => {
       },
       {
         title: "Pete",
-        description: "(vinyl dj set)",
+        description: "",
         photo: "pete",
         link: "https://soundcloud.com/peter-kuschnereit"
       },
@@ -2158,7 +2158,7 @@ block("page-index").content()(() => {
       },
       {
         title: "qqoma",
-        description: "(vinyl dj set)",
+        description: "",
         photo: "qoma",
         link: "https://vk.com/qoma_music"
       },
@@ -2184,19 +2184,19 @@ block("page-index").content()(() => {
     trance: [
       {
         title: "Fagin's Reject ",
-        description: "(Wildthings Records), UK - LIVE ",
+        description: "(Wildthings Records), UK  ",
         link: "https://soundcloud.com/fagins_reject ",
         photo: "fagins"
       },
       {
         title: "Headworks ",
-        description: "(Wildthings Records), UK - LIVE ",
+        description: "(Wildthings Records), UK  ",
         link: "https://soundcloud.com/headworks-1 ",
         photo: "Headworks"
       },
       {
         title: "Beardy Weardy ",
-        description: "(Wildthings Records) UK - LIVE + Dj set ",
+        description: "(Wildthings Records) UK  + Dj set ",
         link: "https://soundcloud.com/beardy-weardy-wildthings ",
         photo: "Beardy"
       },
@@ -2214,7 +2214,7 @@ block("page-index").content()(() => {
       },
       {
         title: "Groove Hunter ",
-        description: "( World People Production/NT Group ), Ru - LIVE  ",
+        description: "( World People Production/NT Group ), Ru   ",
         link: "https://soundcloud.com/groove_hunter  ",
         photo: "gh"
       },
@@ -3498,7 +3498,7 @@ block("card").content()((node, ctx) => {
         },
         {
           elem: "description",
-          content: artist.description ? artist.description : "(dj set)"
+          content: artist.description ? artist.description : ""
         },
         {
           block: "lazyImage",
@@ -3575,7 +3575,7 @@ block("page-gallery").content()(function() {
       },
       {
         title: "Bagus aka Mr.B ",
-        description: "(dj set)",
+        description: "",
         photo: "Bagus",
         link: "https://soundcloud.com/kirillbagus"
       },
@@ -3604,7 +3604,7 @@ block("page-gallery").content()(function() {
         link: "https://soundcloud.com/eye_que "
       },
       {
-        title: "German Air  (hybrid live/dj set)",
+        title: "German Air",
         description: "Heartbeat Records, Baikonur Recordings ",
         photo: "GermanAir",
         link: "https://soundcloud.com/german_air "
@@ -3624,7 +3624,7 @@ block("page-gallery").content()(function() {
 
       {
         title: "Mixa Wawer",
-        description: "(dj set)",
+        description: "",
         photo: "Waver",
         link: "https://soundcloud.com/technopunks "
       },
@@ -3648,7 +3648,7 @@ block("page-gallery").content()(function() {
       },
       {
         title: "Pete",
-        description: "(vinyl dj set)",
+        description: "",
         photo: "pete",
         link: "https://soundcloud.com/peter-kuschnereit"
       },
@@ -3672,7 +3672,7 @@ block("page-gallery").content()(function() {
       },
       {
         title: "qqoma",
-        description: "(vinyl dj set)",
+        description: "",
         photo: "qoma",
         link: "https://vk.com/qoma_music"
       },
@@ -3698,19 +3698,19 @@ block("page-gallery").content()(function() {
     trance: [
       {
         title: "Fagin's Reject ",
-        description: "(Wildthings Records), UK - LIVE ",
+        description: "(Wildthings Records), UK  ",
         link: "https://soundcloud.com/fagins_reject ",
         photo: "fagins"
       },
       {
         title: "Headworks ",
-        description: "(Wildthings Records), UK - LIVE ",
+        description: "(Wildthings Records), UK  ",
         link: "https://soundcloud.com/headworks-1 ",
         photo: "Headworks"
       },
       {
         title: "Beardy Weardy ",
-        description: "(Wildthings Records) UK - LIVE + Dj set ",
+        description: "(Wildthings Records) UK  + Dj set ",
         link: "https://soundcloud.com/beardy-weardy-wildthings ",
         photo: "Beardy"
       },
@@ -3728,7 +3728,7 @@ block("page-gallery").content()(function() {
       },
       {
         title: "Groove Hunter ",
-        description: "( World People Production/NT Group ), Ru - LIVE  ",
+        description: "( World People Production/NT Group ), Ru   ",
         link: "https://soundcloud.com/groove_hunter  ",
         photo: "gh"
       },
