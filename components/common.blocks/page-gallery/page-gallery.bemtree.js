@@ -120,7 +120,8 @@ block("page-gallery").content()(function() {
         title: "Tochka_sborki DJs",
         description: "",
         photo: "tochka",
-        link: "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
+        link:
+          "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
       },
       {
         title: "qqoma",
@@ -499,6 +500,12 @@ block("page-gallery").content()(function() {
         description: "",
         link: "https://vk.com/shamanikamusic",
         photo: "shaman"
+      },
+      {
+        title: "EGOIST",
+        description: "",
+        link: "https://soundcloud.com/projectegoist",
+        photo: "egoist"
       }
     ]
   };

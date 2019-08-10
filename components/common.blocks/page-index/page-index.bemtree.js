@@ -499,6 +499,12 @@ block("page-index").content()(() => {
         description: "",
         link: "https://vk.com/shamanikamusic",
         photo: "shaman"
+      },
+      {
+        title: "EGOIST",
+        description: "",
+        link: "https://soundcloud.com/projectegoist",
+        photo: "egoist"
       }
     ]
   };
