@@ -20,7 +20,7 @@ block("card").content()((node, ctx) => {
           mix: [{ block: "lazyImage", mods: { hidden: true } }, { block: "card", elem: "photo" }],
           imgSrc: artist.photo ? "assets/images/artist/" + artist.photo + ".jpg" : "assets/images/photos/default.png"
         },
-        {
+        artist.link !== "" && {
           elem: "link",
           content: [
             {
@@ -31,7 +31,7 @@ block("card").content()((node, ctx) => {
             },
             {
               block: "link",
-              url: artist.link ? artist.link : "/",
+              url: artist.link,
               target: "_blank",
               content: "MixCloud"
             }

@@ -68,13 +68,6 @@ block("page-gallery").content()(function() {
         link: "https://soundcloud.com/user-695448784"
       },
       {
-        title: "Mish Mish",
-        description: "",
-        photo: "mishmish",
-        link: "http://promodj.com/mishmishdj"
-      },
-
-      {
         title: "Mixa Wawer",
         description: "",
         photo: "Waver",
@@ -85,12 +78,6 @@ block("page-gallery").content()(function() {
         description: "LABYRINTH",
         photo: "NICK-OS",
         link: "https://vk.com/djnick_os"
-      },
-      {
-        title: "Oscar Schultz ",
-        description: "Deep Ladoga",
-        photo: "Oscar",
-        link: "https://vk.com/oscarschultz"
       },
       {
         title: "Voodoo Noise aka Otto O'Shea",
@@ -105,12 +92,6 @@ block("page-gallery").content()(function() {
         link: "https://soundcloud.com/peter-kuschnereit"
       },
       {
-        title: "SPTNK",
-        description: "",
-        photo: "sptnk",
-        link: "https://vk.com/sptnk.music"
-      },
-      {
         title: "Ten-G",
         description: "Fantazery , Mistral’",
         photo: "TEN-G1",
@@ -120,8 +101,7 @@ block("page-gallery").content()(function() {
         title: "Tochka_sborki DJs",
         description: "",
         photo: "tochka",
-        link:
-          "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
+        link: "https://soundcloud.com/tochka_sborki/tochka-sborki-djs-live-at-masts-club-10112017  "
       },
       {
         title: "qqoma",
@@ -146,6 +126,18 @@ block("page-gallery").content()(function() {
         description: "",
         link: "",
         photo: "norton"
+      },
+      {
+        title: "Saprano",
+        description: "",
+        link: "",
+        photo: "saprano"
+      },
+      {
+        title: "Andrey Stels",
+        description: "",
+        link: "",
+        photo: "stels"
       }
     ],
     trance: [
@@ -221,22 +213,10 @@ block("page-gallery").content()(function() {
         photo: "Doozer"
       },
       {
-        title: "Funkyjunky ",
-        description: "(Basic Algorithm), Ru ",
-        link: "https://soundcloud.com/funkyshmunky   ",
-        photo: "fj"
-      },
-      {
         title: "psYphomet ",
         description: "(Multifrequency Records), Ru ",
         link: "https://soundcloud.com/psyphometboobblegooms    ",
         photo: "psy"
-      },
-      {
-        title: "Plazmer ",
-        description: "(Basic Algorithm Records) ",
-        link: "https://mixcloud.com/plazmer20  ",
-        photo: "plazmer"
       },
       {
         title: "Sure ",
@@ -245,13 +225,13 @@ block("page-gallery").content()(function() {
         photo: "sure"
       },
       {
-        title: "Satori ",
+        title: "Satori",
         description: "(Vertigo Records), Ru ",
         link: "https://www.facebook.com/nata.satori ",
         photo: "satori"
       },
       {
-        title: "Troll machine   ",
+        title: "Troll machine",
         link: "https://soundcloud.com/troll-machine ",
         photo: "tm"
       },
@@ -282,12 +262,6 @@ block("page-gallery").content()(function() {
         title: "On",
         link: "https://www.mixcloud.com/olegfreerider/ ",
         photo: "on2"
-      },
-      {
-        title: "Fil Zionpsychedelic",
-        description: "",
-        link: "http://soundcloud.com/surya-project",
-        photo: "fil"
       },
       {
         title: "Mauri Naja",
@@ -330,6 +304,18 @@ block("page-gallery").content()(function() {
         description: "",
         link: "https://vk.com/psyh_project",
         photo: "psyh"
+      },
+      {
+        title: "Apocalypse TV",
+        description: "Dream project records",
+        link: "https://www.facebook.com/ApocalypseTV",
+        photo: "apocalypse"
+      },
+      {
+        title: "Karbofosssss",
+        description: "",
+        link: "https://www.mixcloud.com/Karbofosssss/",
+        photo: "karbofos"
       }
     ],
     chill: [
